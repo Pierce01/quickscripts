@@ -9,6 +9,7 @@
   "author": "Pierce Harriz",
   "license": "ISC",
   "dependencies": {
+    "jimp": "^0.16.1",
     "request": "^2.88.2",
     "twitter": "^1.7.1"
   }
