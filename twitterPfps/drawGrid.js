@@ -1,6 +1,8 @@
 const fs = require('fs')
 const jimp = require('jimp')
 
+const PFPS_PER_ROW = 20
+
 const presets = {
     img: {
         width: 200,
@@ -8,14 +10,15 @@ const presets = {
     },
     // This varies depending on the amount of profile pictures.
     grid: {
-        row: 13,
-        col: 19
+        row: PFPS_PER_ROW,
+        col: Math.ceil(fs.readdirSync('./pfps').length / PFPS_PER_ROW)
     },
     cords: {
         x: 0,
         y: 0
     }
 }
+
 presets.grid.length = presets.img.width * presets.grid.col
 presets.grid.width = presets.img.height * presets.grid.row
 
@@ -28,7 +31,7 @@ async function main() {
         // Read all the downloaded profile pictures from the other script
         fs.readdir('./pfps', async (err, files) => {
             for(let file of files) {
-                const src = await getSrc('./pfps/' + file)
+                const src = await loadImage('./pfps/' + file)
                 if (!src) continue
                 console.log(`Added ${file} to the canvas.`)
                 canvas.composite(src, presets.cords.x, presets.cords.y)
@@ -41,7 +44,7 @@ async function main() {
     }
 }
 
-function getSrc(path) {
+function loadImage(path) {
     return new Promise(resolve => {
         jimp.read(path)
         .then(image => {
