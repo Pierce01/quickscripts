@@ -11,8 +11,8 @@ const presets = {
         height: 200
     },
     grid: {
-        row: PFPS_PER_ROW,
-        col: Math.ceil(fs.readdirSync(PFPS_PATH).length / PFPS_PER_ROW)
+        row: Math.ceil(fs.readdirSync(PFPS_PATH).length / PFPS_PER_ROW),
+        col: PFPS_PER_ROW
     },
     cords: {
         x: 0,
