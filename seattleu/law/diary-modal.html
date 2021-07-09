@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Diary test page</title>
+  </head>
+  <style>
+      .card-group .diaryFeedItem.profileItem.card {
+        display: flex;
+        flex: 1 0 calc(23% - 10px);
+        margin: 15px;
+        max-width: 360px;
+        min-width: 360px;
+        padding: 0;
+    }
+
+    .fa-envelope:before {
+        content: "\f0e0";
+    }
+
+    /* Font styling */
+    div.diaryFeedItem.profileItem.card h3 {
+        color: #aa0000;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 2.4rem;
+    }
+
+    div.diaryFeedItem.profileItem.card p {
+        font-size: 1.2rem;
+    }
+
+    div.diaryFeedItem > div.card-footer a {
+        text-decoration: underline;
+        color: black;
+    }
+
+    div.diaryFeedItem > div.card-footer a:hover, div.diaryFeedItem > div.card-footer a:focus {
+        color: #aa0000;
+    }
+
+
+  </style>
+  <script>
+      window.onload = (e) => {
+        var sourceElement = document.getElementById("source")
+        for(var i = 0; i<5;i++) {
+            document.getElementsByClassName("masonaryOrganizerDiary")[0].append(sourceElement.cloneNode(true))
+        }
+      }
+  </script>
+  <body>
+      <div class="masonaryOrganizerWrapperDiary">
+          <div class="masonaryOrganizerDiary d-flex flex-column flex-md-row flex-wrap justify-content-center card-group">
+            <div id="source" class="diaryFeedItem profileItem card shadow col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4" title="Caitlin Carlson" id="id2377605" data-position-default="ZoneA" data-position-selected="ZoneA">
+                <span class="cardImageWrapper"><img src="https://i.imgur.com/t5J8XvZ.jpeg" class="card-img-top" alt="Caitlin Ring Carlson, PhD"></span>
+                <div class="card-body">
+                   <h3 class="card-title">Pierce Harriz '24</h3>
+                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi enim nunc faucibus a pellentesque sit amet porttitor. Auctor neque vitae tempus quam pellentesque nec nam aliquam sem. Dignissim enim sit amet venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Non nisi est sit amet facilisis magna.</p>
+                </div>
+                <div class="card-footer">
+                    <p class="diaryReadMore">
+                        <a href="dict.readMoreLink.content">Read Pierce's diary</a>
+                    </p>
+                    <p class="studentDiaryCardEmail"><span class="fas fa-envelope"></span>&nbsp;
+                        <a href="mailto:pharriz@seattleu.edu">pharriz@seattleu.edu</a>
+                    </p>
+                </div>
+             </div>
+             
+          </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  </body>
+</html>
