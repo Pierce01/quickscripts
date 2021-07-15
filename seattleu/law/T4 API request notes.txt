@@ -1,0 +1,21 @@
+key: bool = true/false ; sectionID = section's ID
+
+
+For each section before its added to the delete request needs to be checked if it has children or is a mirror type.
+If mirror type is something other then "none", we won't add it to the delete request. If it has children, an additinal request will be made
+to add those content types to the delete request. Seeing as there's so much content going to be deleted on the intial request, there needs to be a queue
+system made for these requests as making one large one would probably crash the entire site...
+
+During the polling, we need to ignore folders with the name "Error Items" as those are mirrored content entries. However, I believe if the entry is
+not a source item, then it can be deleted. 
+
+
+Getting site-wide section listings for open sections. Super dumb that t4 only pulls information for open sections but whatever.
+https://cms.seattleu.edu/terminalfour/rs/hierarchy/section
+Useful keys - countContentApproved countContentInactive countContentPending hasChildren mirror-type
+
+Getting the content entries specified within a specific section:
+https://cms.seattleu.edu/terminalfour/rs/hierarchy/{sectionID}/en/contents?showAll={bool}&removeNonTranslated={bool}
+
+The endpoint that does all the magic.
+https://cms.seattleu.edu/terminalfour/rs/content/purge
