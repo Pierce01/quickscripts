@@ -6,7 +6,7 @@
  *
  *      Document will write once when the page loads
  *
- *      @version 1.0
+ *      @version 1.3
  */
 importClass(com.terminalfour.publish.utils.BrokerUtils)
 
@@ -36,10 +36,12 @@ try {
         text: getValueFromTag('<t4 type="content" name="Content" output="normal" modifiers="medialibrary,nav_sections" />'),
         imageOffSite: getValueFromTag("<t4 type='content' name='Image' output='imageurl' />"),
         imageOnSite: getValueFromTag("<t4 type='content' name='Image (Media Library)' output='imageurl' />"),
+        imageAltText: getValueFromTag('<t4 type="content" name="Image Alt Text" output="normal" modifiers="htmlentities" />'),
         customClass: getValueFromTag("<t4 type='content' name='Custom Class Names' output='normal' modifiers='striptags,htmlentities' />"),
         linkName: getValueFromTag("<t4 type='content' name='Link Name' output='normal' modifiers='striptags,htmlentities' />"),
         onSiteLink: getValueFromTag('<t4 type="content" name="On-site Link (Priority)" output="linkurl" modifiers="nav_sections" />'),
         offSiteLink: getValueFromTag('<t4 type="content" name="Off-site Link" output="normal" modifiers="striptags,htmlentities" />'),
+        toolTipText: getValueFromTag('<t4 type="content" name="Tooltip" output="normal" modifiers="htmlentities" />'),
     }
 
     // Get all the errors returned from getValueFromTag and put them in errorString.
@@ -59,19 +61,21 @@ try {
         var linkName = dict.linkName.content == "" ? "Read More" : dict.linkName.content
         var linkUrl = dict.onSiteLink.content == "" ? dict.offSiteLink.content : dict.onSiteLink.content
         var imageUrl = dict.imageOffSite.content == "" ? dict.onSiteLink.content : dict.imageOffSite.content
+        var toolTip = dict.toolTipText.content == "" ? linkUrl : dict.toolTipText.content
 
         // Building HTML
         var closeDiv = '</div>'
         var hCardWrapper = '<div class="horizontalCard card mb-3 standardContent">'
         var hCard = '<div class="row g-0">'
         var hCardImageWrapper = '<div class="col-md-4 text-center">'
-        var imageHtml = '<img src="' + (imageUrl == "" ? getValueFromTag('<t4 type="media" formatter="path/*" id="1752501" />').content : imageUrl) + '" class="img-fluid rounded" alt="...">'
+        var imageHtml = '<img src="' + (imageUrl == "" ? getValueFromTag('<t4 type="media" formatter="path/*" id="1752501" />').content : imageUrl) 
+            + '" class="img-fluid rounded" alt="'+ dict.imageAltText.content +'">'
         var hCardBodyWrapper = '<div class="col-md-8">'
         var hCardBody = '<div class="card-body h-100 d-flex flex-column">'
         var hCardTitle = '<h2 class="card-title">' + dict.title.content + '</h2>'
         var hCardText = dict.text.content
         var hCardFooter = '<div class="cardFooter mt-auto">'
-        var hCardFooterContent = '<a class="btn btn-sm mx-lg-0 px-4" href="' + linkUrl + '">' + linkName + '</a>'
+        var hCardFooterContent = '<a class="btn btn-sm mx-lg-0 px-4" href="' + linkUrl + '" title="'+ toolTip +'">' + linkName + '</a>'
 
         writeHtml([
             hCardWrapper,
