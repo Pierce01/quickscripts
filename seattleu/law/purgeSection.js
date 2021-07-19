@@ -11,7 +11,7 @@ const constantHeaders = {
 }
 const deleteQueueContent = []
 const deleteQueueSection = []
-const blacklist = [193903]
+const blacklist = []
 
 // Get's the specific section's information, including their subsections if that wasn't populated.
 async function getSectionInfo(id) {
@@ -152,11 +152,29 @@ function getSections (array) {
     return { kids, empty }
 }
 
-async function main (id) {
-    const json = await getSectionInfo(id)
-    await troll(json)
-    console.log(deleteQueueSection)
-    console.log(deleteQueueContent)
+async function getPermission () {
+    return ((await (await fetch("https://cms.seattleu.edu/terminalfour/rs/profile", {
+        "headers": {
+            "authorization": `Bearer ${JSON.parse(window.sessionStorage.__oauth2).accessToken}`,
+            ...constantHeaders
+        },
+        "referrer": "https://cms.seattleu.edu/terminalfour/page/content",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": null,
+        "method": "GET",
+        "mode": "cors",
+        "credentials": "include"
+        })).json()).userLevel) == 0
 }
 
-await main(185801)
+async function main (id) {
+    if (await getPermission()) {
+        const json = await getSectionInfo(id)
+        await troll(json)
+        console.log(deleteQueueSection)
+        console.log(deleteQueueContent)
+    } else {
+        alert("User is not an admin")
+    }
+}
+
