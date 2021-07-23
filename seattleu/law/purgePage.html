@@ -1,3 +1,17 @@
+<style>
+    .wrapper {
+        text-align: center;
+    }
+    textarea {
+        width: 500px;
+        height: 250px;
+    }
+
+    .text > p {
+        font-size: large;
+    }
+</style>
+<script>
 window.onload = async () => {
     if (!(await getPermission())) {
         alert("You do not have permission to purge sections.")
@@ -184,3 +198,37 @@ async function main (id) {
         alert("User is not an admin")
     }
 }
+
+function callFunc() {
+    main(document.getElementById("fsection").value)
+    .then(e => {
+        document.getElementById("purgeBtn").disabled = false
+        document.getElementById("grabBtn").disabled = true
+        document.getElementById("tcontent").value = deleteQueueContent
+        document.getElementById("tsection").value = deleteQueueSection
+    })
+    .catch(e => {
+        console.warn(e)
+        alert("There was an error. Check console")
+    })
+}
+</script>
+<div class="wrapper">
+    <div class="text">
+        <p>Hi there, this is an Admin page where you're able to delete an entire section's content and subsections.</p>
+        <hr>
+        <p id="warning">Clicking the purge buttons will permantly delete all the content and subsections.</p>
+    </div>
+    <div class="menu">
+        <label for="fsection">Section to clear ID:</label>
+        <input type="text" id="fsection" name="fsection"><br><br>
+        <button id="grabBtn" onclick="callFunc()">Get IDs</button>
+        <button id="purgeBtn" disabled onclick="">Purge</button>
+        <br><br>
+        <label for="tsection">Sections</label>
+        <textarea id="tsection"></textarea>
+        <br><br>
+        <label for="tcontent">Content Entries</label>
+        <textarea id="tcontent"></textarea>
+    </div>
+</div>
