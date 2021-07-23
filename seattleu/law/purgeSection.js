@@ -1,3 +1,12 @@
+window.onload = async () => {
+    if (!(await getPermission())) {
+        alert("You do not have permission to purge sections.")
+        location.replace("https://cms.seattleu.edu/terminalfour/preview/21/en/194982/2484745")
+    } else {
+        console.log("User has proper permission")
+    }
+}
+
 const constantHeaders = {
     "accept": "application/json, text/javascript, */*; q=0.01",
     "accept-language": "en-US,en;q=0.9",
@@ -99,7 +108,7 @@ async function troll (obj) {
         console.log("Getting content ids from " + obj.id)
         const children = await getContentIDsFromSection(obj.id)
         for (let child of children) {
-            if (canDelete(child)) deleteQueueContent.push(child.id)
+            if (canDelete(child, 1)) deleteQueueContent.push(child.id)
         }
     }
 
@@ -108,7 +117,7 @@ async function troll (obj) {
         console.log("Trolling subsections")
         for (let entry of obj.subsections) {
             await troll(entry)
-            if (canDelete(entry)) deleteQueueSection.push(entry.id)
+            if (canDelete(entry, 0)) deleteQueueSection.push(entry.id)
         }
     }
 }
@@ -128,28 +137,25 @@ async function getContentIDsFromSection (id) {
         })).json()).children
 }
 
-function canDelete (obj) {
-    // return obj["mirror-type"] == "none"
-    return true
+function canDelete (obj, type) {
+    switch (type) {
+        // Section type
+        case 0: {
+            return obj["mirror-type"] == "none"
+        }
+        // Content type
+        case 1: {
+            return Object.keys(obj.content.mirroredSectionPaths).length === 0
+        }
+        // Default case
+        default: {
+            return false
+        }
+    }
 }
 
 function hasChildren (obj) {
     return (obj.hasChildren || ((obj.countContentApproved + obj.countContentInactive + obj.countContentPending) > 0))
-}
-
-// Useless function
-function getSections (array) {
-    const kids = []
-    const empty = []
-
-    for (let obj of array) {
-        hasChildren(obj)
-            ? kids.push(obj)
-            // Since we don't care about these sections, we can pass their IDs and delete them later on.
-            : empty.push(`${obj.id}`)
-    }
-
-    return { kids, empty }
 }
 
 async function getPermission () {
@@ -177,4 +183,3 @@ async function main (id) {
         alert("User is not an admin")
     }
 }
-
