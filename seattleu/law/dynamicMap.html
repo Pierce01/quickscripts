@@ -1,0 +1,95 @@
+<!-- Proof of dynamic map concept -->
+<!DOCTYPE html>
+<html>
+   <head>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl51bxzHfJlGn9--0VhBtEMpDHknYu6sI"></script>
+      <script>
+        function createMap() {
+            const mapCanvas = document.getElementById('map')
+            window._map = new google.maps.Map(mapCanvas, {
+                center: new google.maps.LatLng(47.610100, -122.316360),
+                streetViewControl: false,
+                mapTypeControl: false,
+                fullscreenControl: false,
+                zoom: 13,
+                //Map style from Snazzy Maps (Blue Water) start
+                styles: [{
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#444444"
+                    }],
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{
+                        "color": "#f2f2f2"
+                    }],
+                }, {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }],
+                }, {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [{
+                        "saturation": -100
+                    }, {
+                        "lightness": 45
+                    }],
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "simplified"
+                    }],
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.icon",
+                    "stylers": [{
+                        "visibility": "off"
+                    }],
+                }, {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }],
+                }, {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{
+                        "color": "#04A9C5"
+                    }, {
+                        "visibility": "on"
+                    }],
+                }]
+            })
+        }
+
+        window.addMarker = (options) => {
+            (new google.maps.Marker({
+                ...options,
+                map: window._map
+            }))
+        }
+
+        google.maps.event.addDomListener(window, 'load', createMap)
+      </script>
+      <style>
+         html, body, #map {
+         height: 100%;
+         width: 100%;
+         margin: 0px;
+         padding: 0px
+         }
+      </style>
+   </head>
+   <body>
+      <button onclick="window.addMarker({position:{lat: 47.607560, lng: -122.318570}, title: 'Murphy'})">Add Murphy</button>
+      <button onclick="window.addMarker({position:{lat: 47.610100, lng: -122.316360}, title: 'Campus'})" >Add Campus</button>
+      <div id="map"></div>
+   </body>
+</html>
