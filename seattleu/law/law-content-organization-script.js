@@ -182,9 +182,7 @@ function reorganizeContentItems() {
 
                 $("#MainZone").addClass("col-md-8");
                 //    $("#SidebarZone").append(SidebarZoneContentItems);	
-
             }
-
         }
     } else {
       console.log("currentPageWidth function did not run");

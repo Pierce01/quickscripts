@@ -553,6 +553,19 @@
             obj.addListener('mouseover', () => modifyTextBox(marker._listener.type, marker.title, marker._listener.text))
             obj.addListener('mouseout', () => $("#POITextBox").hide())
         }
+
+        google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+            // Selector is pretty ugly, will look at finding a better one.
+            // Add bs5 tooltips to markers. 
+            alert("pog1")
+            console.log(document.querySelector("#SeattlePOIMap > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(3) > div:nth-child(12)").title)
+            var markerWrapper = document.querySelector("#SeattlePOIMap > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(3)").children
+            for (let marker of markerWrapper) {
+                marker.dataset["bsToggle"] = "tooltip"
+                marker.dataset["bsPlacement"] = "top"
+            }
+            $(function () {$('[data-bs-toggle="tooltip"]').tooltip()})
+        })
     }
     </script>
     <style>
