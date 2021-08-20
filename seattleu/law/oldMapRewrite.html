@@ -44,7 +44,7 @@
                 "featureType": "landscape",
                 "elementType": "all",
                 "stylers": [{
-                    "color": "#f2f2f2"
+                    "color": "#E4EFDB"
                 }],
             }, {
                 "featureType": "poi",
@@ -82,7 +82,7 @@
                 "featureType": "water",
                 "elementType": "all",
                 "stylers": [{
-                    "color": "#04A9C5"
+                    "color": "#ECF7F8"
                 }, {
                     "visibility": "on"
                 }],
@@ -114,6 +114,17 @@
                 _listener: {
                     type: 1,
                     text: "Seattle University, founded in 1891, is a Jesuit Catholic university located on 50 acres in Seattle's Capitol Hill neighborhood."
+                }
+            }, {
+                title: "Sullivan Hall",
+                position: {
+                    lat: 47.610100,
+                    lng: -122.316360
+                },
+                icon: icons['businessIcon'].icon,
+                _listener: {
+                    type: 1,
+                    text: "Seattle University School of Law or Seattle Law School, or SU Law is a professional graduate school affiliated with Seattle University, the Northwest's largest independent university. The School is accredited by the American Bar Association and is a member of the Association of American Law Schools."
                 }
             },
             // Business Markers start, alphabetized
@@ -540,32 +551,23 @@
             }
         ]
 
-        // Pop up handling
-        document.getElementById("POITextBox").addEventListener('mouseover', () => $("#POITextBox").show())
-        document.getElementById("POITextBox").addEventListener('mouseout', () => $("#POITextBox").hide())
-
+        // // Pop up handling
+        map.addListener('click', () => $("#POITextBox").hide())
+        
         // Add markers and event listeners to map
         for (let marker of markers) {
             var obj = new google.maps.Marker({
                 ...marker,
                 map
             })
-            obj.addListener('mouseover', () => modifyTextBox(marker._listener.type, marker.title, marker._listener.text))
-            obj.addListener('mouseout', () => $("#POITextBox").hide())
+            obj.addListener('mouseover', () => modifyTextBox(marker._listener.type, marker.title, ""))
+            obj.addListener('click', () => modifyTextBox(marker._listener.type, marker.title, marker._listener.text))
+            obj.addListener('mouseout', () => {
+                if (document.querySelector("#POITextBox > p").innerHTML === "") {
+                    $("#POITextBox").hide()
+                }
+            })
         }
-
-        google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
-            // Selector is pretty ugly, will look at finding a better one.
-            // Add bs5 tooltips to markers. 
-            alert("pog1")
-            console.log(document.querySelector("#SeattlePOIMap > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(3) > div:nth-child(12)").title)
-            var markerWrapper = document.querySelector("#SeattlePOIMap > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(3)").children
-            for (let marker of markerWrapper) {
-                marker.dataset["bsToggle"] = "tooltip"
-                marker.dataset["bsPlacement"] = "top"
-            }
-            $(function () {$('[data-bs-toggle="tooltip"]').tooltip()})
-        })
     }
     </script>
     <style>
