@@ -11,12 +11,15 @@
         $("#POITextBox").css("padding", "5px 25px 15px 25px");
         if (type == 0) {
             //leisure
-            $("#POITextBox").css("border-left", "5px solid #009b7a");
-            $("#POITextBox h5").css("color", "#008765");
-        } else {
+            $("#POITextBox").css("border-left", "5px solid #00AEEF");
+            $("#POITextBox h5").css("color", "#00AEEF");
+        } else if (type == 1){
             //business
-            $("#POITextBox").css("border-left", "5px solid #ef4135");
-            $("#POITextBox h5").css("color", "#ef4135");
+            $("#POITextBox").css("border-left", "5px solid #FDB915");
+            $("#POITextBox h5").css("color", "#FDB915");
+        } else {
+            $("#POITextBox").css("border-left", "5px solid #EF4135");
+            $("#POITextBox h5").css("color", "#EF4135");
         }
         var margin = ($("#POITextBox").height() * -1) - 30;
         $("#POITextBox").css("margin", (margin + "px auto 10px auto"));
@@ -32,7 +35,7 @@
             streetViewControl: false,
             mapTypeControl: false,
             fullscreenControl: false,
-            zoom: 12,
+            zoom: 13,
             //Map style from Snazzy Maps (Blue Water) start
             styles: [{
                 "featureType": "administrative",
@@ -97,10 +100,10 @@
                 icon: 'https://cms.seattleu.edu/media/graduate-admissions/images/graduate-viewbook/sulogo.png'
             },
             leisureIcon: {
-                icon: 'https://cms.seattleu.edu/media/graduate-admissions/images/graduate-viewbook/markerGreen.png'
+                icon: 'https://i.imgur.com/q8NgxxI.png'
             },
             businessIcon: {
-                icon: 'https://cms.seattleu.edu/media/graduate-admissions/images/graduate-viewbook/location_red-1-14x27.png'
+                icon: 'https://cms.seattleu.edu/media/graduate-admissions/images/graduate-viewbook/location_yellow.png'
             }
         }
 
@@ -112,14 +115,14 @@
                 optimized: false,
                 zIndex: 100,
                 _listener: {
-                    type: 1,
+                    type: -1,
                     text: "Seattle University, founded in 1891, is a Jesuit Catholic university located on 50 acres in Seattle's Capitol Hill neighborhood."
                 }
             }, {
                 title: "Sullivan Hall",
                 position: {
-                    lat: 47.610100,
-                    lng: -122.316360
+                    lat: 47.609624,
+                    lng: -122.317480
                 },
                 icon: icons['businessIcon'].icon,
                 _listener: {
@@ -553,7 +556,7 @@
 
         // // Pop up handling
         map.addListener('click', () => $("#POITextBox").hide())
-        
+
         // Add markers and event listeners to map
         for (let marker of markers) {
             var obj = new google.maps.Marker({
