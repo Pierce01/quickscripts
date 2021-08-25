@@ -8,27 +8,27 @@
  *
  *      @version 1.3
  */
- importClass(com.terminalfour.publish.utils.BrokerUtils)
+importClass(com.terminalfour.publish.utils.BrokerUtils)
 
- function getValueFromTag(tag) {
-     try {
-         return {
-             isError: false,
-             content: BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, tag)
-         }
-     } catch (error) {
-         return {
-             isError: true,
-             message: error.stack
-         }
-     }
- }
- 
- function writeHtml(array) {
-     for (var i = 0; i < array.length; i++) {
-         if (array[i]) document.write(array[i])
-     }
- }
+function getValueFromTag(tag) {
+    try {
+        return {
+            isError: false,
+            content: BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, tag)
+        }
+    } catch (error) {
+        return {
+            isError: true,
+            message: error.stack
+        }
+    }
+}
+
+function writeHtml(array) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i]) document.write(array[i])
+    }
+}
  
  try {
      var dict = {
@@ -37,7 +37,7 @@
          imageOffSite: getValueFromTag("<t4 type='content' name='Image' output='imageurl' />"),
          imageOnSite: getValueFromTag("<t4 type='content' name='Image (Media Library)' output='imageurl' />"),
          imageAltText: getValueFromTag('<t4 type="content" name="Image Alt Text" output="normal" modifiers="htmlentities" />'),
-         customClass: getValueFromTag("<t4 type='content' name='Custom Class Names' output='normal' modifiers='striptags,htmlentities' />"),
+         customClass: getValueFromTag("<t4 type='content' name='Custom Class Names (Card Wrapper)' output='normal' modifiers='striptags,htmlentities' />"),
          customClassImg: getValueFromTag("<t4 type='content' name='Custom Class Names (Image)' output='normal' modifiers='striptags,htmlentities' />"),
          linkName: getValueFromTag("<t4 type='content' name='Link Name' output='normal' modifiers='striptags,htmlentities' />"),
          onSiteLink: getValueFromTag('<t4 type="content" name="Internal Link" output="linkurl" modifiers="nav_sections" />'),
@@ -66,7 +66,7 @@
  
          // Building HTML
          var closeDiv = '</div>'
-         var hCardWrapper = '<div class="horizontalCard card mb-3 standardContent">'
+         var hCardWrapper = '<div class="horizontalCard card mb-3 standardContent '+ dict.customClass.content +'">'
          var hCard = '<div class="row g-0">'
          var hCardImageWrapper = '<div class="col-md-4 text-center">'
          var imageHtml = '<img src="' + (imageUrl == "" ? getValueFromTag('<t4 type="media" formatter="path/*" id="1752501" />').content : imageUrl) 

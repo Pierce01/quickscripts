@@ -1,3 +1,13 @@
+/***
+*      @author Pierce Harriz
+*      @file law-conent-ImageBannerTreatmant.js
+*      @see Seattle University School of Law Image Banner Treatmant CT.
+*      law/text/html
+*
+*      Document will write once when the page loads
+*
+*      @version 1.0
+*/
 importClass(com.terminalfour.publish.utils.BrokerUtils)
 
 function getValueFromTag(tag) {
@@ -27,7 +37,46 @@ function appendToTag(htmlTag, type, html, id) {
 }
 
 try {
-    document.write(getValueFromTag("<t4 type='content' name='Overlay Shades' output='normal' modifiers='striptags,htmlentities' />").content)
+    // string that we will be adding all of our added 
+    var css = ''
+    var dict = {
+        textColor: getValueFromTag("<t4 type='content' name='Text Color' output='normal' modifiers='striptags,htmlentities' />"),
+        textShadow: getValueFromTag("<t4 type='content' name='Text Shadow' output='normal' modifiers='striptags,htmlentities' />"),
+        overlayShades: getValueFromTag("<t4 type='content' name='Overlay Shades' output='normal' modifiers='striptags,htmlentities' />"),
+        overlayTints: getValueFromTag("<t4 type='content' name='Overlay Tints' output='normal' modifiers='striptags,htmlentities' />"),
+    }
+
+    // Get all the errors returned from getValueFromTag and put them in errorString.
+    var errorString = ''
+    var keys = Object.keys(dict)
+    for (var i = 0; i < keys.length; i++) {
+        if (dict[keys[i]].isError) {
+            errorString += '' + keys[i] + ' - ' + dict[keys[i]].message + '\n'
+        }
+    }
+
+    if (errorString) {
+        // Should be a silent error but we don't have access to console in this env, so we'll just put it on the page.
+        document.write('<pre>' + errorString + '</pre>')
+    } else {
+        // Text color
+        if (dict.textColor.content) {
+            css += '.imageBanner h1.pageTitle{color:' + dict.textColor.content + '}'
+        }
+        // Text Shadow
+        if (dict.textShadow.content) {
+            css+= dict.textShadow.content.split('COLOR').join(dict.textColor.content == '#333333' ? '#FFFFFF' : '#333333')
+        }
+        // Overlay Shades/Tints
+        if (dict.overlayShades.content && (dict.overlayShades.content.split(',')[0] != '-1')) {
+            var value = dict.overlayShades.content.split(',')[0]
+            css += '.imageBanner{background-color:rgba(0,0,0,'+ value/100 +');background-blend-mode:multiply;}'
+        } else if (dict.overlayTints.content && (dict.overlayTints.content.split(',')[0] != '-1')) {
+            var value = dict.overlayTints.content.split(',')[0]
+            css += '.imageBanner{background-color:rgba(255,255,255,'+ value/100 +');background-blend-mode:color;}'
+        }
+        if (css !== '') appendToTag('head', 'style', css, content.getID())
+    }
 } catch (e) {
-    document.write(e)   
+    document.write(e)
 }
