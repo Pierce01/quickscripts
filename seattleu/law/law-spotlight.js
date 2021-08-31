@@ -1,6 +1,6 @@
 /***
  *      @author Pierce Harriz
- *      @file law-organizer-masonry.js
+ *      @file law-spotlight-organizer-masonry.js
  *      @see Seattle University School of Law Faculty Spotlight Type
  *      law/organizer/masonryfeed
  *
