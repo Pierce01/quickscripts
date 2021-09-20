@@ -6,7 +6,7 @@
  *
  *      Document will write once when the page loads
  *
- *      @version 1.4
+ *      @version 1.6
  */
 importClass(com.terminalfour.publish.utils.BrokerUtils)
 
@@ -34,8 +34,8 @@ try {
     var dict = {
         title: getValueFromTag("<t4 type='content' name='Title' output='normal' modifiers='striptags,htmlentities' />"),
         text: getValueFromTag('<t4 type="content" name="Content" output="normal" modifiers="medialibrary,nav_sections" />'),
-        imageOffSite: getValueFromTag("<t4 type='content' name='Image' output='imageurl' />"),
-        imageOnSite: getValueFromTag('<t4 type="content" name="Image (Media Library)" output="normal" formatter="path/*" />'),
+        imageOffSite: getValueFromTag("<t4 type='content' name='Image (upload from computer)' output='imageurl' />"),
+        imageOnSite: getValueFromTag('<t4 type="content" name="Image (upload from Media Library)" output="normal" formatter="path/*" />'),
         imageAltText: getValueFromTag('<t4 type="content" name="Image Alt Text" output="normal" modifiers="htmlentities" />'),
         customClass: getValueFromTag("<t4 type='content' name='Custom Class Names (Card Wrapper)' output='normal' modifiers='striptags,htmlentities' />"),
         customClassImg: getValueFromTag("<t4 type='content' name='Custom Class Names (Image)' output='normal' modifiers='striptags,htmlentities' />"),
@@ -66,8 +66,8 @@ try {
         var imageUrl = dict.imageOffSite.content == "" ? dict.imageOnSite.content : dict.imageOffSite.content
         var toolTip = dict.toolTipText.content == "" ? linkUrl : dict.toolTipText.content
         var row = {
-            image: dict.imageRow.content == '' ? 4 : dict.imageRow.content,
-            body: dict.bodyRow.content == '' ? 8: dict.bodyRow.content
+            image: (dict.imageRow.content == '' || dict.imageRow.content == 0)  ? 4 : dict.imageRow.content,
+            body: (dict.bodyRow.content == '' || dict.bodyRow.content == 0) ? 8: dict.bodyRow.content
         }
 
         // Building HTML
