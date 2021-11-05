@@ -6,7 +6,7 @@
  *
  *      Document will write once when the page loads
  *
- *      @version 1.6
+ *      @version 1.7
  */
 importClass(com.terminalfour.publish.utils.BrokerUtils)
 
@@ -39,7 +39,7 @@ try {
         imageAltText: getValueFromTag('<t4 type="content" name="Image Alt Text" output="normal" modifiers="htmlentities" />'),
         customClass: getValueFromTag("<t4 type='content' name='Custom Class Names (Card Wrapper)' output='normal' modifiers='striptags,htmlentities' />"),
         customClassImg: getValueFromTag("<t4 type='content' name='Custom Class Names (Image)' output='normal' modifiers='striptags,htmlentities' />"),
-        linkName: getValueFromTag("<t4 type='content' name='Link Name' output='normal' modifiers='striptags,htmlentities' />"),
+        linkName: getValueFromTag("<t4 type='content' name='Box link button label' output='normal' modifiers='striptags,htmlentities' />"),
         onSiteLink: getValueFromTag('<t4 type="content" name="Internal Link" output="linkurl" modifiers="nav_sections" />'),
         offSiteLink: getValueFromTag('<t4 type="content" name="Off-site Link" output="normal" modifiers="striptags,htmlentities" />'),
         toolTipText: getValueFromTag('<t4 type="content" name="Title Attribute" output="normal" modifiers="htmlentities" />'),
@@ -72,7 +72,7 @@ try {
 
         // Building HTML
         var closeDiv = '</div>'
-        var hCardWrapper = '<div class="horizontalCard card mb-3 standardContent '+ dict.customClass.content +'">'
+        var hCardWrapper = '<div class="horizontalCard card mb-3 standardContent contentItem '+ dict.customClass.content +'">'
         var hCard = '<div class="row g-0">'
         var hCardImageWrapper = '<div class="col-lg-' + row.image +' text-center">'
         var imageHtml = '<img src="' + (imageUrl == "" ? getValueFromTag('<t4 type="media" formatter="path/*" id="1752501" />').content : imageUrl) 
@@ -82,7 +82,7 @@ try {
         var hCardTitle = '<h2 class="card-title">' + dict.title.content + '</h2>'
         var hCardText = dict.text.content
         var hCardFooter = '<div class="cardFooter mt-auto">'
-        var hCardFooterContent = '<a class="btn btn-lg mx-lg-0 px-4" href="' + linkUrl + '" title="'+ toolTip +'">' + linkName + '</a>'
+        var hCardFooterContent = '<a class="btn btn-lg mx-lg-0 px-4" target="_blank" rel="noopener noreferrer" href="' + linkUrl + '" title="'+ toolTip +'">' + linkName + '</a>'
 
         writeHtml([
             hCardWrapper,

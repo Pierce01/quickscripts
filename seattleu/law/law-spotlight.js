@@ -70,10 +70,10 @@ try {
         var closeLink = '</a>'
         var mainWrapper = '<div class="contentItem spotlightWrapper standardContent g-0 w-50 d-flex flex-col flex-md-row" id="id<t4 type=\'meta\' meta=\'content_id\' />" data-position-default="Main" data-position-selected="Main">'
         var rowWrapper = '<div class="row w-100 mx-0">'
-        var spotlightWrapper = '<div id="spotlightImg" class="spotlightImage col-xs-12 col-md-4">'
+        var spotlightWrapper = '<div id="spotlightImg" class="spotlightImage col-xs-12 col-lg-4">'
         var spotlightLink = '<a class="spotlightImageFilter" href="' + dict.linkContent.content + '"/>'
         var spotlightImage = "<img src=" + dict.spotlightImage.content + " alt="+ dict.spotlightImageAlt.content + ">"
-        var spotlightTextArea = '<div id="spotlightTextArea" class="spotlightCopy col-xs-12 col-md-7">'
+        var spotlightTextArea = '<div id="spotlightTextArea" class="spotlightCopy col-xs-12 col-lg-7">'
         var header = '<h3>' + dict.titleContent.content +'</h3>'
         var spotlightBody = '<p class="spotlightCopyBody">' + dict.textContent.content + '</p>'
         var redBorder = '<div class="red-border-top visible-xs col-xs-1"></div>'

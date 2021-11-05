@@ -1,4 +1,4 @@
-/*  Content reorganization script 
+/*  Content reorganization script (loacal)
 
  Determines section order of all page elements with .contentItem class (which should be all content 
  items), and applies a data-order attribute. Creates arrays of every content item based on the
@@ -139,7 +139,7 @@ function reorganizeContentItems() {
         $("#MainZone").append(listOfAllContentItems);
         $("#SidebarZone").hide();
     } else if (currentPageWidth == "sm") {
-        console.log("currentPageWidth");
+        console.log(currentPageWidth);
         if (siteNavCurrentlyInSidebarZone) {
             moveNavToTopZone();
         }
@@ -156,7 +156,7 @@ function reorganizeContentItems() {
             $("#MainZone").addClass("col-sm-12");
         }
     } else if (currentPageWidth == "md-lg") {
-        console.log("currentPageWidth");
+        console.log(currentPageWidth);
         if (siteNavOriginallyInSidebarZone) {
             /* menu in SidebarZone */
             if (siteNavCurrentlyInTopZone) {
