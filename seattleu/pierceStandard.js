@@ -1,7 +1,7 @@
 /**
  * Standard Library
  * @author Pierce Harriz <pharriz@seattleu.edu>
- * @version 1.1
+ * @version 1.5
  */
 
 importClass(com.terminalfour.publish.utils.BrokerUtils)
@@ -35,7 +35,7 @@ function getValueFromT4Tag(tag) {
  * @param {string} htmlTag - The specific HTML tag that you want to appened to.
  * @param {string} type - The type of HTML element you are going to be appending. EX: script, style, p
  * @param {string} html - The HTML you will be appending. This is also where you'd put JS if you're appending JS.
- * @param {string} id - The ID of the newly created HTML element.
+ * @param {integer} id - The ID of the newly created HTML element.
  */
 function appendToHtmlTag(htmlTag, type, html, id) {
     var newScript = "var element = document.createElement('"+type+"');element.innerHTML = '"+html+"';element.id = '"+id+"';if(!document.getElementById(element.id)){document.getElementsByTagName('"+htmlTag+"')[0].append(element);};"
@@ -55,7 +55,7 @@ function writeHtml(array) {
 
 /**
  * 
- * @param {string} id 
+ * @param {integer} id 
  * @returns {Object}
  * @returns null
  */
@@ -70,7 +70,18 @@ function getMedia (id) {
 
 /**
  * 
- * @param {string} id 
+ * @param {Media} media
+ * @returns string
+ * @returns null
+ */
+function readMedia (media) {
+    var s = new java.util.Scanner(media).useDelimiter("\\A")
+    return (String(s.hasNext() ? s.next() : ""))
+}
+
+/**
+ * 
+ * @param {integer} id 
  * @returns true
  * @returns false
  */
@@ -121,4 +132,46 @@ Dictionary.prototype.get = function (key) {
  */
 Dictionary.prototype.hasErrors = function () {
     return this.errorString
+}
+
+// The following is a simple CSV to JSON parser made for the study abroad project. However, this can be used
+// any where else it's needed. If this is breaking, please ask Pierce why.
+/**
+ * 
+ * @param {string} str - An UNMODIFIED CSV file is required to be passed through here. 
+ */
+ function csvToJson(str) {
+    this.raw = str.split('\n')
+    this.headers = []
+    this.data = []
+    this.parseLine = function(target, string) {
+        var inQuote = false
+        var tempStr = ''
+
+        // terminal four does not support spread operators or "of" for-loops... 
+        string = string.split('')
+        for (let i = 0; i < string.length; i++) {
+            var char = string[i]
+            if (char == ',' && !inQuote || char == '\r') {
+                target.push(tempStr)
+                tempStr = ''
+            } else if (char == '"' && !inQuote) {
+                inQuote = true
+            } else if (char == '"' && inQuote) {
+                inQuote = false
+            } else {
+                tempStr += char
+            }
+        }
+    }
+    this.parseLine(this.headers, this.raw[0])
+    for (var i = 1; i < this.raw.length - 1; i++) {
+        var dataArr = []
+        var obj = {}
+        this.parseLine(dataArr, this.raw[i])
+        for (var k = 0; k < this.headers.length; k++) {
+            obj[this.headers[k]] = dataArr[k]
+        }
+        this.data.push(obj)
+    }
 }
