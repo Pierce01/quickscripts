@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script src='./search.js'></script>
+
+    <title>Location test page</title>
+  </head>
+<style>
+  .card-group .locationFeedItem.profileItem.card {
+    display: flex;
+    flex: 1 0 calc(23% - 10px);
+    margin: 15px;
+    max-width: 360px;
+    min-width: 360px;
+    padding: 0;
+}
+
+/* Font styling */
+div.locationFeedItem.profileItem.card h3, div.locationFeedItem > div.card-body > h3 > a {
+    color: #aa0000;
+    margin-top: 0;
+    margin-bottom: 9px;
+    font-size: 1.4rem;
+}
+
+div.locationFeedItem.profileItem.card p.subtext {
+  font-size: 1.2rem;
+}
+
+div.locationFeedItem.profileItem.card p {
+  font-size: 1rem;
+  color: gray;
+}
+
+div.locationFeedItem > div.card-footer a {
+    text-decoration: underline;
+    color: black;
+}
+
+div.locationFeedItem > div.card-body > p.card-text.margin0 {
+  margin-bottom: 0px !important;
+}
+</style>
+  <script>
+     window.onload = (e) => {
+        var sourceElement = document.getElementById("source")
+        for(var i = 0; i<14;i++) {
+            document.getElementsByClassName("studyAbroadOrganizerLocation")[0].append(sourceElement.cloneNode(true))
+        }
+      }
+  </script>
+  <body>
+    <div class="studyAbroadOrganizerWrapper">
+        <div class="studyAbroadOrganizerLocation d-flex flex-column flex-md-row flex-wrap justify-content-center card-group">
+          <div id="source" class="locationFeedItem profileItem card shadow col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4" title="Caitlin Carlson" id="id2377605" data-position-default="ZoneA" data-position-selected="ZoneA">
+              <span class="cardImageWrapper"><img src="https://i.imgur.com/1EpDrXd.png" class="card-img-top" alt="Caitlin Ring Carlson, PhD"></span>
+              <div class="card-body">
+                  <h3 class="card-title"><a href="google.com">Program Title</a></h3>
+                  <p class="card-text margin0 subtext">City, Country</p>
+                  <p class="card-text margin0">Program Type</p>
+                  <p class="card-text">Program Fee</p>
+              </div>
+              <div class="card-footer">
+                  <span class="locationRegion">Region</span>
+              </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
