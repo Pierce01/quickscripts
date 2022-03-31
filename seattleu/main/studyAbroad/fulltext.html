@@ -96,13 +96,52 @@
   }
 
   .textBody > li {
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
   }
 
   .redBold, .textBody h3 {
-    font-weight: bold;
-    color: #ED1C24;
+    font-weight: bold !important;
+    color: #ED1C24 !important;
   }
+
+  .dropbtn {
+  color: black;
+  border: none;
+  background:none;
+}
+
+.dropbtn::after {
+  content: "▾";
+}
+
+.dropdownWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover { background-color: #ddd; }
+.dropdownWrap:hover .dropdown-content { display: block; }
+.dropdownWrap:hover .dropbtn::after { content: "▴"; }
+.dropdownWrap li { list-style: none; }
+.SAWrapper button.dropbtn {
+    font-size: initial;
+}
 </style>
   <script>
 function initialize(){new google.maps.Map(document.getElementById("map"),{center:{lat:47.610409,lng:-122.319385},streetViewControl:!1,mapTypeControl:!1,fullscreenControl:!1,zoom:13})}google.maps.event.addDomListener(window,"load",initialize);
@@ -120,7 +159,14 @@ function initialize(){new google.maps.Map(document.getElementById("map"),{center
                 <h2 class="card-title redBold">Program Title</h2>
                 <p class="card-text margin2">Program Type</p>
                 <p class="card-text margin2">Program Provider / Program Leader (Email Contact)</p>
-                <p class="card-text margin2">City, Country</p>
+                <p>
+                  <div class="dropdownWrap">
+                      <button class="dropbtn">
+                        Locations 
+                      </button>
+                      <div class="dropdown-content">TARGET</div>
+                  </div>
+                </p>
                 <a href="#" class="btn marginTop4 redBold" style="margin-right: 20px;">APPLY NOW</a>
                 <a href="#" class="btn marginTop4 redBold">CUSTOM TEXT</a>
                 <p class="card-text text-muted" style="margin-top: 10px;">Application Deadline</p>
