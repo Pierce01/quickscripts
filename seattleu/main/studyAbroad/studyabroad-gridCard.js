@@ -52,15 +52,31 @@ try {
             return fee
         }
     }()
+    var metadata = function () {
+        var contentArray = []
+        var keys = content.getElements().toArray()
+        for (var i = 0; i < keys.length; i++) {
+            contentArray.push([keys[i].getName()] + '%:% ' + keys[i].getValue())
+        }
+        return contentArray.join('%&&&&&%')
+    }()
     
-    document.write('<div class="' + cssClass + '" title="' + content.get('Name') + '" id="id' + content.getID() + 
-    '" data-position-default="ZoneA" data-position-selected="ZoneA">' + 
-    '<span class="cardImageWrapper"><img src="' + imageObj.url + '" class="card-img-top"' +
-    ' alt="' + imageObj.description + '"></span> <div class="card-body"><h3 class="card-title">' + 
-    '<a href="' + (getValueFromT4Tag("<t4 type='content' name='Name' output='fulltext' use-element='true' filename-element='Name' modifiers='striptags,htmlentities' />")).content + 
-    '">' + content.get('Program Title') + '</a></h3><p class="card-text margin0 subtext">' + cityCountryString + 
-    '</p><p class="card-text margin0">' + content.get('Program Type') + '</p> <p class="card-text">' + programFee + 
-    '</p></div><div class="card-footer"><span class="locationRegion">' + content.get('Region') + '</span></div></div>')
+    var closeDiv = '</div>'
+    writeHtml([
+        '<div class="' + cssClass + '" title="' + content.get('Name') + '" id="id' + content.getID() + '" data-position-default="ZoneA" data-position-selected="ZoneA">',
+            '<span hidden class="cardMetaData">' + metadata + '</span>',
+            '<span class="cardImageWrapper"><img src="' + imageObj.url + '" class="card-img-top" alt="' + imageObj.description + '"></span>',
+            '<div class="card-body">',
+                '<h3 class="card-title">',
+                    '<a href="' + (getValueFromT4Tag("<t4 type='content' name='Name' output='fulltext' use-element='true' filename-element='Name' modifiers='striptags,htmlentities' />")).content + '">' + content.get('Program Title') + '</a>',
+                '</h3>',
+                '<p class="card-text margin0 subtext">' + cityCountryString + '</p>',
+                '<p class="card-text margin0">' + content.get('Program Type') + '</p>',
+                '<p class="card-text">' + programFee + '</p>',
+            closeDiv,
+            '<div class="card-footer"><span class="locationRegion">' + content.get('Region') + '</span></div>',
+        closeDiv
+    ])
 } catch (error) {
     document.write(error)
 }

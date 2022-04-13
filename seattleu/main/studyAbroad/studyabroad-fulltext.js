@@ -60,22 +60,71 @@ try {
             return fee
         }
     }()
-
-    document.write(
-    '<div class="SAWrapper"><div calss="titleCard position-relative"><div class="card mb-3" style="max-width: 50%;">' +
-    '<div class="row g-0"><div class="col-md-4 text-center"><img src="' + imageObj.url + '" class="img-fluid" alt="' + imageObj.description + '"> </div> <div class="col-md-8"> <div class="card-body">' +
-    '<h2 class="card-title redBold">' + content.get('Program Title') + '</h2><p class="card-text margin2">' + content.get('Program Type') + 
-    '</p><p class="card-text margin2">' + content.get('Program Provider') + ' / ' + content.get('Contact Name') + ' (' + content.get('Contact Email') + ')</p>' +
-    '' + cityCountryHTML + '<a href="' + content.get('Program Website') + '" class="btn marginTop4 redBold" style="margin-right: 20px;">APPLY NOW</a><a href="#" class="btn marginTop4 redBold">CUSTOM TEXT</a>' +
-    '<p class="card-text text-muted" style="margin-top: 10px;">Application Deadline: ' + content.get('Application Deadline') +'</p></div></div></div></div></div><div class="contentWrapper"><div class="textBodyWrapper" style="overflow: hidden;">' +
-    '<div class="textBody" style="margin-bottom: 1rem;"><h3>Program Summary</h3><p>' + content.get('Program Summary') + '</p></div><div class="textBody" style="margin-bottom: 1rem;">' +
-    '<h3>Housing</h3>' + makeList(content.get('Housing')) + '</div><div class="textBody" style="margin-bottom: 1rem;"><h3>Student Testimonial</h3><p>' + content.get('Student Testimonial') + 
-    '' + studentContactString + '</p></div><div class="textBody" style="margin-bottom: 1rem;"><h3>Application Steps</h3>' + makeList(content.get('Application Instructions')) + '</div><div class="textBody">' +
-    '<h3>Map</h3><div id="map"></div></div></div><div class="sideBoxWrapper"><div class="sideBox blueBox"><h4>Program Overview</h4><p>Program Fee: ' + programFee + '</p>' +
-    '<p>Terms Available:' + makeList(content.get('Terms')) + '</p><p>GPA: ' + content.get('GPA Requirement') + '</p><p>Pre-Requisites: ' + preReq + 
-    '</p></div><div class="sideBox blueBox"><h4>Budgets by Term</h4></div><div class="sideBox clearBoxBlue"><h4>Credits</h4><li>' + content.get('Credit Range') + ' (' + content.get('Credit System')  + ')</li><h4>Features</h4>'+ makeList(content.get('Additional Features')) +
-    '<h4>Fields of study</h4><li>${fos here}</li></div></div></div></div>'
-    )
+    
+    var closeDiv = '</div>'
+    var textBodyWithMargin = '<div class="textBody" style="margin-bottom: 1rem;">'
+    writeHtml([
+        '<div class="SAWrapper">',
+            '<div calss="titleCard position-relative">',
+                '<div class="card mb-3" style="max-width: 50%;">',
+                    '<div class="row g-0">',
+                        '<div class="col-md-4 text-center">',
+                            '<img src="' + imageObj.url + '" class="img-fluid" alt="' + imageObj.description + '">',
+                        closeDiv,
+                        '<div class="col-md-8">',
+                            '<div class="card-body">',
+                                '<h2 class="card-title redBold">' + content.get('Program Title') + '</h2>',
+                                '<p class="card-text margin2">' + content.get('Program Type') + '</p>',
+                                '<p class="card-text margin2">' + content.get('Program Provider') + ' / ' + content.get('Contact Name') + ' (' + content.get('Contact Email') + ')</p>',
+                                cityCountryHTML,
+                                '<a href="' + content.get('Program Website') + '" class="btn marginTop4 redBold" style="margin-right: 20px;">APPLY NOW</a>',
+                                '<a href="#" class="btn marginTop4 redBold">CUSTOM TEXT</a>',
+                                '<p class="card-text text-muted" style="margin-top: 10px;">Application Deadline: ' + content.get('Application Deadline') + '</p>',
+                            closeDiv,
+                        closeDiv,
+                    closeDiv,
+                closeDiv,
+            closeDiv,
+            '<div class="contentWrapper">',
+                '<div class="textBodyWrapper" style="overflow: hidden;">',
+                    textBodyWithMargin,
+                        '<h3>Program Summary</h3><p>' + content.get('Program Summary') + '</p>',
+                    closeDiv,
+                    textBodyWithMargin,
+                        '<h3>Housing</h3>' + makeList(content.get('Housing')),
+                    closeDiv,
+                    textBodyWithMargin,
+                        '<h3>Student Testimonial</h3><p>' + content.get('Student Testimonial') + studentContactString + '</p>',
+                    closeDiv,
+                    textBodyWithMargin,
+                        '<h3>Application Steps</h3>' + makeList(content.get('Application Instructions')),
+                    closeDiv,
+                    '<div class="textBody">',
+                        '<h3>Map</h3><div id="map"></div>',
+                    closeDiv,
+                closeDiv,
+                '<div class="sideBoxWrapper">',
+                    '<div class="sideBox blueBox">',
+                        '<h4>Program Overview</h4><p>Program Fee: ' + programFee + '</p>',
+                            '<p>Terms Available:' + makeList(content.get('Terms')) + '</p>',
+                            '<p>GPA: ' + content.get('GPA Requirement') + '</p>',
+                            '<p>Pre-Requisites: ' + preReq + '</p>',
+                    closeDiv,
+                    '<div class="sideBox blueBox">',
+                        '<h4>Budgets by Term</h4>',
+                        // Content needs to go here
+                    closeDiv,
+                    '<div class="sideBox clearBoxBlue">',
+                        '<h4>Credits</h4>',
+                        '<li>' + content.get('Credit Range') + ' (' + content.get('Credit System')  + ')</li>',
+                        '<h4>Features</h4>'+ makeList(content.get('Additional Features')),
+                        '<h4>Fields of study</h4>',
+                        '<li>${fos here}</li>',
+                    closeDiv,
+                closeDiv,
+            closeDiv,
+        closeDiv
+    ])
 } catch (e) {
     document.write(e)
 }
