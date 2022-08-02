@@ -14,8 +14,9 @@ String.prototype.wrap = function (tags) {
 try {
     var mediaManager = ApplicationContextProvider.getBean(IMediaManager)
     // Until a new template is generated, we have to do this.
-    var styles = '.blueBox,.clearBoxBlue{padding:20px!important}.margin2{margin:3px!important}.marginTop4{margin-top:4px!important}.SAWrapper .card{border:0!important;background-color:#f7f7f7!important;margin:0 auto 20px!important;max-width:100%!important}.SAWrapper .card-text{font-size:.9rem}.sideBox li{list-style-type:disc;list-style-position:inside;text-indent:-1.2em;padding-left:1em}.textBodyWrapper{max-width:78%!important;margin:0 20px 0 0!important}@media (min-width:1200px){.textBodyWrapper{max-width:72%!important;margin:0 auto 0 0!important}}.sideBox{float:right!important;font-size:1rem!important}.contentWrapper{display:flex!important;margin:0 auto!important}.blueBox{background-color:#088099!important;color:#fff!important;margin-bottom:20px!important}.clearBoxBlue{border:2px solid #088099!important}.sideBoxWrapper{display:grid!important;grid-template-rows:auto auto 1fr 1fr 1fr auto auto;grid-gap:10px;max-width:270px!important}#map{width:100%;height:400px}.SAWrapper .btn{border:1px solid #12859d!important;border-radius:0!important;width:40%!important;font-size:1.6vw}.SAWrapper img{width:100%;object-fit:cover}.textBody>p{font-size:1.3rem;line-height:normal}.textBody>li{font-size:1.2rem!important}.redBold,.textBody h3{font-weight:700!important;color:#ed1c24!important}.dropbtn{color:#000;border:none;background:0 0}.dropbtn::after{content:"▾"}.dropdownWrap{position:relative;display:inline-block}.dropdown-content{display:none;position:absolute;background-color:#f1f1f1;min-width:160px;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;font-size:.7rem!important}.dropdown-content a{color:#000;padding:12px 16px;text-decoration:none;display:block}.dropdown-content a:hover{background-color:#ddd}.dropdownWrap:hover .dropdown-content{display:block}.dropdownWrap:hover .dropbtn::after{content:"▴"}.dropdownWrap li{list-style:none;text-indent:0;padding-left:0}.SAWrapper button.dropbtn{font-size:initial}.SAWrapper a:not([href]){position:inherit;visibility:visible}.SAWrapper p.card-text.text-muted{margin-top:10px!important}@media only screen and (min-width:1200px){.SAWrapper p.card-text.text-muted{margin-bottom:10px!important;position:absolute!important;bottom:0!important}}'
+    var styles = '.blueBox,.clearBoxBlue{padding:20px!important}.margin2{margin:3px!important}.marginTop4{margin-top:4px!important}.SAWrapper .card{border:0!important;background-color:#f7f7f7!important;margin:0 auto 20px!important;max-width:100%!important}.SAWrapper .card-text{font-size:.9rem}.sideBox li{list-style-type:disc;list-style-position:inside;text-indent:-1.2em;padding-left:1em}.textBodyWrapper{max-width:78%!important;margin:0 20px 0 0!important}@media (min-width:1200px){.textBodyWrapper{max-width:72%!important;margin:0 auto 0 0!important}}.sideBox{float:right!important;font-size:1rem!important}.contentWrapper{display:flex!important;margin:0 auto!important}.blueBox{background-color:#088099!important;color:#fff!important;margin-bottom:20px!important}.clearBoxBlue{border:2px solid #088099!important}.sideBoxWrapper{display:grid!important;grid-template-rows:auto auto 1fr 1fr 1fr auto auto;grid-gap:10px;max-width:270px!important}#map{width:100%;height:400px}.blueBox a{width:100%!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:grid!important;text-align:left!important;border:1px solid #000!important}.blueBox a:not(:last-child){margin-bottom:15px}.SAWrapper .btn{border:1px solid #12859d;border-radius:0!important;width:40%;font-size:1.6vw}.SAWrapper img{width:100%;object-fit:cover}.textBody>p{font-size:1.3rem;line-height:normal}.textBody>li{font-size:1.2rem!important}.redBold,.textBody h3{font-weight:700!important;color:#ed1c24!important}.dropbtn{color:#000;border:none;background:0 0}.dropbtn::after{content:"▾"}.dropdownWrap{position:relative;display:inline-block}.dropdown-content{display:none;position:absolute;background-color:#f1f1f1;min-width:160px;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);z-index:1;font-size:.7rem!important}.dropdown-content a{color:#000;padding:12px 16px;text-decoration:none;display:block}.dropdown-content a:hover{background-color:#ddd}.dropdownWrap:hover .dropdown-content{display:block}.dropdownWrap:hover .dropbtn::after{content:"▴"}.dropdownWrap li{list-style:none;text-indent:0;padding-left:0}.SAWrapper button.dropbtn{font-size:initial}.SAWrapper a:not([href]){position:inherit;visibility:visible}.SAWrapper p.card-text.text-muted{margin-top:10px!important}@media only screen and (min-width:1200px){.SAWrapper p.card-text.text-muted{margin-bottom:10px!important;position:absolute!important;bottom:0!important}}'
     
+    var youtubeRegex = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/
     var templateHTMLMulti = '<p><div class="dropdownWrap"><button class="dropbtn" id="dropdownMenuButton">NAME</button><div class="dropdown-content">TARGET</div></div></p>'
     var script = 'function initialize(){new google.maps.Map(document.getElementById("map"),{center:{lat:47.610409,lng:-122.319385},streetViewControl:!1,mapTypeControl:!1,fullscreenControl:!1,zoom:13})}window.addEventListener("load", initialize);'
     appendToHtmlTag('head', 'style', styles, 'saStyles')
@@ -30,7 +31,11 @@ try {
             var templateHTMLMultiCountries = templateHTMLMulti
             return templateHTMLMultiCountries.replace('TARGET', formatLocations(content.get('City').getValue(), content.get('Country').getValue())).replace('NAME', 'Locations')
         } else {
-            return (content.get('City').getValue() + ', ' + content.get('Country').getValue()).wrap([{tag: 'p', attributes: 'class="card-text margin2"'}])
+            var city = content.get('City').getValue()
+            var country =  content.get('Country').getValue()
+            return (city == "Various" && country == "Various" 
+                ? 'Multiple locations'
+                : city + ', ' + country).wrap([{tag: 'p', attributes: 'class="card-text margin2"'}])
         }
     }()
 
@@ -136,6 +141,11 @@ try {
                         '<li>Quarter Range: ' + get('Quarter Range') + '</li>',
                         '<li>Credit Per Course: ' + get('Credit Per Course') + '</li>',
                     closeDiv,
+                    get('Youtube Id') ? [ textBodyWithMargin,
+                        'Video'.wrap('h3'),
+                        '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + (get('Youtube Id').getValue()).match(youtubeRegex)[6] + '"'
+                            + ' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                    closeDiv ] : undefined,
                     '<div class="textBody">',
                         '<h3>Map</h3><div id="map"></div>',
                     closeDiv,
@@ -154,7 +164,7 @@ try {
                     '<div class="sideBox clearBoxBlue">',
                         '<h4>Model</h4>' + get('Model', makeList, noInfoFoundPTag),
                         '<h4>Features</h4>'+ get('Additional Features', makeList, noInfoFoundPTag),
-                        '<h4>Fields of study</h4>' + fieldOfStudyHTML,
+                        '<h4 style="margin-top:16px">Fields of study</h4>' + fieldOfStudyHTML,
                     closeDiv,
                 closeDiv,
             closeDiv,
