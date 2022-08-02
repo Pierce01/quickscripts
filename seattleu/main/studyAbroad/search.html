@@ -11,119 +11,239 @@
     <title>Search Tool</title>
   </head>
   <style>
-    .dropbtn {
-      color: black;
-      /* border: none; */
-      background: none;
-    }
-
-    .dropbtn::after {
-      content: "▾";
-    }
-
-    .dropdownWrap {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
-
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #ddd;
-    }
-
-    .dropdownWrap:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdownWrap:hover .dropbtn::after {
-      content: "▴";
-    }
-
-    .dropdownWrap li {
-      list-style: none;
-    }
-
-    .dropdownWrap .dropbtn {
-      font-size: initial;
+    #SASTool input, #SASTool select {
+      width: -moz-available;
+      width: -webkit-fill-available;
+      width: fill-available;
+      background-color: #f7f7f7;
+      border: 1px solid #333333;
+      border-radius: 0px;
+      box-shadow: none;
+      color: #333333;
+      font-size: 1.5rem;
+      padding: 10px 10px;
+      text-indent: 0.01px;
+      text-overflow: "";
     }
 
     #SASTool .row {
         margin-bottom: 10px;
     }
+
+    #id3730272 {
+      background-color: inherit !important;
+    }
+    #id3730272 > .titleWrapper {
+      display: none;
+    }
+
+    #filterFieldWrapper > div.noResultsToShow.standardContent.hideResultsMessage  {
+      display: none;
+    }
+
+    .slider {
+      text-align:center
+    }
   </style>
-  <script></script>
+  <script>
+    window.addEventListener('load', function() {
+        const elements = document.getElementsByClassName("locationFeedItem");
+        window.studyAbroadSearchObject = {}
+
+        for(let i = 0; i < elements.length; i++) {
+          const metaDataParsed = (elements[i].firstChild.innerText).split('%&&&&&%');
+          let holderText = ""
+          for(let k = 0; k < metaDataParsed.length; k++) {
+            const parsedSubGroup = metaDataParsed[k].split('%:% ');
+            if(!window.studyAbroadSearchObject[elements[i].id]) {
+              window.studyAbroadSearchObject[elements[i].id] = {}
+            }
+            window.studyAbroadSearchObject[elements[i].id][parsedSubGroup[0].toLowerCase()] = parsedSubGroup[1];
+            holderText += parsedSubGroup[1] + ";";
+          }
+          window.studyAbroadSearchObject[elements[i].id]["all"] = holderText;
+        }
+
+        let array = Object.keys(window.studyAbroadSearchObject)
+        let dynamicDropDownLists = {}
+        let maxPrice = 0
+        for (let i = 0; i < array.length; i++) {
+          const id = array[i]
+          const fields = Object.keys(window.studyAbroadSearchObject[id])
+          for (let k = 0; k < fields.length; k++) {
+            const field = fields[k]
+            if (field !== 'all' && field !== 'su program fee') {
+              let entries = window.studyAbroadSearchObject[id][field].split(',')
+              if (!dynamicDropDownLists[field]) {
+                dynamicDropDownLists[field] = []
+              }
+              for (let j = 0; j < entries.length; j++) {
+                const entry = entries[j]
+                if (!dynamicDropDownLists[field].includes(entry.trim())) {
+                  dynamicDropDownLists[field].push(entry.trim())
+                }
+              }
+            } else {
+              if (field == 'su program fee') {
+                let prices = window.studyAbroadSearchObject[id][field].split('$').join('').split('/')
+                for (let amount of prices) {
+                  let parsedAmount = parseInt(amount)
+                  if (parsedAmount !== NaN) {
+                    maxPrice = parsedAmount > maxPrice ? parsedAmount : maxPrice
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        array = Object.keys(dynamicDropDownLists)
+        for(let j = 0; j < array.length; j++) {
+          dynamicDropDownLists[array[j]].sort()
+          for (let w = 0; w < dynamicDropDownLists[array[j]].length; w++) {
+            const targetElement = document.getElementById((array[j].split(' ')).join(''))
+            if (targetElement) {
+              if (!dynamicDropDownLists[array[j]][w] || dynamicDropDownLists[array[j]][w].length === 0) continue
+              targetElement.innerHTML += '<option value=' + dynamicDropDownLists[array[j]][w] + '>' + dynamicDropDownLists[array[j]][w] + '</option>'
+            }
+          }
+        }
+
+        const slider = document.getElementById('priceSlider')
+        const priceDisplay = document.getElementById('priceDisplay')
+
+        maxPrice += 100
+        slider.max = maxPrice
+        slider.value = maxPrice
+        priceDisplay.innerText = 'Any Price'
+        slider.oninput = () => {
+          priceDisplay.innerText = slider.value == maxPrice ? "Any Price" : (slider.value == 0 ? `Not Priced or listed as $0` : `Under $${slider.value}`)
+          handleSearch()
+        }
+    })
+
+    function handleSearch() {
+      const array = Object.keys(window.studyAbroadSearchObject)
+      const searchBox = document.querySelector('#SASTool input')
+      for (let i = 0; i < array.length; i++) {
+        const id = array[i]
+        const element = document.getElementById(id)
+
+        if (window.studyAbroadSearchObject[id]["all"].toLowerCase().indexOf(searchBox.value.toLowerCase()) > -1 &&
+           hasSearchSelection(id, "destination") && hasSearchSelection(id, "region") && hasSearchSelection(id, "program type") && 
+           handlePriceSelection(id) && hasSearchSelection(id, "term") && hasSearchSelection(id, "features") &&
+           hasSearchSelection(id, "field of study")) {
+          element.style.display = "flex"
+        } else {
+          element.style.display = "none"
+        }
+      }
+
+      const elements = document.getElementsByClassName('locationFeedItem')
+      let counter = 0
+      for (let i = 0; i < elements.length; i++) {
+        if (elements[i].style.display != 'none') {
+          counter++
+          break
+        }
+      }
+      
+      const noResultsElement = document.querySelector('#filterFieldWrapper > div.noResultsToShow.standardContent.hideResultsMessage')
+      if (counter && noResultsElement.style.display != 'none') {
+        noResultsElement.style.display = 'none'
+      } else if (!counter && noResultsElement.style.display == 'none') {
+        noResultsElement.style.display = 'block'
+      }
+    }
+
+    function hasSearchSelection (id, field) {
+      const value = document.getElementById(field.split(' ').join('')).value
+      return value == "any" ? true : window.studyAbroadSearchObject[id][field].indexOf(value) > -1
+    }
+
+    function handlePriceSelection(id) {
+      if (window.studyAbroadSearchObject[id]["su program fee"].indexOf('N/A') > -1) return true
+
+      let prices = window.studyAbroadSearchObject[id]["su program fee"].split('$').join('').split('/')
+      const value = document.getElementById('priceSlider').value
+      for (let amount of prices) {
+        let parsedAmount = parseInt(amount)
+        if (parsedAmount !== NaN) {
+          if (parsedAmount <= parseInt(document.getElementById('priceSlider').value)) {
+            return true
+          }
+        } else {
+          console.log(id)
+          return true
+        }
+      }
+       return false
+    }
+
+  </script>
   <body>
     <div id="SASTool">
       <div class="container">
-        <div class="row">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
           <div class="col">
             <div class="saButtonLabel">Search</div>
-            <input>
+            <input onkeydown="handleSearch()" onkeyup="handleSearch()">
           </div>
           <div class="col">
             <div class="saButtonLabel">Destination</div>
             <div class="dropdownWrap">
-              <button class="dropbtn" id="dropdownMenuButton">Select Destination...</button>
-              <div class="dropdown-content">Loading...</div>
+              <select id="destination" onchange="handleSearch()">
+                <option value="any">Any</option>
+              </select>
             </div>
           </div>
           <div class="col">
             <div class="saButtonLabel">Region</div>
             <div class="dropdownWrap">
-              <button class="dropbtn" id="dropdownMenuButton">Select Region...</button>
-              <div class="dropdown-content">Loading...</div>
+              <select id="region" onchange="handleSearch()">
+                <option value="any">Any</option>
+              </select>
             </div>
           </div>
           <div class="col">
             <div class="saButtonLabel">Program Type</div>
             <div class="dropdownWrap">
-              <button class="dropbtn" id="dropdownMenuButton">Select Program Type</button>
-              <div class="dropdown-content">Loading...</div>
+              <select id="programtype" onchange="handleSearch()">
+                <option value="any">Any</option>
+              </select>
             </div>
           </div>
-        </div>
-        <div class="row">
           <div class="col">
             <div class="saButtonLabel">SU Program Fee</div>
             <div class="dropdownWrap">
-              <button class="dropbtn" id="dropdownMenuButton">Select Fee...</button>
-              <div class="dropdown-content">Loading...</div>
+                <div class="slider">
+                  <span id="priceDisplay">Waiting to be populated...</span>
+                  <input class="form-range" step="100" style="padding:0px;border:0px;background-color:transparent;" id="priceSlider" type="range" min="0" max="100" value="100">
+              </div>
             </div>
           </div>
           <div class="col">
             <div class="saButtonLabel">Term</div>
             <div class="dropdownWrap">
-              <button class="dropbtn" id="dropdownMenuButton">Select Term(s)...</button>
-              <div class="dropdown-content">Loading...</div>
+              <select id="term" onchange="handleSearch()">
+                <option value="any">Any</option>
+              </select>
             </div>
           </div>
           <div class="col">
             <div class="saButtonLabel">Field of Study</div>
             <div class="dropdownWrap">
-              <button class="dropbtn" id="dropdownMenuButton">Select Field of Study...</button>
-              <div class="dropdown-content">Loading...</div>
+              <select id="fieldofstudy" onchange="handleSearch()">
+                <option value="any">Any</option>
+              </select>
             </div>
           </div>
           <div class="col">
             <div class="saButtonLabel">Features</div>
             <div class="dropdownWrap">
-              <button class="dropbtn" id="dropdownMenuButton">Select Feature...</button>
-              <div class="dropdown-content">Loading...</div>
+              <select id="features" onchange="handleSearch()">
+                <option value="any">Any</option>
+              </select>
             </div>
           </div>
         </div>

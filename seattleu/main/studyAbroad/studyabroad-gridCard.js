@@ -1,13 +1,10 @@
 // PSL
-var version="21.0";eval(function(version){var minImports=JavaImporter(com.terminalfour.media.IMediaManager,com.terminalfour.spring.ApplicationContextProvider,com.terminalfour.version.Version);with(minImports){var mm=ApplicationContextProvider.getBean(IMediaManager),media=mm.get(3101315,language,new Version(version)).getMedia(),s=new java.util.Scanner(media).useDelimiter("\\A");return String(s.hasNext()?s.next():"")}}(version))
+var version="23.0";eval(function(version){var minImports=JavaImporter(com.terminalfour.media.IMediaManager,com.terminalfour.spring.ApplicationContextProvider,com.terminalfour.version.Version);with(minImports){var mm=ApplicationContextProvider.getBean(IMediaManager),media=mm.get(3101315,language,new Version(version)).getMedia(),s=new java.util.Scanner(media).useDelimiter("\\A");return String(s.hasNext()?s.next():"")}}(version))
 
 try {
     var mediaManager = ApplicationContextProvider.getBean(IMediaManager)
     var cssClass = 'locationFeedItem profileItem card shadow col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4'
     var cityCountryString = function () {
-        // Using getValue here since technically whats being returned is typed as an object rather then a string.
-        // The reason why I'm not using getValue for the other get statements is because they display properly
-        // without calling the method, but just can't call string related properties.
         var cities = content.get('City').getValue().split(',').length
         var countries = content.get('Country').getValue().split(',').length
         if (cities > 1 && countries > 1) {
@@ -18,7 +15,11 @@ try {
             // This would be caused by user error
             return 'Multiple locations'
         } else {
-            return content.get('City').getValue() + ', ' + content.get('Country').getValue()
+            var city = content.get('City').getValue()
+            var country =  content.get('Country').getValue()
+            return city == "Various" && country == "Various" 
+                ? 'Multiple locations'
+                : city + ', ' + country
         }
     }()
     var imageObj = function () {
@@ -45,19 +46,34 @@ try {
     var programFee = function () {
         var fee = content.get('Program Fee').getValue()
         if (fee == '') {
-            return 'Fee not specified'
+            return 'Click for more information'
         } else if (!fee.includes('$')) {
             return '$' + fee
         } else {
             return fee
         }
     }()
+    var region = function () {
+        return content.get('Region').getValue() == '' ? 'Multiple Regions' : content.get('Region').getValue()
+    }()
     var metadata = function () {
         var contentArray = []
-        var keys = content.getElements().toArray()
-        for (var i = 0; i < keys.length; i++) {
-            contentArray.push([keys[i].getName()] + '%:% ' + keys[i].getValue())
-        }
+        // Title
+        contentArray.push("Title%:% " + content.get('Name').getValue())
+        // Destinations
+        contentArray.push("Destination%:% " + content.get('Country').getValue())
+        // Region
+        contentArray.push("Region%:% " + region)
+        // Program Type
+        contentArray.push("Program Type%:% " + content.get('Program Type').getValue())
+        // Program Fee
+        contentArray.push("SU Program Fee%:% " + programFee)
+        // Terms
+        contentArray.push("Term%:% " + content.get('Terms').getValue())
+        // Additional Features
+        contentArray.push("Features%:% " + content.get('Additional Features').getValue())
+        // Field of Study
+        contentArray.push("Field of Study%:% " + content.get('Disciplines').getValue())
         return contentArray.join('%&&&&&%')
     }()
     
@@ -72,9 +88,11 @@ try {
                 '</h3>',
                 '<p class="card-text margin0 subtext">' + cityCountryString + '</p>',
                 '<p class="card-text margin0">' + content.get('Program Type') + '</p>',
-                '<p class="card-text">' + programFee + '</p>',
+                '<p class="card-text">Program Fee: ' + programFee + '</p>',
             closeDiv,
-            '<div class="card-footer"><span class="locationRegion">' + content.get('Region') + '</span></div>',
+            '<div class="card-footer"><span class="locationRegion">' + (content.get('Region').getValue() == '' 
+                ? 'Multiple Regions' 
+                : content.get('Region').getValue()) + '</span></div>',
         closeDiv
     ])
 } catch (error) {

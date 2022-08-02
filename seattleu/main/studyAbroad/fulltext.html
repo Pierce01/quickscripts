@@ -9,142 +9,193 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl51bxzHfJlGn9--0VhBtEMpDHknYu6sI"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <!-- Scripts -->
     <script src='./search.js'></script>
 
     <title>Location test page</title>
   </head>
 <style>
-  .margin2 {
-    margin: 3px !important;
-  }
+.margin2 {
+	margin: 3px !important
+}
 
-  .marginTop4 {
-    margin-top: 4px !important;
-  }
+.marginTop4 {
+	margin-top: 4px !important
+}
 
-  .SAWrapper .card {
-    border: 0px !important;
-    background-color: #F7F7F7 !important;
-    margin: 0 auto !important;
-    margin-bottom: 20px!important;
-  }
+.SAWrapper .card {
+	border: 0 !important;
+	background-color: #f7f7f7 !important;
+	margin: 0 auto !important;
+	margin-bottom: 20px !important;
+	max-width: 100% !important
+}
 
-  .sideBox li {
-    list-style-type: disc;
-    list-style-position: inside;
-    text-indent: -1em;
-    padding-left: 1em;
-  }
+.SAWrapper .card-text {
+  font-size: .9rem;
+}
 
-  .textBodyWrapper {
-    max-width: 64% !important;
-    margin: 0 auto !important;
-    margin-left: 0 !important;
-  }
+.sideBox li {
+	list-style-type: disc;
+	list-style-position: inside;
+	text-indent: -1.2em;
+	padding-left: 1em
+}
 
-  .sideBox {
-    float: right!important;
-  }
+.textBodyWrapper {
+	max-width: 78% !important;
+	margin: 0 20px !important;
+	margin-left: 0 !important
+}
 
-  .contentWrapper {
-    display: flex !important;
-    max-width: 50% !important;
-    margin: 0 auto !important;
+@media (min-width: 1200px) {
+    .textBodyWrapper {
+      max-width: 72%!important;
+      margin: 0 auto 0 0!important;
   }
+}
 
-  .blueBox {
-    background-color: #088099 !important;
-    padding: 20px !important;
-    color: white !important;
-    margin-bottom: 20px !important;
-  }
+.sideBox {
+	float: right !important
+}
 
-  .clearBoxBlue {
-    border-color: #088099 !important;
-    border-width: 2px !important;
-    border-style: solid !important;
-    padding: 20px !important;
-  }
+.contentWrapper {
+	display: flex !important;
+	/* max-width: 70% !important; */
+	margin: 0 auto !important
+}
 
-  .sideBoxWrapper {
-    display: grid !important;
-    grid-template-rows: auto auto 1fr 1fr 1fr auto auto;
-    grid-gap:10px;
-    max-width: 230px !important;
-  }
+.blueBox {
+	background-color: #088099 !important;
+	padding: 20px !important;
+	color: #fff !important;
+	margin-bottom: 20px !important
+}
 
-  #map {
-    width: 100%;
-    height: 400px;
-  }
+.clearBoxBlue {
+	border-color: #088099 !important;
+	border-width: 2px !important;
+	border-style: solid !important;
+	padding: 20px !important
+}
 
-  .SAWrapper .btn {
-    border-width: 1px !important;
-    border-style: solid !important;
-    border-color: #12859D !important;
-    border-radius: 0% !important;
-    width: 40%!important;
-    font-size: 1.6rem
-  }
+.sideBoxWrapper {
+	display: grid !important;
+	grid-template-rows: auto auto 1fr 1fr 1fr auto auto;
+	grid-gap: 10px;
+	max-width: 270px !important;
+}
 
-  .SAWrapper img {
-    width: 100%;
-    object-fit: cover;
-  }
+.sideBox {
+    font-size: 1rem!important;
+}
 
-  .textBody > li {
-    font-size: 1.6rem !important;
-  }
+#map {
+	width: 100%;
+	height: 400px;
+}
 
-  .redBold, .textBody h3 {
-    font-weight: bold !important;
-    color: #ED1C24 !important;
-  }
+.SAWrapper .btn {
+	border-width: 1px !important;
+	border-style: solid !important;
+	border-color: #12859d !important;
+	border-radius: 0 !important;
+	width: 40% !important;
+	font-size: 1.6rem
+}
 
-  .dropbtn {
-  color: black;
-  border: none;
-  background:none;
+.SAWrapper img {
+	width: 100%;
+	object-fit: cover
+}
+
+.textBody > p {
+    font-size: 1.3rem;
+    line-height: normal;
+}
+.textBody>li {
+	font-size: 1.2rem !important
+}
+
+.redBold,
+.textBody h3 {
+	font-weight: 700 !important;
+	color: #ed1c24 !important
+}
+
+.dropbtn {
+	color: #000;
+	border: none;
+	background: 0 0
 }
 
 .dropbtn::after {
-  content: "▾";
+	content: "▾"
 }
 
 .dropdownWrap {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+	z-index: 1;
+  font-size: .7rem !important;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+	color: #000;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block
 }
 
-.dropdown-content a:hover { background-color: #ddd; }
-.dropdownWrap:hover .dropdown-content { display: block; }
-.dropdownWrap:hover .dropbtn::after { content: "▴"; }
-.dropdownWrap li { list-style: none; }
+.dropdown-content a:hover {
+	background-color: #ddd
+}
+
+.dropdownWrap:hover .dropdown-content {
+	display: block
+}
+
+.dropdownWrap:hover .dropbtn::after {
+	content: "▴"
+}
+
+.dropdownWrap li {
+	list-style: none
+}
+
 .SAWrapper button.dropbtn {
-    font-size: initial;
+	font-size: initial
+}
+
+.SAWrapper a:not([href]) {
+    position: inherit;
+    visibility: visible;
+}
+
+.SAWrapper p.card-text.text-muted {
+    margin-top: 10px !important;
+}
+
+@media only screen and (min-width: 1200px) {
+      .SAWrapper p.card-text.text-muted {
+        margin-bottom: 10px !important;
+        position: absolute !important;
+        bottom: 0 !important;
+    }
 }
 </style>
   <script>
-function initialize(){new google.maps.Map(document.getElementById("map"),{center:{lat:47.610409,lng:-122.319385},streetViewControl:!1,mapTypeControl:!1,fullscreenControl:!1,zoom:13})}google.maps.event.addDomListener(window,"load",initialize);
+function initialize(){new google.maps.Map(document.getElementById("map"),{center:{lat:47.610409,lng:-122.319385},streetViewControl:!1,mapTypeControl:!1,fullscreenControl:!1,zoom:13})}window.addEventListener("load", initialize);
   </script>
   <body>
     <div class="SAWrapper">
@@ -212,6 +263,7 @@ function initialize(){new google.maps.Map(document.getElementById("map"),{center
           </div>
           <div class="sideBox blueBox">
             <h4>Budgets by Term</h4>
+            <a href="' + content.get('Link to Apply') + '" class="btn" style="display:inline">Fall Semester</a>
           </div>
           <div class="sideBox clearBoxBlue">
             <h4>Credits</h4>
