@@ -46,7 +46,7 @@
     }
   </style>
   <script>
-    window.addEventListener('load', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         const elements = document.getElementsByClassName("locationFeedItem");
         window.studyAbroadSearchObject = {}
 
@@ -85,7 +85,7 @@
               }
             } else {
               if (field == 'su program fee') {
-                let prices = window.studyAbroadSearchObject[id][field].split('$').join('').split('/')
+                let prices = window.studyAbroadSearchObject[id][field].split('$').join('').split(',').join('').split('/')
                 for (let amount of prices) {
                   let parsedAmount = parseInt(amount)
                   if (parsedAmount !== NaN) {
@@ -164,7 +164,7 @@
     function handlePriceSelection(id) {
       if (window.studyAbroadSearchObject[id]["su program fee"].indexOf('N/A') > -1) return true
 
-      let prices = window.studyAbroadSearchObject[id]["su program fee"].split('$').join('').split('/')
+      let prices = window.studyAbroadSearchObject[id]["su program fee"].split('$').join('').split(',').join('').split('/')
       const value = document.getElementById('priceSlider').value
       for (let amount of prices) {
         let parsedAmount = parseInt(amount)

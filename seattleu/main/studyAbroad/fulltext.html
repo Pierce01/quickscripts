@@ -17,6 +17,11 @@
     <title>Location test page</title>
   </head>
 <style>
+.blueBox,
+.clearBoxBlue {
+	padding: 20px !important
+}
+
 .margin2 {
 	margin: 3px !important
 }
@@ -28,13 +33,16 @@
 .SAWrapper .card {
 	border: 0 !important;
 	background-color: #f7f7f7 !important;
-	margin: 0 auto !important;
-	margin-bottom: 20px !important;
+	margin: 0 auto 20px !important;
 	max-width: 100% !important
 }
 
 .SAWrapper .card-text {
-  font-size: .9rem;
+	font-size: 1.2rem
+}
+
+.SAWrapper {
+	margin-bottom:100px;
 }
 
 .sideBox li {
@@ -46,64 +54,71 @@
 
 .textBodyWrapper {
 	max-width: 78% !important;
-	margin: 0 20px !important;
-	margin-left: 0 !important
+	margin: 0 20px 0 0 !important
 }
 
-@media (min-width: 1200px) {
-    .textBodyWrapper {
-      max-width: 72%!important;
-      margin: 0 auto 0 0!important;
-  }
+@media (min-width:1200px) {
+	.textBodyWrapper {
+		max-width: 72% !important;
+		margin: 0 auto 0 0 !important
+	}
 }
 
 .sideBox {
-	float: right !important
+	float: right !important;
+	font-size: 1rem !important
 }
 
 .contentWrapper {
 	display: flex !important;
-	/* max-width: 70% !important; */
 	margin: 0 auto !important
 }
 
 .blueBox {
 	background-color: #088099 !important;
-	padding: 20px !important;
 	color: #fff !important;
 	margin-bottom: 20px !important
 }
 
 .clearBoxBlue {
-	border-color: #088099 !important;
-	border-width: 2px !important;
-	border-style: solid !important;
-	padding: 20px !important
+	border: 2px solid #088099 !important
 }
 
 .sideBoxWrapper {
 	display: grid !important;
-	grid-template-rows: auto auto 1fr 1fr 1fr auto auto;
+	grid-template-rows: auto auto 1fr 1fr;
 	grid-gap: 10px;
-	max-width: 270px !important;
-}
-
-.sideBox {
-    font-size: 1rem!important;
+	max-width: 270px !important
 }
 
 #map {
 	width: 100%;
-	height: 400px;
+	height: 400px
+}
+
+.blueBox a {
+	width: 100% !important;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	display: grid !important;
+	text-align: left !important;
+	border: 1px solid #000 !important
+}
+
+.blueBox a:not(:last-child) {
+	margin-bottom: 15px
 }
 
 .SAWrapper .btn {
-	border-width: 1px !important;
-	border-style: solid !important;
-	border-color: #12859d !important;
+	border: 1px solid #12859d;
 	border-radius: 0 !important;
-	width: 40% !important;
-	font-size: 1.6rem
+	width: 40%;
+	font-size: 1.6vw
+}
+
+.SAWrapper .btn:hover {
+    color: #9e9e9e;
 }
 
 .SAWrapper img {
@@ -111,10 +126,11 @@
 	object-fit: cover
 }
 
-.textBody > p {
-    font-size: 1.3rem;
-    line-height: normal;
+.textBody>p {
+	font-size: 1.3rem;
+	line-height: normal
 }
+
 .textBody>li {
 	font-size: 1.2rem !important
 }
@@ -147,7 +163,7 @@
 	min-width: 160px;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
 	z-index: 1;
-  font-size: .7rem !important;
+	font-size: .7rem !important
 }
 
 .dropdown-content a {
@@ -170,7 +186,9 @@
 }
 
 .dropdownWrap li {
-	list-style: none
+	list-style: none;
+	text-indent: 0;
+	padding-left: 0
 }
 
 .SAWrapper button.dropbtn {
@@ -178,25 +196,103 @@
 }
 
 .SAWrapper a:not([href]) {
-    position: inherit;
-    visibility: visible;
+	position: inherit;
+	visibility: visible
 }
 
 .SAWrapper p.card-text.text-muted {
-    margin-top: 10px !important;
+	margin-top: 10px !important
 }
 
-@media only screen and (min-width: 1200px) {
-      .SAWrapper p.card-text.text-muted {
-        margin-bottom: 10px !important;
-        position: absolute !important;
-        bottom: 0 !important;
-    }
+@media only screen and (min-width:1200px) {
+	.SAWrapper p.card-text.text-muted {
+		margin-bottom: 10px !important;
+		position: absolute !important;
+		bottom: 0 !important
+	}
+}
+
+a.btn.marginTop4.redBold {
+	overflow: hidden;
+	white-space: nowrap;
+	min-width: fit-content
+}
+
+@media (min-width:1440px) {
+	.sideBox a.btn {
+		font-size: 1vw !important
+	}
+}
+
+@media (max-width:992px) {
+
+	.sideBoxWrapper,
+	.textBodyWrapper {
+		max-width: 100% !important
+	}
+
+	.contentWrapper {
+		display: block !important
+	}
+
+	.textBodyWrapper {
+		margin: 0 !important
+	}
+
+	#map {
+		margin-bottom: 1rem
+	}
+}
+
+@media (max-width:575px) {
+	.SAWrapper {
+		margin: 10px !important
+	}
+}
+
+.blueBox a {
+    background-color: #333333;
+    color: white;
+    border: 0px!important;
+    display: inline-block!important;
+    position: relative!important;
+    vertical-align: top!important;
+    padding-right:50px;
+}
+
+.blueBox a:after {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgODAgODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCI+CiAgICA8cGF0aCBkPSJNIDIwIDQwIEwgNjAgNDAiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlPSIjMDQ4OTlkIiAvPgogICAgPHBhdGggZD0iTSA1MCAzMCBMIDYwIDQwIDUwIDUwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZT0iIzA0ODk5ZCIgZmlsbD0ibm9uZSIgLz4KICAgIDxwYXRoIGQ9Ik0gNDAgMzAgTCA1MCA0MCA0MCA1MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2U9IiMwNDg5OWQiIGZpbGw9Im5vbmUiIC8+CiAgICA8cGF0aCBkPSJNIDMwIDMwIEwgNDAgNDAgMzAgNTAiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlPSIjMDQ4OTlkIiBmaWxsPSJub25lIiAvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iMzUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlPSIjMDQ4OTlkIiBmaWxsPSJub25lIiAvPgogIDwvc3ZnPg==);
+    background-position: left!important;
+    background-repeat: no-repeat!important;
+    background-size: 25px!important;
+    content: " "!important;
+    display: block!important;
+    height: 25px!important;
+    position: absolute!important;
+    right: 15px!important;
+    top: calc(50% - 12px)!important;
+    width: 25px!important;
 }
 </style>
   <script>
-function initialize(){new google.maps.Map(document.getElementById("map"),{center:{lat:47.610409,lng:-122.319385},streetViewControl:!1,mapTypeControl:!1,fullscreenControl:!1,zoom:13})}window.addEventListener("load", initialize);
-  </script>
+    // var position ={lat:LATREPLACE,lng:LNGREPLACE};new google.maps.Marker({position, map});BOUNDSEXTEND;
+    function initialize() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+          center: {
+              lat: LATREPLACE,
+              lng: LNGREPLACE
+          },
+          streetViewControl: 0,
+          mapTypeControl: 0,
+          fullscreenControl: 0,
+          zoom: 4
+      });
+      NEWBOUNDS;
+      MARKERREPLACE;
+      FITBOUNDS;
+  }
+  window.addEventListener("load", initialize); 
+</script>
   <body>
     <div class="SAWrapper">
       <div calss="titleCard position-relative">
@@ -263,7 +359,7 @@ function initialize(){new google.maps.Map(document.getElementById("map"),{center
           </div>
           <div class="sideBox blueBox">
             <h4>Budgets by Term</h4>
-            <a href="' + content.get('Link to Apply') + '" class="btn" style="display:inline">Fall Semester</a>
+            <a href="" class="btn" style="display:inline">Fall Semester</a>
           </div>
           <div class="sideBox clearBoxBlue">
             <h4>Credits</h4>

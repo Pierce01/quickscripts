@@ -1,0 +1,4252 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.317941447923,
+              47.61194440765695,
+              0
+            ],
+            [
+              -122.317808280359,
+              47.61194441281161,
+              0
+            ],
+            [
+              -122.3178083063419,
+              47.611897492908,
+              0
+            ],
+            [
+              -122.3177545990852,
+              47.61189749327812,
+              0
+            ],
+            [
+              -122.3177565956251,
+              47.61223698009359,
+              0
+            ],
+            [
+              -122.3179370790411,
+              47.6122358259658,
+              0
+            ],
+            [
+              -122.317941447923,
+              47.61194440765695,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "1103 East Madison Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LYNN/front1.jpg\" alt=\"Front of 1103 East Madison Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LYNN/front2.jpg\" alt=\"Front of 1103 East Madison Building\" /></div>\r\n      </div>\r\n      \r\n            <p class=\"buildingDescription\">1103 E Madison is one of the oldest buildings on campus. It is home to the English Language Learning Center, the Commuter Link, and the Office of Institutional Research. You can also find the Communication Department on the third floor of the building.</p>\r\n            \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/communication/\" target=\"_blank\">Communication Department</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/student-outreach/resource-spaces/collegia-program/the-commuter-link/\" target=\"_blank\">The Commuter Link</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/ellc/\" target=\"_blank\">English Language Learning Center</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/ir/\" target=\"_blank\">Office of Institutional Research</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "1103",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3147806361176,
+              47.6090651560386,
+              0
+            ],
+            [
+              -122.3147795016314,
+              47.60832021920004,
+              0
+            ],
+            [
+              -122.3143384755498,
+              47.60831931688057,
+              0
+            ],
+            [
+              -122.3143376414081,
+              47.60873764043355,
+              0
+            ],
+            [
+              -122.3143165652914,
+              47.60873841305878,
+              0
+            ],
+            [
+              -122.3143163012364,
+              47.6089486897983,
+              0
+            ],
+            [
+              -122.3142940973993,
+              47.60895003382481,
+              0
+            ],
+            [
+              -122.3142943373632,
+              47.60907924836712,
+              0
+            ],
+            [
+              -122.3145038853977,
+              47.60908110346279,
+              0
+            ],
+            [
+              -122.3145049482569,
+              47.60906533595367,
+              0
+            ],
+            [
+              -122.3147806361176,
+              47.6090651560386,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "1313 East Columbia Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CLMB/front1.JPG\" alt=\"Front of 1313 East Columbia Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CLMB/front2.JPG\" alt=\"Front of 1313 East Columbia Building\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">Built in 1939 as a Coca-Cola bottling plant, the architecture of 1313 E Columbia exemplifies Streamline Moderne, a Depression-Era Art Deco style popular from the late 1920s to the 1940s. In 2010, it served as the Interim Library during construction of the Lemieux Library and McGoldrick Learning Commons. It houses Information Technology Services, Conference and Events Services, Facilities Services, and the Department of Public Safety.</p>\r\n        <ul>\r\n\t\t  <li><p><a href=\"https://www.seattleu.edu/ces/\" target=\"_blank\">Conference and Event Services</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/facilities/\" target=\"_blank\">Facilities Services</a></p></li>\r\n\t\t  <li><p><a href=\"https://www.seattleu.edu/its/\" target=\"_blank\">Information Technology Services</a></p></li>\r\n\t\t  <li><p><a href=\"https://www.seattleu.edu/safety/\" target=\"_blank\">Public Safety</a></p></li> \r\n        </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "administrative",
+        "abbreviation": "CLMB",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3139650252029,
+              47.60608198370582,
+              0
+            ],
+            [
+              -122.3139623717646,
+              47.60581965257175,
+              0
+            ],
+            [
+              -122.3134906912033,
+              47.60581965687091,
+              0
+            ],
+            [
+              -122.3134933638247,
+              47.60608015998311,
+              0
+            ],
+            [
+              -122.3139650252029,
+              47.60608198370582,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "1401 East Jefferson Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/JEFF/front1.jpg\" alt=\"Front of 1401 East Jefferson Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/JEFF/front2.jpg\" alt=\"Front of 1401 East Jefferson Building\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">1401 E Jefferson is home to the Master of Fine Arts in Arts Leadership (MFA), and Master of Nonprofit Leadership (MNPL) programs. </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/mfa/\" target=\"_blank\">Master of Fine Arts in Arts Leadership</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/mnpl/\" target=\"_blank\">Master of Nonprofit Leadership</a></p></li>\r\n      </ul>\r\n            \r\n            ",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "JEFF",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3197730432087,
+              47.61082527163454,
+              0
+            ],
+            [
+              -122.3195212520604,
+              47.6108255175036,
+              0
+            ],
+            [
+              -122.3195200666227,
+              47.61110505684118,
+              0
+            ],
+            [
+              -122.3194984809361,
+              47.61110508273358,
+              0
+            ],
+            [
+              -122.3194985699992,
+              47.61116528979867,
+              0
+            ],
+            [
+              -122.3195202097544,
+              47.61116682901656,
+              0
+            ],
+            [
+              -122.319520306123,
+              47.61144248564591,
+              0
+            ],
+            [
+              -122.3197759958837,
+              47.61144473641636,
+              0
+            ],
+            [
+              -122.3197754511926,
+              47.61115293918195,
+              0
+            ],
+            [
+              -122.3197888469416,
+              47.61115305166822,
+              0
+            ],
+            [
+              -122.319788217928,
+              47.61111447874475,
+              0
+            ],
+            [
+              -122.3197735436576,
+              47.6111140849866,
+              0
+            ],
+            [
+              -122.3197730432087,
+              47.61082527163454,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Administration Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n        <p class=\"buildingDescription\">The Administration building is located in the northwest corner of campus. It houses the offices of the President and the Provost and other key staff, the Office of University Planning, the Institutional Review Board (IRB), Finance and Business Affairs, the University Counsel, the office of the Executive Vice President (EVP), Global Engagement, University Core, and other programs within Academic Affairs. The building features over 30 classrooms on 3 levels and the small, intimate Chapel of the Immaculate Conception. A large green space on the west side of the building provides a quiet space away from the hustle of the city. On a sunny day, it is the perfect retreat for students, faculty, staff, and guests.</p>\r\n        \r\n        <ul>\r\n          <li><p><a href=\"https://www.seattleu.edu/president/\" target=\"_blank\">Office of the President</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/provost/\" target=\"_blank\">Office of the Provost</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/university-planning/\" target=\"_blank\">Office of University Planning</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/irb/\" target=\"_blank\">Institutional Review Board</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/finance-and-business-affairs/\" target=\"_blank\">Finance and Business Affairs</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/administration/executive-vice-president/\" target=\"_blank\">Executive Vice President (EVP)</a></p></li>\r\n\t\t  <li><p><a href=\"https://www.seattleu.edu/global/\" target=\"_blank\">Global Engagement</a></p></li>\r\n\t\t  <li><p><a href=\"https://www.seattleu.edu/core/\" target=\"_blank\">University Core Curriculum</a></p></li>\r\n\t\t  <li><p><a href=\"https://www.seattleu.edu/diversity/\" target=\"_blank\">Office of Diversity and Inclusion</a></p></li>\r\n        </ul>\r\n        \r\n      ",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "secondary": "administrative",
+        "abbreviation": "ADMN",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3166123356956,
+              47.60995748516455,
+              0
+            ],
+            [
+              -122.3161245317225,
+              47.6099577052922,
+              0
+            ],
+            [
+              -122.3161238181452,
+              47.61017009276178,
+              0
+            ],
+            [
+              -122.3162401792781,
+              47.61017162305009,
+              0
+            ],
+            [
+              -122.3162416547658,
+              47.61020669913961,
+              0
+            ],
+            [
+              -122.3162575348162,
+              47.61020804894628,
+              0
+            ],
+            [
+              -122.3162604208397,
+              47.6102739215603,
+              0
+            ],
+            [
+              -122.3163677329428,
+              47.61027505725539,
+              0
+            ],
+            [
+              -122.3163646076315,
+              47.61029550374311,
+              0
+            ],
+            [
+              -122.3166123295393,
+              47.61029486410177,
+              0
+            ],
+            [
+              -122.3166123356956,
+              47.60995748516455,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Advancement and Alumni Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ADAL/front1.JPG\" alt=\"Front of Advancement and Alumni Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ADAL/front2.JPG\" alt=\"Front of Advancement and Alumni Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ADAL/inside1.JPG\" alt=\"Inside of Advancement and Alumni Building\" /></div>\r\n      </div>\r\n      <p class=\"buildingDescription\">\r\n        Home to University Advancement and the Seattle University Alumni Association.\r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/advancement-services/\" target=\"_blank\">Advancement Services</a></p></li>\r\n\t    <li><p><a href=\"https://www.seattleu.edu/alumni/\" target=\"_blank\">Alumni</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "administrative",
+        "abbreviation": "ADAL",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.319137932646,
+              47.60764776977042,
+              0
+            ],
+            [
+              -122.3192917605746,
+              47.60764661696888,
+              0
+            ],
+            [
+              -122.3192912440899,
+              47.60763795806536,
+              0
+            ],
+            [
+              -122.3194033282636,
+              47.60763778394586,
+              0
+            ],
+            [
+              -122.3194031814865,
+              47.6075126989077,
+              0
+            ],
+            [
+              -122.3193695224898,
+              47.607512640856,
+              0
+            ],
+            [
+              -122.319368912937,
+              47.60740776240709,
+              0
+            ],
+            [
+              -122.3194036181988,
+              47.60740800517981,
+              0
+            ],
+            [
+              -122.3194048078076,
+              47.60728669241887,
+              0
+            ],
+            [
+              -122.3193261927638,
+              47.60728529127298,
+              0
+            ],
+            [
+              -122.3193262075996,
+              47.60727993373666,
+              0
+            ],
+            [
+              -122.3192431134346,
+              47.60727939440795,
+              0
+            ],
+            [
+              -122.3192434715029,
+              47.60728504663089,
+              0
+            ],
+            [
+              -122.3191714877697,
+              47.60728540813933,
+              0
+            ],
+            [
+              -122.3191715918829,
+              47.60726802596555,
+              0
+            ],
+            [
+              -122.319117748905,
+              47.6072682091484,
+              0
+            ],
+            [
+              -122.3191176765375,
+              47.6072839493869,
+              0
+            ],
+            [
+              -122.3188553019329,
+              47.60728307587011,
+              0
+            ],
+            [
+              -122.3181044768086,
+              47.60728244074038,
+              0
+            ],
+            [
+              -122.3181018508092,
+              47.60740741644787,
+              0
+            ],
+            [
+              -122.3181461304039,
+              47.60740729140724,
+              0
+            ],
+            [
+              -122.318146199745,
+              47.6076099904984,
+              0
+            ],
+            [
+              -122.3181248684029,
+              47.607610056273,
+              0
+            ],
+            [
+              -122.3181269926181,
+              47.60779690087102,
+              0
+            ],
+            [
+              -122.3181572799189,
+              47.60779849856381,
+              0
+            ],
+            [
+              -122.318157237562,
+              47.60791275100145,
+              0
+            ],
+            [
+              -122.3182216070686,
+              47.60791186295557,
+              0
+            ],
+            [
+              -122.3182224451241,
+              47.60790426305301,
+              0
+            ],
+            [
+              -122.3182445530361,
+              47.60790446089015,
+              0
+            ],
+            [
+              -122.3182437226992,
+              47.60791174793565,
+              0
+            ],
+            [
+              -122.3183580009983,
+              47.60791167786493,
+              0
+            ],
+            [
+              -122.3183568792678,
+              47.60789610216357,
+              0
+            ],
+            [
+              -122.3184148651038,
+              47.60789570954691,
+              0
+            ],
+            [
+              -122.3184148641952,
+              47.60788172219875,
+              0
+            ],
+            [
+              -122.3187053026591,
+              47.6078792953207,
+              0
+            ],
+            [
+              -122.3187051395801,
+              47.60785860601584,
+              0
+            ],
+            [
+              -122.3187991604941,
+              47.60785766770937,
+              0
+            ],
+            [
+              -122.3188033840033,
+              47.60778627904499,
+              0
+            ],
+            [
+              -122.3190644372651,
+              47.60778476197972,
+              0
+            ],
+            [
+              -122.3190647455784,
+              47.60776798189062,
+              0
+            ],
+            [
+              -122.3191376048672,
+              47.60776716000859,
+              0
+            ],
+            [
+              -122.319137932646,
+              47.60764776977042,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Archbishop Murphy Apartments",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "        \r\n        <div class=\"slider\">\r\n          <div><img src=\"//static.seattleu.edu/map/photos/ATMA/murphy4.jpg\"  alt=\"Front of Murphy Apartments\" /></div>\r\n          <div><img src=\"//static.seattleu.edu/map/photos/ATMA/murphy1.jpg\" alt=\"Inside of Murphy Apartments\" /></div>\r\n          <div><img src=\"//static.seattleu.edu/map/photos/ATMA/murphy3.jpg\" alt=\"Inside of Murphy Apartments\" /></div>\r\n          <div><img src=\"//static.seattleu.edu/map/photos/ATMA/murphy2.jpg\" alt=\"Inside of Murphy Apartments\" /></div>\r\n        </div>\r\n          \r\n        <p class=\"buildingDescription\">The Murphy Apartments, named after Archbishop Thomas J. Murphy, provide housing for upperclassmen in the form of one- to four-bedroom living spaces. Each apartment includes one or two bathrooms as well as a kitchen with full-size stove, refrigerator, and microwave. Beneath the Murphys are five levels of parking that can be paid for by the hour or used with a permit.</p>\r\n        <ul>\r\n          <li><p><a href=\"https://www.seattleu.edu/housing/residences/murphy-apartments/\" target=\"_blank\">Murphy Apartments</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/transportation/parking/\" target=\"_blank\">Campus Parking</a></p></li>\r\n        </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "residential",
+        "abbreviation": "ATMA",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3197809237998,
+              47.60837250048601,
+              0
+            ],
+            [
+              -122.3197147253136,
+              47.60837243364952,
+              0
+            ],
+            [
+              -122.3197157186624,
+              47.60830155851636,
+              0
+            ],
+            [
+              -122.3196960589673,
+              47.60830106461877,
+              0
+            ],
+            [
+              -122.3196970575104,
+              47.60827347898573,
+              0
+            ],
+            [
+              -122.3196202862571,
+              47.60827257319986,
+              0
+            ],
+            [
+              -122.319622261312,
+              47.60830055996748,
+              0
+            ],
+            [
+              -122.3195736144379,
+              47.60830082081034,
+              0
+            ],
+            [
+              -122.3195725666747,
+              47.60832493831155,
+              0
+            ],
+            [
+              -122.3195315417772,
+              47.60832554262403,
+              0
+            ],
+            [
+              -122.3195315154343,
+              47.60834375278654,
+              0
+            ],
+            [
+              -122.319470959385,
+              47.60834349317275,
+              0
+            ],
+            [
+              -122.3194703519945,
+              47.60843865790841,
+              0
+            ],
+            [
+              -122.3195045913814,
+              47.60843819002984,
+              0
+            ],
+            [
+              -122.3195045392748,
+              47.6084666530794,
+              0
+            ],
+            [
+              -122.319468734228,
+              47.60846705073949,
+              0
+            ],
+            [
+              -122.3194679756841,
+              47.6085640918088,
+              0
+            ],
+            [
+              -122.3195027984209,
+              47.60856372408524,
+              0
+            ],
+            [
+              -122.3195022281779,
+              47.60862005628933,
+              0
+            ],
+            [
+              -122.3196711738444,
+              47.60861780425444,
+              0
+            ],
+            [
+              -122.3196722228092,
+              47.60850231388007,
+              0
+            ],
+            [
+              -122.3197803952406,
+              47.60850219950786,
+              0
+            ],
+            [
+              -122.3197809237998,
+              47.60837250048601,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Arrupe Jesuit Residence",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ARRP/inside1.JPG\" alt=\"Inside of Arrupe Residence\"></div>\r\n      </div>\r\n      \r\n        <p class=\"buildingDescription\">Home to many of the Jesuits who work on campus, Arrupe House has 16 bedrooms, a living room, dining room and kitchen as well as a chapel and parlor. It also houses the offices of the Rector, the house manager, and the community's administrative assistant. In addition to the Arrupe House, some SU Jesuits live in dorms as moderators.</p>\r\n      ",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "residential",
+        "abbreviation": "ARRP",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3192399896381,
+              47.60949454376181,
+              0
+            ],
+            [
+              -122.3192558320134,
+              47.60948149878761,
+              0
+            ],
+            [
+              -122.3192569614927,
+              47.60946551504673,
+              0
+            ],
+            [
+              -122.3192422684281,
+              47.60945414198427,
+              0
+            ],
+            [
+              -122.3192218516207,
+              47.60945342548543,
+              0
+            ],
+            [
+              -122.3192230242643,
+              47.60937570979703,
+              0
+            ],
+            [
+              -122.3188371912311,
+              47.60937533953945,
+              0
+            ],
+            [
+              -122.3188359646542,
+              47.60939424463105,
+              0
+            ],
+            [
+              -122.3187904408913,
+              47.60939488852994,
+              0
+            ],
+            [
+              -122.3187892648669,
+              47.60937589426756,
+              0
+            ],
+            [
+              -122.3182979465411,
+              47.60937294646939,
+              0
+            ],
+            [
+              -122.3182981262758,
+              47.60942777376358,
+              0
+            ],
+            [
+              -122.3182870511539,
+              47.60943044882421,
+              0
+            ],
+            [
+              -122.3182759655803,
+              47.60943379592676,
+              0
+            ],
+            [
+              -122.3182648775264,
+              47.60943982397698,
+              0
+            ],
+            [
+              -122.3182558007245,
+              47.60944585648171,
+              0
+            ],
+            [
+              -122.3182467296561,
+              47.60945524273573,
+              0
+            ],
+            [
+              -122.3182417042483,
+              47.60946462786757,
+              0
+            ],
+            [
+              -122.3182407270342,
+              47.6094733359342,
+              0
+            ],
+            [
+              -122.3182438254652,
+              47.60948805469721,
+              0
+            ],
+            [
+              -122.3182519666878,
+              47.60949939823112,
+              0
+            ],
+            [
+              -122.3182590619243,
+              47.60950404924339,
+              0
+            ],
+            [
+              -122.3182681974842,
+              47.60951135433705,
+              0
+            ],
+            [
+              -122.3182823736474,
+              47.60951795250151,
+              0
+            ],
+            [
+              -122.3182944911159,
+              47.60952121799566,
+              0
+            ],
+            [
+              -122.318293644654,
+              47.60956720458137,
+              0
+            ],
+            [
+              -122.3184086001737,
+              47.60956805366871,
+              0
+            ],
+            [
+              -122.3184093596061,
+              47.60952720680883,
+              0
+            ],
+            [
+              -122.3187432348968,
+              47.60952712640581,
+              0
+            ],
+            [
+              -122.3187432231157,
+              47.60953701791542,
+              0
+            ],
+            [
+              -122.3187557401127,
+              47.60954526988641,
+              0
+            ],
+            [
+              -122.3187852443379,
+              47.60954574698735,
+              0
+            ],
+            [
+              -122.3188033336223,
+              47.60953648696839,
+              0
+            ],
+            [
+              -122.3188033392819,
+              47.60952588837257,
+              0
+            ],
+            [
+              -122.3191715737887,
+              47.60952583123081,
+              0
+            ],
+            [
+              -122.3191717236262,
+              47.60955224869981,
+              0
+            ],
+            [
+              -122.319222118576,
+              47.60955310057835,
+              0
+            ],
+            [
+              -122.319221825371,
+              47.60949389158342,
+              0
+            ],
+            [
+              -122.3192399896381,
+              47.60949454376181,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Bannan Engineering Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ENGR/Bannan.png\" alt=\"Front of Bannan Building\" ></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ENGR/front1.JPG\" alt=\"Front of Bannan Building\" ></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ENGR/rear1.JPG\" alt=\"Rear of Bannan Building\" ></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ENGR/inside2.JPG\" alt=\"Inside of Bannan Building\" ></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ENGR/inside1.JPG\" alt=\"Inside of Bannan Building\" ></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/ENGR/walkway.JPG\" alt=\"Walkway of Bannan Building\"></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">The Bannan Engineering building is one of the two Bannan buildings on campus. ENGR is home to the College of Science and Engineering. It contains numerous classrooms, hands-on work spaces, the Wyckoff Auditorium, and on the 6th floor, the University Budget Office.</p>\r\n\r\n\t\t<ul>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/scieng/\" target=\"_blank\">College of Science and Engineering</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/university-budget-office/\" target=\"_blank\">University Budget Office</a></p></li>\r\n\t\t</ul>\r\n      \r\n      ",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "ENGR",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3184110660928,
+              47.60970200394167,
+              0
+            ],
+            [
+              -122.3184098099564,
+              47.60956773950038,
+              0
+            ],
+            [
+              -122.3182929125072,
+              47.60956741529315,
+              0
+            ],
+            [
+              -122.3182931091723,
+              47.60969760467356,
+              0
+            ],
+            [
+              -122.3182551258966,
+              47.60969857397431,
+              0
+            ],
+            [
+              -122.3182478934156,
+              47.61028350340213,
+              0
+            ],
+            [
+              -122.3183081269911,
+              47.61028324214144,
+              0
+            ],
+            [
+              -122.3183079591531,
+              47.61031724135616,
+              0
+            ],
+            [
+              -122.3184205978676,
+              47.61031833362075,
+              0
+            ],
+            [
+              -122.3184218432486,
+              47.61028254951132,
+              0
+            ],
+            [
+              -122.318463228417,
+              47.61028229925636,
+              0
+            ],
+            [
+              -122.3184642720288,
+              47.61011957348664,
+              0
+            ],
+            [
+              -122.3184871638853,
+              47.61010740197304,
+              0
+            ],
+            [
+              -122.3184654653282,
+              47.61009606584405,
+              0
+            ],
+            [
+              -122.3184653644929,
+              47.60989128098867,
+              0
+            ],
+            [
+              -122.3184905799352,
+              47.60987709890158,
+              0
+            ],
+            [
+              -122.3184665584206,
+              47.60986446205802,
+              0
+            ],
+            [
+              -122.3184653057446,
+              47.60970270658396,
+              0
+            ],
+            [
+              -122.3184110660928,
+              47.60970200394167,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Bannan Science Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <!--<div><img src=\"//static.seattleu.edu/map/photos/BANN/bridge.jpg\"></div>--> <!-- Portrait image, doesn't look good -->\r\n        <div><img src=\"//static.seattleu.edu/map/photos/BANN/walkway.jpg\" alt=\"Walkway of Bannan Building\"></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">The Bannan Building is home to the College of Science and Engineering. It is attached to the Engineering Building. Bannan offers an intimate auditorium and various classrooms that range from seating for 30, to seating for 72. The Bannan Building also contains a beautfiul, naturally lit arboretum that is a perfect location to host a reception.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/scieng/\" target=\"_blank\">College of Science and Engineering</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "BANN",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3172684624105,
+              47.60827881411942,
+              0
+            ],
+            [
+              -122.3170492019582,
+              47.60827917196424,
+              0
+            ],
+            [
+              -122.3170486363664,
+              47.60832712505198,
+              0
+            ],
+            [
+              -122.3170119314128,
+              47.60832694907642,
+              0
+            ],
+            [
+              -122.3170119133922,
+              47.60835605515312,
+              0
+            ],
+            [
+              -122.3170475399885,
+              47.60835622541642,
+              0
+            ],
+            [
+              -122.3170475961476,
+              47.60868260882083,
+              0
+            ],
+            [
+              -122.3170014408058,
+              47.6086823463776,
+              0
+            ],
+            [
+              -122.317001474031,
+              47.60881859801522,
+              0
+            ],
+            [
+              -122.3170466220391,
+              47.60881862018962,
+              0
+            ],
+            [
+              -122.3170467582134,
+              47.60897938219282,
+              0
+            ],
+            [
+              -122.3170088991627,
+              47.60897932229237,
+              0
+            ],
+            [
+              -122.3170089016397,
+              47.60900847773544,
+              0
+            ],
+            [
+              -122.3170478158454,
+              47.609007791112,
+              0
+            ],
+            [
+              -122.3170478249325,
+              47.60904330798447,
+              0
+            ],
+            [
+              -122.3172666086796,
+              47.60904373743014,
+              0
+            ],
+            [
+              -122.3172684624105,
+              47.60827881411942,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Bellarmine Residence Hall",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n        \r\n        <p class=\"buildingDescription\">Bellarmine Hall offers two-bed dorms primarily for underclassmen. Each room comes with a micro-fridge (combination microwave/fridge) and each floor has a student lounge with cable TV and DVD player. The basement includes a kitchen and an education center complete with computer lab, study lounge, and private study rooms for residents. Bellarmine is also home to the Student Health Center and the Bellarmine Advising Center.</p>\r\n        \r\n        <ul>\r\n          <li><p><a href=\"https://www.seattleu.edu/housing/residences/bellarmine-hall/\" target=\"_blank\">Bellarmine Hall</a></p></li>\r\n\t\t  <li><p><a href=\"https://www.seattleu.edu/advising/\" target=\"_blank\">Bellarmine Advising Center</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/student-health/\" target=\"_blank\">Student Health Center</a></p></li>\r\n        </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "residential",
+        "abbreviation": "BELL",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3199396889042,
+              47.60674657661581,
+              0
+            ],
+            [
+              -122.3199737386923,
+              47.60674564578847,
+              0
+            ],
+            [
+              -122.3199719250865,
+              47.60660822579047,
+              0
+            ],
+            [
+              -122.3199403448223,
+              47.60660784370509,
+              0
+            ],
+            [
+              -122.3199392390615,
+              47.60640681144407,
+              0
+            ],
+            [
+              -122.3196790381776,
+              47.60640379625526,
+              0
+            ],
+            [
+              -122.319678736491,
+              47.60645039811806,
+              0
+            ],
+            [
+              -122.3196487249802,
+              47.60645046305467,
+              0
+            ],
+            [
+              -122.3196486970638,
+              47.60647811270142,
+              0
+            ],
+            [
+              -122.3196795918488,
+              47.60647856856277,
+              0
+            ],
+            [
+              -122.3196794946687,
+              47.60650158585309,
+              0
+            ],
+            [
+              -122.3190368761986,
+              47.60650141584473,
+              0
+            ],
+            [
+              -122.3190373000327,
+              47.60686061499985,
+              0
+            ],
+            [
+              -122.3196843604701,
+              47.60685815075715,
+              0
+            ],
+            [
+              -122.3196857621015,
+              47.60704186843773,
+              0
+            ],
+            [
+              -122.3196428487826,
+              47.60704187208389,
+              0
+            ],
+            [
+              -122.3196426626444,
+              47.60706940604022,
+              0
+            ],
+            [
+              -122.3196855567416,
+              47.60706828252862,
+              0
+            ],
+            [
+              -122.3196852236454,
+              47.60711394398646,
+              0
+            ],
+            [
+              -122.3199428545904,
+              47.60710822629661,
+              0
+            ],
+            [
+              -122.3199396889042,
+              47.60674657661581,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Campion Residence Hall",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CAMP/garden.JPG\" alt=\"Front of Campion Hall\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CAMP/entrance.JPG\" alt=\"Front of Campion Hall\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CAMP/lobby.JPG\" alt=\"Inside of Campion Hall\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CAMP/rear1.JPG\" alt=\"Front of Campion Hall\" /></div>\r\n      </div>\r\n        \r\n        <p class=\"buildingDescription\">Campion Hall offers two- and three-bed dorms primarily for underclassmen. Each floor has a student lounge with a full kitchen, cable TV, and DVD player. The 12th floor includes a study lounge with group study rooms. Campion is home to The Cave and Housing & Residence Life.</p>\r\n        \r\n        <ul>\r\n          <li><p><a href=\"https://www.seattleu.edu/housing/residences/campion-hall/\" target=\"_blank\">Campion Hall</a></p></li>\r\n          <li><p><a href=\"https://www.dineoncampus.com/seattleu\" target=\"_blank\">The Cave</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/housing/\" target=\"_blank\">Housing & Residence Life</a></p></li>\r\n        </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "residential",
+        "abbreviation": "CAMP",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.320012194716,
+              47.61018287419774,
+              0
+            ],
+            [
+              -122.3198037722039,
+              47.61018320467963,
+              0
+            ],
+            [
+              -122.3198141366337,
+              47.6101748245256,
+              0
+            ],
+            [
+              -122.3198217007774,
+              47.6101646483693,
+              0
+            ],
+            [
+              -122.3198264930117,
+              47.61015314238568,
+              0
+            ],
+            [
+              -122.3198285371003,
+              47.6101389316946,
+              0
+            ],
+            [
+              -122.3198278532033,
+              47.61012704497449,
+              0
+            ],
+            [
+              -122.3198251316798,
+              47.61011744995511,
+              0
+            ],
+            [
+              -122.3198217349248,
+              47.61010649886451,
+              0
+            ],
+            [
+              -122.3198162983622,
+              47.61009916986107,
+              0
+            ],
+            [
+              -122.3198101779506,
+              47.61009273862491,
+              0
+            ],
+            [
+              -122.319797231108,
+              47.61008302908282,
+              0
+            ],
+            [
+              -122.3197849372531,
+              47.6100742167505,
+              0
+            ],
+            [
+              -122.3197664049083,
+              47.61006572189125,
+              0
+            ],
+            [
+              -122.3197470327136,
+              47.61006078660762,
+              0
+            ],
+            [
+              -122.3197239878871,
+              47.61005894444969,
+              0
+            ],
+            [
+              -122.3197042960414,
+              47.61005903373325,
+              0
+            ],
+            [
+              -122.3196794702002,
+              47.61006182270647,
+              0
+            ],
+            [
+              -122.319662976029,
+              47.61006663473278,
+              0
+            ],
+            [
+              -122.3196492678855,
+              47.61007059378555,
+              0
+            ],
+            [
+              -122.3196376123937,
+              47.6100763311856,
+              0
+            ],
+            [
+              -122.3196379426086,
+              47.60991357296019,
+              0
+            ],
+            [
+              -122.3195811919035,
+              47.60991373947644,
+              0
+            ],
+            [
+              -122.3195816588631,
+              47.60992679062201,
+              0
+            ],
+            [
+              -122.3195058435792,
+              47.60992593299999,
+              0
+            ],
+            [
+              -122.3195060818384,
+              47.60991316902425,
+              0
+            ],
+            [
+              -122.3194473625877,
+              47.60991351923601,
+              0
+            ],
+            [
+              -122.3194356251451,
+              47.61019525449894,
+              0
+            ],
+            [
+              -122.3195738091819,
+              47.61019411779981,
+              0
+            ],
+            [
+              -122.3195576188619,
+              47.6102041642627,
+              0
+            ],
+            [
+              -122.3195611148967,
+              47.61022181151105,
+              0
+            ],
+            [
+              -122.3195815262329,
+              47.61023320550932,
+              0
+            ],
+            [
+              -122.319600119271,
+              47.61023513605819,
+              0
+            ],
+            [
+              -122.3196198835467,
+              47.61022469057816,
+              0
+            ],
+            [
+              -122.3196194542379,
+              47.61031509513002,
+              0
+            ],
+            [
+              -122.3200062385752,
+              47.61031500009633,
+              0
+            ],
+            [
+              -122.3200067108794,
+              47.61027301733724,
+              0
+            ],
+            [
+              -122.3199905600969,
+              47.61027295791288,
+              0
+            ],
+            [
+              -122.3199900077883,
+              47.6102271837917,
+              0
+            ],
+            [
+              -122.3200116498665,
+              47.61022683584775,
+              0
+            ],
+            [
+              -122.320012194716,
+              47.61018287419774,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Casey Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CASY/front1.jpg\" alt=\"Front of Casey Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CASY/lobby.jpg\" alt=\"Lobby of Casey Building\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">The Casey Building is located on the Upper Mall on the west side of campus and houses the College of Arts and Sciences and Matteo Ricci Institute as well as the Casey Commons and other small boardroom-style meeting spaces. The Casey Atrium and Patio are accessed from the building's main entrance and make wonderful reception spaces.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/chapel/\" target=\"_blank\">College of Arts and Sciences</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/matteo-ricci/\" target=\"_blank\">Matteo Ricci Institute</a></p></li>\r\n\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "CASY",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3153293132782,
+              47.607930279635866,
+              0
+            ],
+            [
+              -122.31425173580647,
+              47.60792259416575,
+              0
+            ],
+            [
+              -122.3142772167921,
+              47.606302291013016,
+              0
+            ],
+            [
+              -122.3153554648161,
+              47.60630907252031,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Championship Field",
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAF/inside3.jpg\" alt=\"Championship Field Entrance\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAF/inside2.jpg\" alt=\"Championship Field\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAF/inside1.JPG\" alt=\"Championship Field Facilities\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAF/tennis1.JPG\" alt=\"Championship Field Tennis Courts\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAF/sign.jpg\" alt=\"Championship Field\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">Championship Field is home to Seattle Univerity's men's and women's soccer, where visiting teams come to play the Redhawks. The stadium offers 650 permanent seats and can hold upwards of 900 spectators. Community members are welcome to use the field when student athletes are not present.</p>\r\n      \r\n      ",
+        "category": "recreational",
+        "abbreviation": "CHAF",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3180568401417,
+              47.61118833361326,
+              0
+            ],
+            [
+              -122.3180339080333,
+              47.61118870417211,
+              0
+            ],
+            [
+              -122.3180339323861,
+              47.61117605324184,
+              0
+            ],
+            [
+              -122.317828035532,
+              47.61117571549067,
+              0
+            ],
+            [
+              -122.3178285349461,
+              47.6114967660037,
+              0
+            ],
+            [
+              -122.3180564732422,
+              47.61149738477176,
+              0
+            ],
+            [
+              -122.3180568401417,
+              47.61118833361326,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Chapel of St. Ignatius",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAP/front1.jpg\" alt=\"Front of Chapel of St. Ignatius\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAP/inside1.jpg\" alt=\"Inside of Chapel of St. Ignatius\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHAP/inside2.jpg\" alt=\"Inside of Chapel of St. Ignatius\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">The Chapel of St. Ignatius is Seattle University's multifaith space. It was designed by architect Steven Holl between 1994 and 1997 with Seattle University's mission and the Jesuit vision in mind. Visitors can find a space of worship on the inside and a \"Reflection Pool\" directly outside. The chapel is open to the general public.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/chapel/\" target=\"_blank\">Chapel of St. Ignatius</a></p></li>\r\n        <li><p><a href=\"https://www.stevenholl.com/\" target=\"_blank\">Steven Holl's website</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/campus-ministry/\" target=\"_blank\">Campus Ministry</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "recreational",
+        "abbreviation": "CHAP",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3137587838539,
+              47.60750138406587,
+              0
+            ],
+            [
+              -122.3139494620992,
+              47.60750004493358,
+              0
+            ],
+            [
+              -122.3139519383373,
+              47.6071825286398,
+              0
+            ],
+            [
+              -122.3137638938533,
+              47.60718065504996,
+              0
+            ],
+            [
+              -122.313766437891,
+              47.60691919841457,
+              0
+            ],
+            [
+              -122.3135618984626,
+              47.60691792464865,
+              0
+            ],
+            [
+              -122.3135611889667,
+              47.60688692246378,
+              0
+            ],
+            [
+              -122.313469978242,
+              47.6068870317455,
+              0
+            ],
+            [
+              -122.3134706266703,
+              47.60667324031609,
+              0
+            ],
+            [
+              -122.3129978144126,
+              47.60667359151948,
+              0
+            ],
+            [
+              -122.3129949005428,
+              47.60789044992148,
+              0
+            ],
+            [
+              -122.3135774518312,
+              47.60789699138439,
+              0
+            ],
+            [
+              -122.313576308385,
+              47.60782147341051,
+              0
+            ],
+            [
+              -122.3137579702984,
+              47.60782074747426,
+              0
+            ],
+            [
+              -122.3137587838539,
+              47.60750138406587,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Redhawk Center",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      <p class=\"buildingDescription\">\r\n        The Redhawk Center featuring the William F. Eisiminger Fitness Center is one of the most complete athletic facilities in the Seattle Metro Area, featuring over 180,000 sq. ft. of recreational, fitness and athletic space. It is the goal of Seattle University to develop the whole person, and the Redhawk Center and Eisiminger Fitness Center provide a healthful and pleasurable opportunity for physical, emotional, and social participation in sports and recreation. \r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/recreation/\" target=\"_blank\">University Recreation</a></p></li>\r\n         <li><p><a href=\"https://www.seattleu.edu/recreation/university-recreation-membership/\" target=\"_blank\">Fitness Center Membership</a></p></li>\r\n                \r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "recreational",
+        "abbreviation": "HAWK",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3163839489624,
+              47.60752191389673,
+              0
+            ],
+            [
+              -122.3163829602949,
+              47.60754692357827,
+              0
+            ],
+            [
+              -122.3163474147771,
+              47.60754751877136,
+              0
+            ],
+            [
+              -122.3163433346117,
+              47.60778868483155,
+              0
+            ],
+            [
+              -122.3157874855646,
+              47.60778916048256,
+              0
+            ],
+            [
+              -122.3157841556783,
+              47.60768761164175,
+              0
+            ],
+            [
+              -122.3158003573669,
+              47.60768789306034,
+              0
+            ],
+            [
+              -122.3158022443307,
+              47.60767475433043,
+              0
+            ],
+            [
+              -122.3158915089388,
+              47.60767521408459,
+              0
+            ],
+            [
+              -122.3158923391714,
+              47.60764774660156,
+              0
+            ],
+            [
+              -122.315926492716,
+              47.60764836609769,
+              0
+            ],
+            [
+              -122.3159281249315,
+              47.60760222026501,
+              0
+            ],
+            [
+              -122.3159606679507,
+              47.60760281922817,
+              0
+            ],
+            [
+              -122.3159623188967,
+              47.60751972971757,
+              0
+            ],
+            [
+              -122.3155936934643,
+              47.60751813452323,
+              0
+            ],
+            [
+              -122.3155896105869,
+              47.60771701852149,
+              0
+            ],
+            [
+              -122.3155748101224,
+              47.60771785359387,
+              0
+            ],
+            [
+              -122.315573309741,
+              47.60783463761735,
+              0
+            ],
+            [
+              -122.315556853444,
+              47.60783441615862,
+              0
+            ],
+            [
+              -122.3155583739891,
+              47.60794541351394,
+              0
+            ],
+            [
+              -122.3165515114191,
+              47.60794549582978,
+              0
+            ],
+            [
+              -122.3165591463409,
+              47.60752234658774,
+              0
+            ],
+            [
+              -122.3163839489624,
+              47.60752191389673,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "The Douglas",
+        "styleUrl": "#msn_ylw-pushpin10",
+        "styleHash": "33b71e6b",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin3",
+          "highlight": "#sh_ylw-pushpin1"
+        },
+        "description": "\r\n\r\n      \r\n      <p class=\"buildingDescription\">The Douglas is Seattle University’s newest housing option, opened Fall 2011. In order to provide more housing for University students on or near our campus, the University has entered into a cooperating arrangement with the owners of the Douglas. Offering apartment suites with one to five bedrooms, the Douglas is an option for 257 upperclassmen, graduate, and law students desiring the convenience of on-campus living but the privacy and independence of off-campus housing. The building also houses the Center for Service and Community Engagement and the Youth Initiative</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.thedouglasatseattleu.com/\" target=\"_blank\">The Douglas</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/cce/\" target=\"_blank\">Center for Community Engagement</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/cce/suyi/\" target=\"_blank\">Seattle University Youth Initiative</a></p></li>\r\n      </ul>",
+        "stroke": "#000000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#0006ff",
+        "fill-opacity": 1,
+        "category": "residential",
+        "abbreviation": "DOUG",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3191965348457,
+              47.61160754844507,
+              0
+            ],
+            [
+              -122.3184807586896,
+              47.61160782105726,
+              0
+            ],
+            [
+              -122.318478778038,
+              47.61183105755161,
+              0
+            ],
+            [
+              -122.3188996313537,
+              47.61183250794132,
+              0
+            ],
+            [
+              -122.3191965033349,
+              47.61170719118831,
+              0
+            ],
+            [
+              -122.3191965348457,
+              47.61160754844507,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Fine Arts Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/FINR/front1.jpg\" alt=\"Front of Fine Arts Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/FINR/inside1.jpg\" alt=\"Inside of Fine Arts Building\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">The Department of Fine Arts is split into two departments: Art & Art History Department and  Performing Arts & Arts Leadership Department. The Fine Arts Building is home to the Fine Arts Main Office, Press Room, Printmaking, Painting, Vachon Gallery, Acting Studio, Audio Recording, Chair Room, Faculty Lounge, Practice Rooms</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/art-arthistory/\" target=\"_blank\">Art & Art History Department</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/performing-arts-leadership/\" target=\"_blank\">Performing Arts & Arts Leadership Department</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/art-arthistory/vachon-gallery/\" target=\"_blank\">Vachon Gallery</a></p></li>\r\n                \r\n      </ul>\r\n      \r\n      ",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "FINR",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3200341837568,
+              47.61051471325462,
+              0
+            ],
+            [
+              -122.3195903128955,
+              47.61051191482085,
+              0
+            ],
+            [
+              -122.3195891075304,
+              47.61051986690764,
+              0
+            ],
+            [
+              -122.3195387132112,
+              47.61051940086249,
+              0
+            ],
+            [
+              -122.3195394807105,
+              47.61066443087985,
+              0
+            ],
+            [
+              -122.3195791194388,
+              47.61066596275953,
+              0
+            ],
+            [
+              -122.3195814817443,
+              47.61067317616664,
+              0
+            ],
+            [
+              -122.3200335196917,
+              47.61067305182241,
+              0
+            ],
+            [
+              -122.3200341837568,
+              47.61051471325462,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Garrand Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/GARR/front3.jpg\" alt=\"Front of Garrand Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/GARR/front1.jpg\" alt=\"Front of Garrand Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/GARR/front2.jpg\" alt=\"Front of Garrand Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/GARR/inside1.jpg\" alt=\"Inside of Garrand Building\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">The Garrand Building is home to the College of Nursing. It is the oldest building on campus and one of the only original ones remaining. Located near the western edge of campus, the building features small boardrooms and a lovely garden and lawn.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/nursing/\" target=\"_blank\">College of Nursing</a></p></li>\r\n                \r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "GARR",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3184088793126,
+              47.61162485657627,
+              0
+            ],
+            [
+              -122.3181748797594,
+              47.61162502331295,
+              0
+            ],
+            [
+              -122.3181750592544,
+              47.61185149382554,
+              0
+            ],
+            [
+              -122.3182229761599,
+              47.61208501535758,
+              0
+            ],
+            [
+              -122.3182308297286,
+              47.61208606940939,
+              0
+            ],
+            [
+              -122.3184667204706,
+              47.61199087051629,
+              0
+            ],
+            [
+              -122.3184660705815,
+              47.61183449442829,
+              0
+            ],
+            [
+              -122.318410307876,
+              47.61183456859494,
+              0
+            ],
+            [
+              -122.3184088793126,
+              47.61162485657627,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Hunthausen Hall",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      <p class=\"buildingDescription\">\r\n        Hunthausen Hall is home to the School of Theology and Ministry, Fine Arts Annex, and the McGoldrick Collegium for graduate, non-traditional, undergraduates (25 years and older), and military veteran students from all academic programs. It is also home to the Office of Sponsored Projects, Office of Fellowships, the Center for Faculty Development, and in the basement, the Kinesiology Department's Human Performance Lab.\r\n      </p>\r\n      \r\n      <ul>\r\n        <li><a href=\"https://www.seattleu.edu/stm/\" target=\"_blank\">School of Theology and Ministry</a></li>\r\n\t\t<li><a href=\"https://www.seattleu.edu/student-outreach/resource-spaces/collegia-program/mcgoldrick-collegium/\" target=\"_blank\">McGoldrick Collegium</a></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/faculty-development/\" target=\"_blank\">Center for Faculty Development</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/sponsored-projects/\" target=\"_blank\">Office of Sponsored Projects</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/fellowships/\" target=\"_blank\">Office of Fellowships</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/artsci/departments/kinesiology/research-facilities-and-projects/human-performance-lab/\" target=\"_blank\">Human Performance Lab</a></p></li>      \r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "HUNT",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3169,
+              47.6127
+            ],
+            [
+              -122.3169,
+              47.6121
+            ],
+            [
+              -122.3173,
+              47.6121
+            ],
+            [
+              -122.3173,
+              47.61251
+            ],
+            [
+              -122.3169,
+              47.6127
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Madison Building",
+        "styleUrl": "#msn_ylw-pushpin0",
+        "styleHash": "5b9da7a9",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin1",
+          "highlight": "#sh_ylw-pushpin2"
+        },
+        "description": "\r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/MADI/campus-store.jpg\" alt=\"Front of Madison Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/MADI/campus-store-2.jpg\" alt=\"Front of Madison Building\" /></div>\r\n      </div>\r\n\t  \r\n\t  <p class=\"buildingDescription\">\r\n        The Madison Building is the home of the Seattle University Campus Store. It's at the corner of E. Madison Street and 12th Avenue. \r\n      </p>\r\n      \r\n      <ul>\r\n\t    <li><a href=\"https://www.seattleu.edu/campus-store/\" target=\"_blank\">SU Campus Store</a></li>          \r\n      </ul>",
+        "stroke": "#000000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#0006ff",
+        "fill-opacity": 0,
+        "category": "administrative",
+        "abbreviation": "MADI",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3178931066609,
+              47.60859392408411,
+              0
+            ],
+            [
+              -122.3172689039023,
+              47.60859498604819,
+              0
+            ],
+            [
+              -122.3172685786309,
+              47.60892103353326,
+              0
+            ],
+            [
+              -122.3178909416785,
+              47.60892152589135,
+              0
+            ],
+            [
+              -122.3178931066609,
+              47.60859392408411,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "James C. Pigott Pavilion for Leadership",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/PAVL/front1.jpg\" alt=\"Front of Pigott Pavilion\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/PAVL/front2.jpg\" alt=\"Front of Pigott Pavilion\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">\r\n        Infused with Bellarmine Hall, the newly remodeled Pigott Pavilion houses offices with a focus on leadership and discernment. These offices include the Career Engagement Office, the International Student Center, the Office of Multicultural Affairs (OMA), Counseling and Psychological Services (CAPS), Education Abroad, Center for Digital Learning & Innovation (CDLI), Mailing Services, Reprographics, and SUperCopy.\r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/careerengagement/\" target=\"_blank\">Career Engagement Office</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/isc/\" target=\"_blank\">International Student Center</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/oma/\" target=\"_blank\">Office of Multicultural Affairs (OMA)</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/caps/\" target=\"_blank\">Counseling and Psychological Services (CAPS)</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/abroad/\" target=\"_blank\">Education Abroad</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/cdli/\" target=\"_blank\">Center for Digital Learning & Innovation</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/mail/\" target=\"_blank\">Mailing Services</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/repro/\" target=\"_blank\">Reprographics</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/supercopy/\" target=\"_blank\">SUperCopy</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "administrative",
+        "abbreviation": "PAVL",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3090249759621,
+              47.60733668798815,
+              0
+            ],
+            [
+              -122.3090940813791,
+              47.60733663568692,
+              0
+            ],
+            [
+              -122.3090938587842,
+              47.60746376967823,
+              0
+            ],
+            [
+              -122.3097754629751,
+              47.60746421573747,
+              0
+            ],
+            [
+              -122.3097753684054,
+              47.6073415920557,
+              0
+            ],
+            [
+              -122.3095811491531,
+              47.60733993086825,
+              0
+            ],
+            [
+              -122.309580996676,
+              47.60731015045109,
+              0
+            ],
+            [
+              -122.3096069378235,
+              47.60730958395509,
+              0
+            ],
+            [
+              -122.309607117786,
+              47.60713640088372,
+              0
+            ],
+            [
+              -122.3096717339053,
+              47.6071363764229,
+              0
+            ],
+            [
+              -122.3096724485219,
+              47.60707796994657,
+              0
+            ],
+            [
+              -122.3096900109383,
+              47.60707796310356,
+              0
+            ],
+            [
+              -122.3096924076608,
+              47.60701490124679,
+              0
+            ],
+            [
+              -122.3096714749334,
+              47.60701434309783,
+              0
+            ],
+            [
+              -122.3096713695567,
+              47.60696469520673,
+              0
+            ],
+            [
+              -122.3096091247468,
+              47.60696472070661,
+              0
+            ],
+            [
+              -122.3096104260103,
+              47.60678224625391,
+              0
+            ],
+            [
+              -122.3095774824106,
+              47.60678218745211,
+              0
+            ],
+            [
+              -122.3095775005501,
+              47.60675197980974,
+              0
+            ],
+            [
+              -122.3097867087554,
+              47.6067539912092,
+              0
+            ],
+            [
+              -122.3097837018608,
+              47.60663098379143,
+              0
+            ],
+            [
+              -122.3091465909399,
+              47.60662988065486,
+              0
+            ],
+            [
+              -122.3091452695652,
+              47.60676065572282,
+              0
+            ],
+            [
+              -122.3090222190325,
+              47.60676205819001,
+              0
+            ],
+            [
+              -122.3090249759621,
+              47.60733668798815,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "James Tower",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n            \r\n      \r\n      \r\n      \r\n      <p class=\"buildingDescription\">\r\n        Formerly Providence Hospital, the newly renovated and retrofitted James Tower Life Sciences building houses the Seattle University College of Nursing's Clinical Performance Lab. The 19,000 square foot state-of-the-art facility features research labs, classrooms, faculty offices and an exam clinic. The lab seeks to replicate hospital and clinical settings, complete with patient simulators, giving students experience in a setting as close to the real thing as possible.\r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/nursing/clinical-performance-lab/\" target=\"_blank\">Clinical Performance Lab</a></p></li>\r\n      </ul>\r\n            \r\n            ",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "JMTW",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3159758388785,
+              47.60662417276436,
+              0
+            ],
+            [
+              -122.3158670692126,
+              47.60662427351961,
+              0
+            ],
+            [
+              -122.3158665715008,
+              47.6067305864504,
+              0
+            ],
+            [
+              -122.3159756381061,
+              47.60673088209392,
+              0
+            ],
+            [
+              -122.3159758388785,
+              47.60662417276436,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Kolvenbach Homes 1217",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/KV17/front1.jpg\" alt=\"Front of Kolvenbach Homes 1217\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/KV17/front2.jpg\" alt=\"Front of Kolvenbach Homes 1217\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">\r\n        The Peter-Hans Kolvenbach, S.J. Community is a distinctive service-learning living experience available to eight current students entering their sophomore, junior or senior years. This community provides students with the opportunity to live with other students engaged in service and simple living. This living experience exemplifies what it means for students to live \"Jesuit in a new way.\" The Kolvenbach Community is made up of two houses: Hope House and Mercy House. \r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/housing/residences/kolvenbach-community/\" target=\"_blank\">Kolvenbach Homes</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "residential",
+        "abbreviation": "KV17",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.315978604012,
+              47.6069345447541,
+              0
+            ],
+            [
+              -122.3159294518642,
+              47.60693423482504,
+              0
+            ],
+            [
+              -122.3159292534916,
+              47.60695116767931,
+              0
+            ],
+            [
+              -122.3158693591244,
+              47.60695087175453,
+              0
+            ],
+            [
+              -122.3158682407141,
+              47.60705344213143,
+              0
+            ],
+            [
+              -122.3159650940868,
+              47.60705378685437,
+              0
+            ],
+            [
+              -122.3159648664258,
+              47.60700642667661,
+              0
+            ],
+            [
+              -122.3159785272369,
+              47.60700593301799,
+              0
+            ],
+            [
+              -122.315978604012,
+              47.6069345447541,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Kolvenbach Homes 1220",
+        "styleUrl": "#msn_ylw-pushpin0",
+        "styleHash": "5b9da7a9",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin1",
+          "highlight": "#sh_ylw-pushpin2"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/KV20/front2.jpg\" alt=\"Front of Kolvenbach Homes 1220\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/KV20/front1.jpg\" alt=\"Front of Kolvenbach Homes 1220\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">\r\n        The Peter-Hans Kolvenbach, S.J. Community is a distinctive service-learning living experience available to eight current students entering their sophomore, junior or senior years. This community provides students with the opportunity to live with other students engaged in service and simple living. This living experience exemplifies what it means for students to live \"Jesuit in a new way.\" The Kolvenbach Community is made up of two houses: Hope House and Mercy House. \r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/housing/residences/kolvenbach-community/\" target=\"_blank\">Kolvenbach Homes</a></p></li>\r\n      </ul>",
+        "stroke": "#000000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#0006ff",
+        "fill-opacity": 0,
+        "category": "residential",
+        "abbreviation": "KV20",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3173241642111,
+              47.61048138891594,
+              0
+            ],
+            [
+              -122.3169262532795,
+              47.6104804070384,
+              0
+            ],
+            [
+              -122.3169247406217,
+              47.61084538284355,
+              0
+            ],
+            [
+              -122.3169506857305,
+              47.61085258535778,
+              0
+            ],
+            [
+              -122.3169919649474,
+              47.61081687637518,
+              0
+            ],
+            [
+              -122.317009686317,
+              47.6108184645216,
+              0
+            ],
+            [
+              -122.3170097103935,
+              47.61086532995225,
+              0
+            ],
+            [
+              -122.3172175221795,
+              47.61086534806055,
+              0
+            ],
+            [
+              -122.3172186558735,
+              47.61089155504591,
+              0
+            ],
+            [
+              -122.3173237332834,
+              47.61089235851305,
+              0
+            ],
+            [
+              -122.3173265448822,
+              47.61080662413345,
+              0
+            ],
+            [
+              -122.3173241642111,
+              47.61048138891594,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Lee Center for the Arts",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n            \r\n            <p class=\"buildingDescription\">The Lee Center is the Department of Fine Arts state-of-the-art performance and exhibition space. The center houses the \"black-box theater\" John Eshelman Stage, scene shop, costume shop, green room, and dressing rooms.  It is also home to the Hedreen Gallery, a lobby art gallery for the public display of visual art by students and visiting artists.  The exterior décor coordinates with the surrounding campus, while the Hedreen Gallery invites engagement from visitors and passersby and helps to make the facility accessible and welcoming to the public.\r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/art-arthistory/hedreen-gallery/\" target=\"_blank\">Hedreen Gallery</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/performing-arts-leadership/performance-venues-and-facilities/classrooms-and-studios/#johneshelmanstage\" target=\"_blank\">John Eshelman Stage</a></p></li>                \r\n      </ul>\r\n            \r\n            ",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "recreational",
+        "secondary": "academic",
+        "abbreviation": "CNFA",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3191762698712,
+              47.60853723646584,
+              177
+            ],
+            [
+              -122.3187875725503,
+              47.60853586534195,
+              177
+            ],
+            [
+              -122.3187920937369,
+              47.60851655757103,
+              177
+            ],
+            [
+              -122.318713285234,
+              47.60851424620846,
+              177
+            ],
+            [
+              -122.3187056559883,
+              47.60848332569569,
+              177
+            ],
+            [
+              -122.3184368916597,
+              47.60848092820582,
+              177
+            ],
+            [
+              -122.3184368889419,
+              47.60857287443747,
+              177
+            ],
+            [
+              -122.318398981289,
+              47.60857359126373,
+              177
+            ],
+            [
+              -122.3183989415212,
+              47.60866991362739,
+              177
+            ],
+            [
+              -122.3184872770546,
+              47.60867023989171,
+              177
+            ],
+            [
+              -122.3184838287762,
+              47.60903524864672,
+              177
+            ],
+            [
+              -122.3185042269223,
+              47.6090348855793,
+              177
+            ],
+            [
+              -122.3185041933637,
+              47.60909368555815,
+              177
+            ],
+            [
+              -122.3185401932294,
+              47.6090925221441,
+              177
+            ],
+            [
+              -122.3185386181952,
+              47.60910604943847,
+              177
+            ],
+            [
+              -122.3186626606475,
+              47.6091034335597,
+              177
+            ],
+            [
+              -122.31866960072,
+              47.60908937267089,
+              177
+            ],
+            [
+              -122.3186715700479,
+              47.60908799495218,
+              177
+            ],
+            [
+              -122.3186734229646,
+              47.60908586217427,
+              177
+            ],
+            [
+              -122.3186887661209,
+              47.60907139804422,
+              177
+            ],
+            [
+              -122.3187330743614,
+              47.60907437402976,
+              177
+            ],
+            [
+              -122.3187330742317,
+              47.60910414345644,
+              177
+            ],
+            [
+              -122.3190929351223,
+              47.60910450108976,
+              177
+            ],
+            [
+              -122.3191755818304,
+              47.60909441764683,
+              177
+            ],
+            [
+              -122.3191762698712,
+              47.60853723646584,
+              177
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Lemieux Library and McGoldrick Learning Commons",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LEML/front4FINAL.jpg\" alt=\"Front of Lemieux Library\" ></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LEML/doublehelix2FINAL.jpg\" alt=\"Staircase of Lemieux Library\" ></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LEML/inside3FINAL.jpg\" alt=\"Inside of Lemieux Library\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LEML/byteFINAL.jpg\" alt=\"The Byte Coffee Shop\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LEML/walkwayFINAL.jpg\" alt=\"Walkway of Lemieux Library\"></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">Originally built in 1966 and renovated in 2010, the Lemieux Library & McGoldrick Learning Commons combines new construction and renovation to offer a state-of-the-art facility of approximately 125,000 square feet. The library offers a number of services including research librarians with specialized focuses, the Math Lab for drop-in help with lower division mathematics courses, Learning Assistance Programs for tutoring and developing learning methods, and the Writing Center for assistance with writing assignments. Students can take advantage of individual and group study rooms, computer labs, reading rooms, and the Media Production Center which offers tools, training, and support for creating high quality creative content. The Byte, located on the second floor, is a good place to take a study break and grab a snack or drink. The Lemieux Library gets quieter as you move up the floors, with the sixth and top floor offering a completely silent reading space and housing Seattle University's special collections.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/library/\" target=\"_blank\">Lemieux Library & McGoldrick Learning Commons</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/learning-assistance/\" target=\"_blank\">Learning Assistance Programs</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/writingcenter/\" target=\"_blank\">Writing Center</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/library/library-services/media-production-center/\" target=\"_blank\">Media Production Center</a></p></li>\r\n        <li><p><a href=\"https://www.dineoncampus.com/seattleu\" target=\"_blank\">The Byte</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "LEML",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3197221815527,
+              47.60952693295093,
+              0
+            ],
+            [
+              -122.3199617235805,
+              47.60952440134388,
+              0
+            ],
+            [
+              -122.3199672535246,
+              47.6095615685426,
+              0
+            ],
+            [
+              -122.3200285678449,
+              47.6095617291123,
+              0
+            ],
+            [
+              -122.3200297993703,
+              47.60931298435394,
+              0
+            ],
+            [
+              -122.3197981588386,
+              47.60931192977455,
+              0
+            ],
+            [
+              -122.319795248868,
+              47.60937515847444,
+              0
+            ],
+            [
+              -122.3196160338104,
+              47.60937400057748,
+              0
+            ],
+            [
+              -122.3196128957704,
+              47.60936643984189,
+              0
+            ],
+            [
+              -122.3194969061029,
+              47.60936514771599,
+              0
+            ],
+            [
+              -122.3194969104852,
+              47.6093759735493,
+              0
+            ],
+            [
+              -122.3194728144224,
+              47.60937682071039,
+              0
+            ],
+            [
+              -122.3194728445675,
+              47.60948969523852,
+              0
+            ],
+            [
+              -122.3195449459021,
+              47.60949304291815,
+              0
+            ],
+            [
+              -122.319545401788,
+              47.6098111908469,
+              0
+            ],
+            [
+              -122.3197220798724,
+              47.60980790050703,
+              0
+            ],
+            [
+              -122.3197221815527,
+              47.60952693295093,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Loyola Hall",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LOYA/front2.jpg\" alt=\"Front of Loyola Hall\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LOYA/front1.jpg\" alt=\"Front of Loyola Hall\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LOYA/inside1.jpg\" alt=\"Inside of Loyola Hall\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">Loyola Hall houses the College of Education, Center for Jesuit Education, Wismer Center, and Disability Services.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/education/\" target=\"_blank\">College of Education</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/jesuit-education/\" target=\"_blank\">Center For Jesuit Education</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/disability-services/\" target=\"_blank\">Disability Services</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/wismer/\" target=\"_blank\">Wismer Center</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "secondary": "administrative",
+        "abbreviation": "LOYA",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3157854367982,
+              47.60815264131341,
+              0
+            ],
+            [
+              -122.3157835747992,
+              47.608315350095,
+              0
+            ],
+            [
+              -122.3155925640206,
+              47.60831454527353,
+              0
+            ],
+            [
+              -122.3155882462437,
+              47.60864238353331,
+              0
+            ],
+            [
+              -122.3160983762022,
+              47.6086430532371,
+              0
+            ],
+            [
+              -122.316105065065,
+              47.60815359609453,
+              0
+            ],
+            [
+              -122.3157854367982,
+              47.60815264131341,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "O'Brien Center",
+        "styleUrl": "#msn_ylw-pushpin0",
+        "styleHash": "5b9da7a9",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin1",
+          "highlight": "#sh_ylw-pushpin2"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/OBRN/front2.jpg\" alt=\"Front of O' Brien Center\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/OBRN/front1.jpg\" alt=\"Front of O' Brien Center\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/OBRN/front3.jpg\" alt=\"Front of O' Brien Center\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">\r\n        The O'Brien Center is home to three departments. From Cherry Street you can access the O'Brien Center for Athletic Administration, which houses the administrative offices for Redhawks sports. On 13th Avenue is the Department of Military Services (Army ROTC), which contains meeting rooms, training rooms, and study rooms for student cadets, as well as offices for the department. Next door is Marketing Communications (MarCom), which houses offices and meeting rooms for Seattle University's marketing and communication needs. The building also houses Payroll and the Controller's Office.\r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://goseattleu.com/\" target=\"_blank\">Redhawks Athletics</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/rotc/\" target=\"_blank\">Army ROTC</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/marcom/\" target=\"_blank\">Marketing Communications</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/payroll/\" target=\"_blank\">Payroll</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/controllers-office/\" target=\"_blank\">Controller's Office</a></p></li>\r\n\r\n      </ul>",
+        "stroke": "#000000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#0006ff",
+        "fill-opacity": 0,
+        "category": "administrative",
+        "abbreviation": "OBRN",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3200208072838,
+              47.60866134203191,
+              0
+            ],
+            [
+              -122.3200175685139,
+              47.60882748814658,
+              0
+            ],
+            [
+              -122.3204781263852,
+              47.60882800834894,
+              0
+            ],
+            [
+              -122.3204796147367,
+              47.60866719599983,
+              0
+            ],
+            [
+              -122.3200208072838,
+              47.60866134203191,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Pacific Northwest Research Institute",
+        "styleUrl": "#msn_ylw-pushpin",
+        "styleHash": "263ad66a",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin2",
+          "highlight": "#sh_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <p class=\"buildingDescription\">     </p>\r\n      \r\n    ",
+        "stroke": "#000000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#0006ff",
+        "fill-opacity": 1,
+        "category": "academic",
+        "abbreviation": "PNRI",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3187198001846,
+              47.6105246194786,
+              0
+            ],
+            [
+              -122.3183119587955,
+              47.61052075883297,
+              0
+            ],
+            [
+              -122.3183107618029,
+              47.61052685520027,
+              0
+            ],
+            [
+              -122.3182555332587,
+              47.61052575875441,
+              0
+            ],
+            [
+              -122.3182534961195,
+              47.61061767114763,
+              0
+            ],
+            [
+              -122.3183124152621,
+              47.61061789544732,
+              0
+            ],
+            [
+              -122.318310950749,
+              47.61068008481945,
+              0
+            ],
+            [
+              -122.3183933407356,
+              47.61067983577893,
+              0
+            ],
+            [
+              -122.3183899522338,
+              47.6107976909585,
+              0
+            ],
+            [
+              -122.3183669463386,
+              47.61079697788134,
+              0
+            ],
+            [
+              -122.3183554213758,
+              47.61081008659035,
+              0
+            ],
+            [
+              -122.3183703877197,
+              47.61082542478867,
+              0
+            ],
+            [
+              -122.3183669256765,
+              47.61084928213288,
+              0
+            ],
+            [
+              -122.3184016926737,
+              47.6108490578313,
+              0
+            ],
+            [
+              -122.3183988692792,
+              47.61093311920219,
+              0
+            ],
+            [
+              -122.3186819519017,
+              47.61093153865979,
+              0
+            ],
+            [
+              -122.3186824586457,
+              47.61093457038985,
+              0
+            ],
+            [
+              -122.3186859555053,
+              47.6109372650733,
+              0
+            ],
+            [
+              -122.3186895035558,
+              47.61093966150619,
+              0
+            ],
+            [
+              -122.3186940377392,
+              47.61094193583896,
+              0
+            ],
+            [
+              -122.3186985683465,
+              47.61094267188666,
+              0
+            ],
+            [
+              -122.3187030977926,
+              47.61094340778472,
+              0
+            ],
+            [
+              -122.3187076274902,
+              47.61094491214853,
+              0
+            ],
+            [
+              -122.3187118288174,
+              47.61094499347738,
+              0
+            ],
+            [
+              -122.3187167928312,
+              47.61094599808419,
+              0
+            ],
+            [
+              -122.3187212549197,
+              47.61094632975985,
+              0
+            ],
+            [
+              -122.3187267043123,
+              47.61094666014554,
+              0
+            ],
+            [
+              -122.3187316528977,
+              47.61094665465254,
+              0
+            ],
+            [
+              -122.3187365958286,
+              47.61094631317209,
+              0
+            ],
+            [
+              -122.318741534845,
+              47.61094597193851,
+              0
+            ],
+            [
+              -122.3187471794017,
+              47.61094462122362,
+              0
+            ],
+            [
+              -122.3187516933299,
+              47.61094458880978,
+              0
+            ],
+            [
+              -122.3187573294114,
+              47.61094301405057,
+              0
+            ],
+            [
+              -122.318761835565,
+              47.61094144794135,
+              0
+            ],
+            [
+              -122.3187663399962,
+              47.61093988239212,
+              0
+            ],
+            [
+              -122.3187685840694,
+              47.6109367994912,
+              0
+            ],
+            [
+              -122.318771956669,
+              47.61093447638919,
+              0
+            ],
+            [
+              -122.3187730832129,
+              47.61093446873962,
+              0
+            ],
+            [
+              -122.3191529610618,
+              47.61093107881652,
+              0
+            ],
+            [
+              -122.3191490419234,
+              47.61080134354208,
+              0
+            ],
+            [
+              -122.3189186869302,
+              47.61080181056914,
+              0
+            ],
+            [
+              -122.318917904513,
+              47.61076392005663,
+              0
+            ],
+            [
+              -122.3189697353008,
+              47.61076308712042,
+              0
+            ],
+            [
+              -122.3189697082255,
+              47.61071574467944,
+              0
+            ],
+            [
+              -122.3189235623317,
+              47.61071572400283,
+              0
+            ],
+            [
+              -122.3189241423561,
+              47.61068576037684,
+              0
+            ],
+            [
+              -122.3191431546447,
+              47.61068491592398,
+              0
+            ],
+            [
+              -122.319140120182,
+              47.61062257021064,
+              0
+            ],
+            [
+              -122.3191803981512,
+              47.61062300632455,
+              0
+            ],
+            [
+              -122.3191790333447,
+              47.61052285937863,
+              0
+            ],
+            [
+              -122.3189530305448,
+              47.6105244756109,
+              0
+            ],
+            [
+              -122.3188235432923,
+              47.61052212888289,
+              0
+            ],
+            [
+              -122.3188256369882,
+              47.61050432707782,
+              0
+            ],
+            [
+              -122.3187969987153,
+              47.6104853700858,
+              0
+            ],
+            [
+              -122.3187529526488,
+              47.61048541004878,
+              0
+            ],
+            [
+              -122.318719769945,
+              47.61050211956442,
+              0
+            ],
+            [
+              -122.3187198001846,
+              47.6105246194786,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Pigott Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      <p class=\"buildingDescription\">\r\n        Pigott is home to the Albers School of Business and Economics and features the stunning PACCAR Atrium, sometimes referred to by students as Pigott Atrium. Grab a bite to eat at the Bottom Line café and enjoy the comfy furniture and stunning Chihuly glass sculpture, \"Accendo.\"\r\n      </p>\r\n      \r\n      <ul>\r\n          <li><p><a href=\"https://www.seattleu.edu/albers/\" target=\"_blank\">Albers School of Business and Economics</a></p></li>\r\n          <li><p><a href=\"https://www.dineoncampus.com/seattleu\" target=\"_blank\">The Bottom Line</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "PIGT",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3166397723941,
+              47.60850883051527,
+              0
+            ],
+            [
+              -122.3160974682886,
+              47.60850785044573,
+              0
+            ],
+            [
+              -122.3160965723448,
+              47.6086493229981,
+              0
+            ],
+            [
+              -122.3161353239926,
+              47.60864945522474,
+              0
+            ],
+            [
+              -122.3161351431905,
+              47.60865725669898,
+              0
+            ],
+            [
+              -122.3162204876027,
+              47.60865722545893,
+              0
+            ],
+            [
+              -122.3162204913547,
+              47.60864264046367,
+              0
+            ],
+            [
+              -122.3162943013693,
+              47.60864282703233,
+              0
+            ],
+            [
+              -122.3162944132199,
+              47.60873405405745,
+              0
+            ],
+            [
+              -122.3163144522866,
+              47.60873405655563,
+              0
+            ],
+            [
+              -122.3163143503361,
+              47.60881602473294,
+              0
+            ],
+            [
+              -122.3162963350791,
+              47.60881622215113,
+              0
+            ],
+            [
+              -122.3162968262491,
+              47.60895876945759,
+              0
+            ],
+            [
+              -122.3162269779042,
+              47.60895873741489,
+              0
+            ],
+            [
+              -122.3162260299787,
+              47.6089370779482,
+              0
+            ],
+            [
+              -122.3161115699704,
+              47.60893707292388,
+              0
+            ],
+            [
+              -122.3161117453214,
+              47.60912506270505,
+              0
+            ],
+            [
+              -122.3162975094193,
+              47.60912409037506,
+              0
+            ],
+            [
+              -122.316297437246,
+              47.60910849680203,
+              0
+            ],
+            [
+              -122.316400339184,
+              47.60910821189866,
+              0
+            ],
+            [
+              -122.3164004911308,
+              47.60912797267125,
+              0
+            ],
+            [
+              -122.3165581982161,
+              47.60912767946655,
+              0
+            ],
+            [
+              -122.3166114074123,
+              47.60912777755597,
+              0
+            ],
+            [
+              -122.3166401114016,
+              47.60910984449408,
+              0
+            ],
+            [
+              -122.3166397723941,
+              47.60850883051527,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Rianna Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      <p class=\"buildingDescription\">\r\n        Located directly across from the Seattle University campus on 12th Avenue, the Rianna building houses Human Resources and several faculty offices. The Rianna Apartments are also a popular off-campus housing option for Seattle U students.\r\n      </p>\r\n      \r\n      <ul>\r\n                <li><p><a href=\"https://www.seattleu.edu/hr/\" target=\"_blank\">Human Resources</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "administrative",
+        "secondary": "residential",
+        "abbreviation": "RINA",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3160785028061,
+              47.60879462694843,
+              0
+            ],
+            [
+              -122.3155711278402,
+              47.6087966711553,
+              0
+            ],
+            [
+              -122.3155703294509,
+              47.60912248101336,
+              0
+            ],
+            [
+              -122.3160791704693,
+              47.60912434867783,
+              0
+            ],
+            [
+              -122.3160785028061,
+              47.60879462694843,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "John and Judy Harding Building",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LSAX/front1.jpg\" alt=\"John and Judy Harding Building\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/LSAX/inside1.jpg\" alt=\"John and Judy Harding Building\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">\r\n        This building houses the Psychology Department, and the School of New and Continuing Studies.\r\n      </p>\r\n      \r\n      <ul>\r\n           <li><p><a href=\"https://www.seattleu.edu/artsci/departments/psychology/\" target=\"_blank\">Psychology Department, College of Arts and Sciences</a></p></li>   \r\n           <li><p><a href=\"https://ncs.seattleu.edu/\" target=\"_blank\">School of New and Continuing Studies</a></p></li>              \r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "abbreviation": "HRDG",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3179571393549,
+              47.61302585891335,
+              0
+            ],
+            [
+              -122.3174395828638,
+              47.61302277503863,
+              0
+            ],
+            [
+              -122.317436278322,
+              47.61318621260132,
+              0
+            ],
+            [
+              -122.3179549213035,
+              47.61318236732532,
+              0
+            ],
+            [
+              -122.3179571393549,
+              47.61302585891335,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Sculpture Studio",
+        "styleUrl": "#msn_ylw-pushpin",
+        "styleHash": "263ad66a",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin2",
+          "highlight": "#sh_ylw-pushpin0"
+        },
+        "description": "\r\n\r\n      \r\n      <p class=\"buildingDescription\">This new studio is located slightly off campus at the Union Arts Co-op Building and hosts courses in 3-D Design and Sculpture.</p>\r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/undergraduate-degrees/interdisciplinary-arts/\" target=\"_blank\">Interdisciplinary Arts</a></p></li>\r\n      </ul>",
+        "stroke": "#000000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#0006ff",
+        "fill-opacity": 1,
+        "category": "academic",
+        "abbreviation": "UNIN",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.31789216399193,
+              47.60781364120307,
+              0
+            ],
+            [
+              -122.31692723929882,
+              47.60780866824085,
+              0
+            ],
+            [
+              -122.31692925095558,
+              47.606292344800714,
+              0
+            ],
+            [
+              -122.31790691614151,
+              47.606291892700106,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Seattle University Park",
+        "category": "recreational",
+        "abbreviation": "SUPK",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3186894830133,
+              47.60820150683589,
+              0
+            ],
+            [
+              -122.3184063539002,
+              47.60820252708021,
+              0
+            ],
+            [
+              -122.3184063706641,
+              47.60821181171666,
+              0
+            ],
+            [
+              -122.3180880053926,
+              47.60821138090542,
+              0
+            ],
+            [
+              -122.318089478989,
+              47.60819724853563,
+              0
+            ],
+            [
+              -122.318052575459,
+              47.60819622451189,
+              0
+            ],
+            [
+              -122.3180511531954,
+              47.60817487268226,
+              0
+            ],
+            [
+              -122.3177646423398,
+              47.60817544001695,
+              0
+            ],
+            [
+              -122.3177638986676,
+              47.60820086871805,
+              0
+            ],
+            [
+              -122.3175770556354,
+              47.60820156810362,
+              0
+            ],
+            [
+              -122.3175760396185,
+              47.60830008345639,
+              0
+            ],
+            [
+              -122.3176438466339,
+              47.60830040562951,
+              0
+            ],
+            [
+              -122.3176438626955,
+              47.60831486424329,
+              0
+            ],
+            [
+              -122.3176106760903,
+              47.60831617358815,
+              0
+            ],
+            [
+              -122.317609886565,
+              47.60843625747852,
+              0
+            ],
+            [
+              -122.3177747375384,
+              47.60843599200626,
+              0
+            ],
+            [
+              -122.3177745568685,
+              47.60845645052098,
+              0
+            ],
+            [
+              -122.3180572346026,
+              47.60845906987439,
+              0
+            ],
+            [
+              -122.3180529226315,
+              47.60854036803123,
+              0
+            ],
+            [
+              -122.3180738739636,
+              47.60854040525543,
+              0
+            ],
+            [
+              -122.3180717652952,
+              47.60854895299894,
+              0
+            ],
+            [
+              -122.3183313263584,
+              47.6085663577217,
+              0
+            ],
+            [
+              -122.3183315512198,
+              47.60846025785537,
+              0
+            ],
+            [
+              -122.3184076107595,
+              47.60846003756004,
+              0
+            ],
+            [
+              -122.3184071250989,
+              47.60838032025774,
+              0
+            ],
+            [
+              -122.3186886231542,
+              47.60838034856238,
+              0
+            ],
+            [
+              -122.3186894830133,
+              47.60820150683589,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Student Center",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/STCN/front1.jpg\" alt=\"Front of Student Center\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/STCN/fireplace.jpg\" alt=\"Fireplace of Student Center\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/STCN/bistro.jpg\" alt=\"The Bistro\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/STCN/front2.jpg\" alt=\"Front of Student Center\" /></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/STCN/stairway.jpg\" alt=\"Stairway of Student Center\" /></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">The Student Center opened in October 2002 and plays an important role in campus life. On the bottom floor visitors will find an open fireplace lounge and the front desk. Cherry Street Market, Seattle University's primary dining hall, encompasses the entire second floor. The third floor also offers dining at the Hawk's Nest Bistro, as well as a game room and numerous offices. The Student Center is home to Campus Ministry, Student Development, Wellness and Health Promotion, the Office of the Dean of Students, and Redhawk Resource Hub. Center for Student Involvement, located on the third floor, houses the Graduate Student Council (GSC), Student Events and Activities Council (SEAC), and the Student Government of Seattle University (SGSU).</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.dineoncampus.com/seattleu\" target=\"_blank\">Cherry Street Market</a></p></li>\r\n        <li><p><a href=\"https://www.dineoncampus.com/seattleu\" target=\"_blank\">Hawk's Nest Bistro</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/campus-ministry/\" target=\"_blank\">Campus Ministry</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/studentdevelopment/\" target=\"_blank\">Student Development</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/wellness/\" target=\"_blank\">Wellness and Health Promotion</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/deanofstudents/\" target=\"_blank\">Dean of Students</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/student-outreach/resource-spaces/redhawk-resource-hub-desk/\" target=\"_blank\">Redhawk Resource Hub</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/involvement/\" target=\"_blank\">Center for Student Involvement</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/gsc/\" target=\"_blank\">Graduate Student Council (GSC)</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/seac/\" target=\"_blank\">Student Events and Activities Council (SEAC)</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/sgsu/\" target=\"_blank\">Student Government of Seattle University (SGSU)</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "recreational",
+        "secondary": "Administrative",
+        "abbreviation": "STCN",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3179356032723,
+              47.60935626341364,
+              0
+            ],
+            [
+              -122.3175800872023,
+              47.60935623600747,
+              0
+            ],
+            [
+              -122.3175792557815,
+              47.60945634634544,
+              0
+            ],
+            [
+              -122.3171560378912,
+              47.60945675478925,
+              0
+            ],
+            [
+              -122.317155935758,
+              47.60940931632222,
+              0
+            ],
+            [
+              -122.3170056190662,
+              47.60940990152011,
+              0
+            ],
+            [
+              -122.3170057538403,
+              47.60942743894943,
+              0
+            ],
+            [
+              -122.316939651163,
+              47.60942883374312,
+              0
+            ],
+            [
+              -122.3169390550701,
+              47.60978473483418,
+              0
+            ],
+            [
+              -122.3170317289235,
+              47.60978462145858,
+              0
+            ],
+            [
+              -122.3170318034216,
+              47.60975784632998,
+              0
+            ],
+            [
+              -122.3175493341969,
+              47.60975418887873,
+              0
+            ],
+            [
+              -122.3175489937121,
+              47.60977322364441,
+              0
+            ],
+            [
+              -122.3176079366828,
+              47.60977345548271,
+              0
+            ],
+            [
+              -122.3176081816593,
+              47.60977738756146,
+              0
+            ],
+            [
+              -122.3176169516152,
+              47.60977731894882,
+              0
+            ],
+            [
+              -122.3176178837474,
+              47.60983253900346,
+              0
+            ],
+            [
+              -122.3179323397907,
+              47.60983053271324,
+              0
+            ],
+            [
+              -122.3179332696989,
+              47.60962651845065,
+              0
+            ],
+            [
+              -122.3179490446616,
+              47.60962514434603,
+              0
+            ],
+            [
+              -122.3179490748985,
+              47.60953847493769,
+              0
+            ],
+            [
+              -122.3179342870371,
+              47.60953843195942,
+              0
+            ],
+            [
+              -122.3179356032723,
+              47.60935626341364,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Sullivan Hall School of Law",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/SLLH/front1.JPG\" alt=\"Front of Sullivan Hall\"></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">\r\n        Built in 1999, Sullivan Hall is home to Seattle University's School of Law. It houses various classrooms, lecture halls, and offices pertaining to law studies. Upon entering, visitors will find a spacious lobby and The Sidebar, which serves coffee, grilled sandwiches, salads, and more. One of Sullivan Hall's defining elements is the five-story library, which offers online and print materials for legal research.\r\n      </p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://law.seattleu.edu/\" target=\"_blank\">School of Law</a></p></li>\r\n        <li><p><a href=\"https://www.dineoncampus.com/seattleu\" target=\"_blank\">The Sidebar</a></p></li>\r\n        <li><p><a href=\"https://law.seattleu.edu/library\" target=\"_blank\">Law Library</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "academic",
+        "secondary": "administrative",
+        "abbreviation": "SLLH",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.318694350261,
+              47.60686989632589,
+              0
+            ],
+            [
+              -122.3186963600879,
+              47.60685768592332,
+              0
+            ],
+            [
+              -122.3187385681796,
+              47.60685612867314,
+              0
+            ],
+            [
+              -122.3187385693126,
+              47.60679927357472,
+              0
+            ],
+            [
+              -122.3188409682625,
+              47.60680016083747,
+              0
+            ],
+            [
+              -122.3188421465196,
+              47.60669612951084,
+              0
+            ],
+            [
+              -122.3186336072097,
+              47.60669185326027,
+              0
+            ],
+            [
+              -122.3186349897865,
+              47.60652118649905,
+              0
+            ],
+            [
+              -122.3186729734197,
+              47.60652175185139,
+              0
+            ],
+            [
+              -122.3186719877155,
+              47.60644406854468,
+              0
+            ],
+            [
+              -122.3186395640102,
+              47.60644495305674,
+              0
+            ],
+            [
+              -122.3186383476449,
+              47.60634737049046,
+              0
+            ],
+            [
+              -122.3185258733291,
+              47.60634728687916,
+              0
+            ],
+            [
+              -122.3185258757207,
+              47.60635366095804,
+              0
+            ],
+            [
+              -122.3183980431001,
+              47.60635397408685,
+              0
+            ],
+            [
+              -122.3183941089067,
+              47.60651767329942,
+              0
+            ],
+            [
+              -122.3183568584557,
+              47.60651675050133,
+              0
+            ],
+            [
+              -122.3183565790643,
+              47.6065891575686,
+              0
+            ],
+            [
+              -122.3183978400602,
+              47.60658909138649,
+              0
+            ],
+            [
+              -122.3183965893858,
+              47.60675994003305,
+              0
+            ],
+            [
+              -122.3183418042022,
+              47.60675962078581,
+              0
+            ],
+            [
+              -122.318345905283,
+              47.60687045364354,
+              0
+            ],
+            [
+              -122.3183592829858,
+              47.60687028404736,
+              0
+            ],
+            [
+              -122.3183583804056,
+              47.60694243729118,
+              0
+            ],
+            [
+              -122.3183277536083,
+              47.60694250418784,
+              0
+            ],
+            [
+              -122.3183274924029,
+              47.60701244561739,
+              0
+            ],
+            [
+              -122.3183593800669,
+              47.60701217351963,
+              0
+            ],
+            [
+              -122.3183576546258,
+              47.60714123219337,
+              0
+            ],
+            [
+              -122.3184483555711,
+              47.60714114261499,
+              0
+            ],
+            [
+              -122.318448359315,
+              47.6071292651184,
+              0
+            ],
+            [
+              -122.3184978986064,
+              47.60712892520987,
+              0
+            ],
+            [
+              -122.3184982677128,
+              47.60715033295838,
+              0
+            ],
+            [
+              -122.3186003971126,
+              47.60714961329935,
+              0
+            ],
+            [
+              -122.3186038780544,
+              47.60687280245757,
+              0
+            ],
+            [
+              -122.318694350261,
+              47.60686989632589,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Teilhard de Chardin Hall",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHDN/chardin1.jpg\" alt=\"Front of Chardin Hall\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHDN/chardin2.jpg\" alt=\"Inside of Chardin Hall\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHDN/chardin4.jpg\" alt=\"Inside of Chardin Hall\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/CHDN/chardin3.jpg\" alt=\"Inside of Chardin Hall\"></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">Chardin Hall is a sophomore-only residence hall that offers two- and four-bed dorms. Each room comes with a micro-fridge (combination microwave/fridge) and private bathroom. Each floor has a full kitchen, TV room, and private study spaces, as well as a student lounge. A few classrooms can also be found in the basement. Chardin is home to the Faculty Ombudsperson Office.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/housing/residences/chardin-hall/\" target=\"_blank\">Chardin Hall</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/faculty-ombudsperson/\" target=\"_blank\">Faculty Ombudsperson</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "residential",
+        "secondary": "academic",
+        "abbreviation": "CHDN",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.31732,
+              47.612507
+            ],
+            [
+              -122.31732,
+              47.612
+            ],
+            [
+              -122.317583,
+              47.612
+            ],
+            [
+              -122.317583,
+              47.612389
+            ],
+            [
+              -122.31732,
+              47.612507
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Vi Hilbert Hall",
+        "styleUrl": "#msn_ylw-pushpin0",
+        "styleHash": "5b9da7a9",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin1",
+          "highlight": "#sh_ylw-pushpin2"
+        },
+        "description": "\r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/HILB/outside.jpg\" style=\"margin:0 auto;\" alt=\"Outside of Vi Hilbert Hall\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/HILB/inside1.jpg\" style=\"margin:0 auto;\" alt=\"Inside of Vi Hilbert Hall\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/HILB/inside2.jpg\" style=\"margin:0 auto;\" alt=\"Inside of Vi Hilbert Hall\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/HILB/inside3.jpg\" style=\"margin:0 auto;\" alt=\"Inside of Vi Hilbert Hall\"></div>\r\n      </div>\r\n\r\n        <p class=\"buildingDescription\">Located at the edge of campus on Madison, near 12th Avenue, Vi Hilbert Hall opened in fall 2018. Named after Vi Hilbert, this new student housing community pays homage to the woman who devoted much of her life to keeping the Northwest native tribe of Lushootseed’s culture, language and stories alive. Also home to the division of Enrollment Services (which includes Registrar, Student Financial Services, Undergraduate Admissions, and Graduate Admissions), prospective students and their families touring Seattle University can expect an informational presentation at this building.\r\n        </p>\r\n        <ul>\r\n          <li><p><a href=\"https://www.seattleu.edu/graduate-admissions/\" target=\"_blank\">Graduate Admissions</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/registrar/\" target=\"_blank\">Registrar</a></p></li>\r\n       \t  <li><p><a href=\"https://www.seattleu.edu/sfs/\" target=\"_blank\">Student Financial Services</a></p></li>\r\n          <li><p><a href=\"https://www.seattleu.edu/undergraduate-admissions/\" target=\"_blank\">Undergradaute Admissions</a></p></li>\r\n\t\t  <li><p><a href=\"https://www.vihilberthall.com\" target=\"_blank\">Vi Hilbert Hall</a></p></li>\r\n        </ul>   \r\n      ",
+        "stroke": "#000000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#0006ff",
+        "fill-opacity": 0,
+        "category": "residential",
+        "abbreviation": "HILB",
+        "style": "plainred"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.3175963934776,
+              47.61164083146632,
+              0
+            ],
+            [
+              -122.3174157029752,
+              47.61164196626082,
+              0
+            ],
+            [
+              -122.3174162386319,
+              47.6117909154313,
+              0
+            ],
+            [
+              -122.3171339446415,
+              47.61179144440236,
+              0
+            ],
+            [
+              -122.3171340097305,
+              47.61164125999441,
+              0
+            ],
+            [
+              -122.3169501738143,
+              47.61164025907036,
+              0
+            ],
+            [
+              -122.3169494172494,
+              47.61192762482443,
+              0
+            ],
+            [
+              -122.31721957211,
+              47.61192866988188,
+              0
+            ],
+            [
+              -122.3172204385047,
+              47.61194780150637,
+              0
+            ],
+            [
+              -122.3173282129449,
+              47.61194786767697,
+              0
+            ],
+            [
+              -122.3173282605267,
+              47.6119287122233,
+              0
+            ],
+            [
+              -122.3176019476852,
+              47.61192660543926,
+              0
+            ],
+            [
+              -122.3175963934776,
+              47.61164083146632,
+              0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Xavier Residence Hall",
+        "styleUrl": "#sn_ylw-pushpin10",
+        "styleHash": "-425e9773",
+        "styleMapHash": {
+          "normal": "#sn_ylw-pushpin00",
+          "highlight": "#sn_ylw-pushpin0"
+        },
+        "description": "\r\n      \r\n      <div class=\"slider\">\r\n        <div><img src=\"//static.seattleu.edu/map/photos/XAVR/xavier1.jpg\" alt=\"Inside of Xavier Hall\"></div>\r\n        <div><img src=\"//static.seattleu.edu/map/photos/XAVR/xavier3.jpg\" alt=\"Inside of Xavier Hall\"></div>\r\n      </div>\r\n      \r\n      <p class=\"buildingDescription\">Xavier Hall is home to students from around the world and boasts a significant number of international students. Xavier offers three floors of dorms and a student lounge on the first floor. The basement includes an additional student lounge/game room, a full kitchen, and two classrooms. Xavier also houses the Modern Languages and Cultures Department as well as the Chardin Collegium and the Indigenous Peoples Institute.</p>\r\n      \r\n      <ul>\r\n        <li><p><a href=\"https://www.seattleu.edu/housing/residences/xavier-global-house/\" target=\"_blank\">Xavier Hall</a></p></li>\r\n        <li><p><a href=\"https://www.seattleu.edu/artsci/departments/languages/\" target=\"_blank\">Modern Languages and Cultures Department</a></p></li>\r\n\t\t<li><p><a href=\"https://www.seattleu.edu/artsci/departments/ipi/\" target=\"_blank\">Indigenous Peoples Institute</a></p></li>\r\n      </ul>",
+        "stroke": "#aa0000",
+        "stroke-opacity": 1,
+        "stroke-width": 0.5,
+        "fill": "#000000",
+        "fill-opacity": 0.4980392156862745,
+        "category": "residential",
+        "secondary": "academic",
+        "abbreviation": "XAVR",
+        "style": "plainred"
+      }
+    }
+  ]
+}

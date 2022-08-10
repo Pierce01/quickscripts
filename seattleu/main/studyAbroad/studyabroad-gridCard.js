@@ -1,6 +1,16 @@
 // PSL
 var version="23.0";eval(function(version){var minImports=JavaImporter(com.terminalfour.media.IMediaManager,com.terminalfour.spring.ApplicationContextProvider,com.terminalfour.version.Version);with(minImports){var mm=ApplicationContextProvider.getBean(IMediaManager),media=mm.get(3101315,language,new Version(version)).getMedia(),s=new java.util.Scanner(media).useDelimiter("\\A");return String(s.hasNext()?s.next():"")}}(version))
 
+String.prototype.wrap = function (tags) {
+    if (!Array.isArray(tags)) {
+        tags = [tags]
+    }
+    return tags.map(val => {
+        return val.attributes ? ('<' + val.tag + ' ' + val.attributes + '>') : ('<' + val + '>')}).join('') 
+            + this.toString() 
+            + tags.reverse().map(val => { return '</' + (val.attributes ? val.tag : val) + '>' }).join('')
+}
+
 try {
     var mediaManager = ApplicationContextProvider.getBean(IMediaManager)
     var cssClass = 'locationFeedItem profileItem card shadow col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4'
@@ -44,14 +54,23 @@ try {
         }
     }()
     var programFee = function () {
-        var fee = content.get('Program Fee').getValue()
-        if (fee == '') {
-            return 'Click for more information'
-        } else if (!fee.includes('$')) {
-            return '$' + fee
-        } else {
-            return fee
-        }
+        var num = 0;
+        var values = []
+        var fee = '' + content.get('Program Fee').publish()
+        var feeParse = fee.split('|').map(entry => {
+            entry = entry.split(': ')
+            if (entry.length > 1) {
+                num = 1
+            }
+            if (entry[num] == '') {
+                entry[num] = '$N/A'
+            } else if (!entry[num].includes('$')) {
+                entry[num] = '$' + entry[num]
+            }
+            values.push(entry[num])
+            return entry.join(': ')
+        })
+        return { html: num ? makeList(feeParse.join('|'), '|') : feeParse.join('|'), values:values.join('/')}
     }()
     var region = function () {
         return content.get('Region').getValue() == '' ? 'Multiple Regions' : content.get('Region').getValue()
@@ -67,7 +86,7 @@ try {
         // Program Type
         contentArray.push("Program Type%:% " + content.get('Program Type').getValue())
         // Program Fee
-        contentArray.push("SU Program Fee%:% " + programFee)
+        contentArray.push("SU Program Fee%:% " + programFee.values)
         // Terms
         contentArray.push("Term%:% " + content.get('Terms').getValue())
         // Additional Features
@@ -88,7 +107,7 @@ try {
                 '</h3>',
                 '<p class="card-text margin0 subtext">' + cityCountryString + '</p>',
                 '<p class="card-text margin0">' + content.get('Program Type') + '</p>',
-                '<p class="card-text">Program Fee: ' + programFee + '</p>',
+                programFee.html.indexOf('li') > -1 ? ('Program Fee: '.wrap([{tag: 'p', attributes: 'class="card-text margin0"'}])) + programFee.html : ('Program Fee: ' + programFee.html).wrap([{tag: 'p', attributes: 'class="card-text"'}]),
             closeDiv,
             '<div class="card-footer"><span class="locationRegion">' + (content.get('Region').getValue() == '' 
                 ? 'Multiple Regions' 
@@ -97,4 +116,19 @@ try {
     ])
 } catch (error) {
     document.write(error)
+}
+
+function makeList (str, del) {
+    var arr
+    if (!del) del = ','
+    // Allows us to parse both types of strings in the context of T4
+    try {
+        arr = ('' + str.getValue()).split(del)
+    } catch (e) {
+        arr = str.split(del)
+    }
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = ('' + arr[i]).wrap('li')
+    }
+    return arr.join('')
 }
