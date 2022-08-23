@@ -70,7 +70,7 @@ try {
             values.push(entry[num])
             return entry.join(': ')
         })
-        return { html: num ? makeList(feeParse.join('|'), '|') : feeParse.join('|'), values:values.join('/')}
+        return { html: num ? makeList(feeParse.join('|'), '|') : feeParse.join('|'), values: values.join('/')}
     }()
     var region = function () {
         return content.get('Region').getValue() == '' ? 'Multiple Regions' : content.get('Region').getValue()

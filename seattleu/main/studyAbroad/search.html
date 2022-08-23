@@ -169,11 +169,8 @@
       for (let amount of prices) {
         let parsedAmount = parseInt(amount)
         if (parsedAmount !== NaN) {
-          if (parsedAmount <= parseInt(document.getElementById('priceSlider').value)) {
-            return true
-          }
+          return parsedAmount <= parseInt(document.getElementById('priceSlider').value)
         } else {
-          console.log(id)
           return true
         }
       }
