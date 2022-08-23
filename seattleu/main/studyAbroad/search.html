@@ -104,7 +104,7 @@
             const targetElement = document.getElementById((array[j].split(' ')).join(''))
             if (targetElement) {
               if (!dynamicDropDownLists[array[j]][w] || dynamicDropDownLists[array[j]][w].length === 0) continue
-              targetElement.innerHTML += '<option value=' + dynamicDropDownLists[array[j]][w] + '>' + dynamicDropDownLists[array[j]][w] + '</option>'
+              targetElement.innerHTML += '<option value="' + dynamicDropDownLists[array[j]][w] + '">' + dynamicDropDownLists[array[j]][w] + '</option>'
             }
           }
         }
@@ -165,11 +165,11 @@
       if (window.studyAbroadSearchObject[id]["su program fee"].indexOf('N/A') > -1) return true
 
       let prices = window.studyAbroadSearchObject[id]["su program fee"].split('$').join('').split(',').join('').split('/')
-      const value = document.getElementById('priceSlider').value
+      const value = parseInt(document.getElementById('priceSlider').value)
       for (let amount of prices) {
         let parsedAmount = parseInt(amount)
         if (parsedAmount !== NaN) {
-          return parsedAmount <= parseInt(document.getElementById('priceSlider').value)
+          return parsedAmount <= value
         } else {
           return true
         }

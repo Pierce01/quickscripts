@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var targetElement = document.getElementById(array[_j].split(' ').join(''));
       if (targetElement) {
         if (!dynamicDropDownLists[array[_j]][w] || dynamicDropDownLists[array[_j]][w].length === 0) continue;
-        targetElement.innerHTML += '<option value=' + dynamicDropDownLists[array[_j]][w] + '>' + dynamicDropDownLists[array[_j]][w] + '</option>';
+        targetElement.innerHTML += '<option value="' + dynamicDropDownLists[array[_j]][w] + '">' + dynamicDropDownLists[array[_j]][w] + '</option>';
       }
     }
   }
