@@ -13,7 +13,7 @@ String.prototype.wrap = function (tags) {
 
 try {
     var mediaManager = ApplicationContextProvider.getBean(IMediaManager)
-    var cssClass = 'locationFeedItem profileItem card shadow col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4'
+    var cssClass = 'locationFeedItem profileItem card shadow'
     var cityCountryString = function () {
         var cities = content.get('City').getValue().split(',').length
         var countries = content.get('Country').getValue().split(',').length
@@ -93,12 +93,14 @@ try {
         contentArray.push("Features%:% " + content.get('Additional Features').getValue())
         // Field of Study
         contentArray.push("Field of Study%:% " + content.get('Disciplines').getValue())
+        // Do Not Display (anything else can get added here)
+        contentArray.push("doNotDisplay%:% " + content.get('Program Provider').getValue())
         return contentArray.join('%&&&&&%')
     }()
     
     var closeDiv = '</div>'
     writeHtml([
-        '<div class="' + cssClass + '" title="' + content.get('Name') + '" id="id' + content.getID() + '" data-position-default="ZoneA" data-position-selected="ZoneA">',
+        '<div class="' + cssClass + '" title="' + content.get('Name') + '" id="id' + content.getID() + '">',
             '<span hidden class="cardMetaData">' + metadata + '</span>',
             '<span class="cardImageWrapper"><img src="' + imageObj.url + '" class="card-img-top" alt="' + imageObj.description + '"></span>',
             '<div class="card-body">',
@@ -107,6 +109,7 @@ try {
                 '</h3>',
                 '<p class="card-text margin0 subtext">' + cityCountryString + '</p>',
                 '<p class="card-text margin0">' + content.get('Program Type') + '</p>',
+                '<p class="card-text margin0">' + content.get('Program Provider') + '</p>',
                 programFee.html.indexOf('li') > -1 ? ('Program Fee: '.wrap([{tag: 'p', attributes: 'class="card-text margin0"'}])) + programFee.html : ('Program Fee: ' + programFee.html).wrap([{tag: 'p', attributes: 'class="card-text"'}]),
             closeDiv,
             '<div class="card-footer"><span class="locationRegion">' + (content.get('Region').getValue() == '' 

@@ -26,8 +26,17 @@
       text-overflow: "";
     }
 
+    .saButtonLabel {
+      font-size: initial;
+    }
+
+    #priceDisplay {
+      font-size: small;
+    }
+
     #SASTool .row {
         margin-bottom: 10px;
+        --bs-gutter-y: 1rem;
     }
 
     #id3730272 {
@@ -72,7 +81,7 @@
           const fields = Object.keys(window.studyAbroadSearchObject[id])
           for (let k = 0; k < fields.length; k++) {
             const field = fields[k]
-            if (field !== 'all' && field !== 'su program fee') {
+            if (field !== 'all' && field !== 'su program fee' && field !== 'donotdisplay') {
               let entries = window.studyAbroadSearchObject[id][field].split(',')
               if (!dynamicDropDownLists[field]) {
                 dynamicDropDownLists[field] = []
@@ -133,9 +142,15 @@
            hasSearchSelection(id, "destination") && hasSearchSelection(id, "region") && hasSearchSelection(id, "program type") && 
            handlePriceSelection(id) && hasSearchSelection(id, "term") && hasSearchSelection(id, "features") &&
            hasSearchSelection(id, "field of study")) {
-          element.style.display = "flex"
+          if (!element.classList.contains('d-flex')) {
+            if (element.classList.contains('d-none')) element.classList.remove('d-none')
+            element.classList.add('d-flex')
+          }
         } else {
-          element.style.display = "none"
+          if (!element.classList.contains('d-none')) {
+            if (element.classList.contains('d-flex')) element.classList.remove('d-flex')
+            element.classList.add('d-none')
+          }
         }
       }
 
@@ -183,7 +198,7 @@
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
           <div class="col">
-            <div class="saButtonLabel">Search</div>
+            <div class="saButtonLabel">Keyword Search</div>
             <input onkeydown="handleSearch()" onkeyup="handleSearch()">
           </div>
           <div class="col">

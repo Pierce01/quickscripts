@@ -128,12 +128,36 @@
 	line-height: normal
 }
 
+.SAWrapper > div.contentWrapper > div.textBodyWrapper > div:nth-child(2) > ul > li > ul {
+  margin-top: 5px;
+}
+
 .textBody ul li, .textBody ol li {
 	font-size: 1.2rem !important
 }
 
+.SAWrapper li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.SAWrapper .dropdown-content li {
+    margin-bottom: 0px;
+}
+
+h3 {
+  font-size: 1.5rem!important;
+}
+
+h2 {
+  font-size: 1.75rem!important;
+}
+
+h1 {
+  font-size: 2rem!important;
+}
+
 .redBold,
-.textBody h3 {
+.textBody h2 {
 	font-weight: 700 !important;
 	color: #ed1c24 !important
 }
@@ -300,7 +324,7 @@ a.btn.marginTop4.redBold {
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h2 class="card-title redBold">Program Title</h2>
+                <h1 class="card-title redBold">Program Title</h1>
                 <p class="card-text margin2">Program Type</p>
                 <p class="card-text margin2">Program Provider / Program Leader (Email Contact)</p>
                 <p>
@@ -322,27 +346,27 @@ a.btn.marginTop4.redBold {
       <div class="contentWrapper">
         <div class="textBodyWrapper" style="overflow: hidden;">
           <div class="textBody" style="margin-bottom: 1rem;">
-            <h3>Program Summary</h3>
+            <h2>Program Summary</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
           <div class="textBody" style="margin-bottom: 1rem;">
-            <h3>Housing</h3>
+            <h2>Housing</h2>
             <li>Apartment</li>
             <li>Dorm</li>
             <li>Homestay</li>
           </div>
           <div class="textBody" style="margin-bottom: 1rem;">
-            <h3>Student Testimonial</h3>
+            <h2>Student Testimonial</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
           <div class="textBody" style="margin-bottom: 1rem;">
-            <h3>Application Steps</h3>
+            <h2>Application Steps</h2>
             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
           </div>
           <div class="textBody">
-            <h3>Map</h3>
+            <h2>Map</h2>
             <div id="map"></div>
           </div>
         </div>
