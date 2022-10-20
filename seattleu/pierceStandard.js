@@ -4,10 +4,8 @@
  * @version 1.6
  */
 
- importClass(com.terminalfour.publish.utils.BrokerUtils)
- importClass(com.terminalfour.media.IMediaManager) 
- importClass(com.terminalfour.spring.ApplicationContextProvider) 
- 
+importT4Modules(com.terminalfour.publish.utils.BrokerUtils, com.terminalfour.media.IMediaManager, com.terminalfour.spring.ApplicationContextProvider)
+
  /**
   * 
   * @param {string} tag - T4 Tag to be processed.
@@ -93,6 +91,19 @@
          return false
      }
  }
+
+
+function importT4Modules () {
+    try {
+        Object.keys(arguments).forEach(argument => {
+            importClass(arguments[argument])
+        })
+        return true
+    } catch (e) {
+        return false
+    }
+}
+
  
  /**
   * 

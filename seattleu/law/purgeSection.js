@@ -1,12 +1,3 @@
-window.onload = async () => {
-    if (!(await getPermission())) {
-        alert("You do not have permission to purge sections.")
-        location.replace("https://cms.seattleu.edu/terminalfour/preview/21/en/194982/2484745")
-    } else {
-        console.log("User has proper permission")
-    }
-}
-
 const constantHeaders = {
     "accept": "application/json, text/javascript, */*; q=0.01",
     "accept-language": "en-US,en;q=0.9",
@@ -17,6 +8,15 @@ const constantHeaders = {
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
     "x-requested-with": "XMLHttpRequest"
+}
+
+const constantEntry = {
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include",
+    "referrer": "https://cms.seattleu.edu/terminalfour/page/recycleContent",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null
 }
 
 const deleteQueueContent = []
@@ -30,8 +30,8 @@ async function getSectionInfo(id) {
           "authorization": `Bearer ${JSON.parse(window.sessionStorage.__oauth2).accessToken}`,
           ...constantHeaders
         },
+        ...constantEntry,
         "referrer": "https://cms.seattleu.edu/terminalfour/page/site-structure",
-        "referrerPolicy": "strict-origin-when-cross-origin",
         "body": JSON.stringify({
             "read": {
                 "section": {
@@ -48,10 +48,7 @@ async function getSectionInfo(id) {
                 "restrictedToPermitedSections": false,
                 "expandCollapseAllChildren": false
             }
-        }),
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
+        })
       })).json())[0]
 }
 
@@ -61,15 +58,11 @@ async function purgeSectionIDs (array) {
             "authorization": `Bearer ${JSON.parse(window.sessionStorage.__oauth2).accessToken}`,
             ...constantHeaders
         },
-        "referrer": "https://cms.seattleu.edu/terminalfour/page/recycleContent",
-        "referrerPolicy": "strict-origin-when-cross-origin",
+        ...constantEntry,
         "body": JSON.stringify({
             "languageCode":"en",
             "contentIds": array
-        }),
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
+        })
     })
 }
 
@@ -79,15 +72,11 @@ async function purgeContentIDs (array) {
             "authorization": `Bearer ${JSON.parse(window.sessionStorage.__oauth2).accessToken}`,
             ...constantHeaders
         },
-        "referrer": "https://cms.seattleu.edu/terminalfour/page/recycleContent",
-        "referrerPolicy": "strict-origin-when-cross-origin",
+        ...constantEntry,
         "body": JSON.stringify({
             "languageCode":"en",
             "contentIds": array
-        }),
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
+        })
     })
 }
 
@@ -129,12 +118,8 @@ async function getContentIDsFromSection (id) {
             "authorization": `Bearer ${JSON.parse(window.sessionStorage.__oauth2).accessToken}`,
             ...constantHeaders
         },
-        "referrer": "https://cms.seattleu.edu/terminalfour/page/section",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": null,
-        "method": "GET",
-        "mode": "cors",
-        "credentials": "include"
+        ...constantEntry,
+        "method": "GET"
         })).json()).children
 }
 
@@ -165,12 +150,9 @@ async function getPermission () {
             "authorization": `Bearer ${JSON.parse(window.sessionStorage.__oauth2).accessToken}`,
             ...constantHeaders
         },
+        ...constantEntry,
         "referrer": "https://cms.seattleu.edu/terminalfour/page/content",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": null,
-        "method": "GET",
-        "mode": "cors",
-        "credentials": "include"
+        "method": "GET"
         })).json()).userLevel) == 0
 }
 
@@ -178,8 +160,10 @@ async function main (id) {
     if (await getPermission()) {
         const json = await getSectionInfo(id)
         await troll(json)
-        console.log(deleteQueueSection)
-        console.log(deleteQueueContent)
+        purgeSectionIDs(deleteQueueSection)
+        purgeContentIDs(deleteQueueContent)
+        deleteQueueSection.length = 0;
+        deleteQueueContent.length = 0;
     } else {
         alert("User is not an admin")
     }
