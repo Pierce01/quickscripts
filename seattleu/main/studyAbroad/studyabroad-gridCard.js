@@ -94,7 +94,7 @@ try {
         // Field of Study
         contentArray.push("Field of Study%:% " + content.get('Disciplines').getValue())
         // Do Not Display (anything else can get added here)
-        contentArray.push("doNotDisplay%:% " + content.get('Program Provider').getValue())
+        contentArray.push("doNotDisplay%:% " + content.get('Program Provider').getValue() + " " + cityCountryString)
         return contentArray.join('%&&&&&%')
     }()
     

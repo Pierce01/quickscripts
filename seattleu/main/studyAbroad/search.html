@@ -34,16 +34,17 @@
       font-size: small;
     }
 
+    #id4871788 {
+      background-color: inherit !important;
+    }
+
+    #id4871788 > .titleWrapper {
+      display: none;
+    }
+
     #SASTool .row {
         margin-bottom: 10px;
         --bs-gutter-y: 1rem;
-    }
-
-    #id3730272 {
-      background-color: inherit !important;
-    }
-    #id3730272 > .titleWrapper {
-      display: none;
     }
 
     #filterFieldWrapper > div.noResultsToShow.standardContent.hideResultsMessage  {
@@ -173,7 +174,7 @@
 
     function hasSearchSelection (id, field) {
       const value = document.getElementById(field.split(' ').join('')).value
-      return value == "any" ? true : window.studyAbroadSearchObject[id][field].indexOf(value) > -1
+      return value == "any" ? true : window.studyAbroadSearchObject[id][field].split(', ').includes(value)
     }
 
     function handlePriceSelection(id) {
