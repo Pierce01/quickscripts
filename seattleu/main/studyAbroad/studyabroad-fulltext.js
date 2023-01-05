@@ -164,7 +164,7 @@ try {
                             })
                         }),
                     closeDiv,
-                    (get('Program Type').getValue() == 'SU Faculty Led' && get('Course(s)')) ? [ textBodyWithMargin,
+                    (get('Program Type').getValue() == 'SU Faculty-Led' && get('Course(s)')) ? [ textBodyWithMargin,
                         'Courses'.wrap('h2'),
                         get('Course(s)', (text) => { return makeList(text, '; ') }), 
                     closeDiv ]: undefined,
@@ -186,6 +186,11 @@ try {
                         ('If you haven’t joined the Education Abroad Canvas Course yet, ' + ('Join Now!'.wrap([{attributes: 'href="https://forms.office.com/Pages/ResponsePage.aspx?id=UuAQvBywSUiZZ-5-x0_J2CrqSVSnPn9KtGVI66pTpfNUNTZYMTFSWUsxVlIxUFU1TVhLQkEzQlFZSyQlQCN0PWcu"', tag: 'a'}])) + '').wrap('p'),
                     closeDiv,
                     textBodyWithMargin,
+                    (get('Scholarships') || get('Program Scholarships')) ? [ textBodyWithMargin,
+                        '<h2>Scholarships</h2>',
+                            get('Scholarships', (text) => {return '' + text.publish().wrap('p')}),
+                            get('Program Scholarships', (text) => { return makeList('' + text.publish().wrap([{tag: 'a', attributes: 'target="_blank" rel="noopener noreferrer" href="' + text.publish() + '"'}]))}),
+                    closeDiv ] : undefined,
                         '<h2>Credits</h2>',
                         '<ul><li><b>Credit Range:</b> ' + get('Credit Range') + '</li>',
                         '<li><b>Credit System:</b> ' + get('Credit System') + '</li>',
@@ -226,6 +231,14 @@ try {
     document.write(e)
 }
 
+function markupLink (str) {
+    var regexMarkup = str.match(/\[(.+)\]\(([^ ]+?)( "(.+)")?\)/)
+    if (regexMarkup) {
+        str = str.replace(regexMarkup[0], '<a href="' + regexMarkup[2] + '">' + regexMarkup[1] + '</a>')
+    }
+    return str
+}
+
 function makeList (str, del, type) {
     var arr
     if (!del) del = ','
@@ -237,7 +250,7 @@ function makeList (str, del, type) {
         arr = str.split(del)
     }
     for (let i = 0; i < arr.length; i++) {
-        arr[i] = arr[i].wrap('li')
+        arr[i] = markupLink(arr[i].wrap('li'))
     }
     return arr.join('').wrap(type)
 }
