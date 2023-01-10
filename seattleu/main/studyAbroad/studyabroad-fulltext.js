@@ -164,6 +164,10 @@ try {
                             })
                         }),
                     closeDiv,
+                    (get('Program Type').getValue() == 'SU Faculty-Led' || get('Program Type').getValue() == 'SU Non-Credit') ? [ textBodyWithMargin,
+                        'Faculty/Staff Leader'.wrap('h2'),
+                        formatContact(),
+                    closeDiv ] : undefined,
                     (get('Program Type').getValue() == 'SU Faculty-Led' && get('Course(s)')) ? [ textBodyWithMargin,
                         'Courses'.wrap('h2'),
                         get('Course(s)', (text) => { return makeList(text, '; ') }), 
@@ -268,6 +272,21 @@ function formatLocations (cities, countries) {
         }
     }
     return tempArr.join('')
+}
+
+function formatContact () {
+    var names = (get('Contact Name').getValue()).split('; ')
+    var emails = (get('Contact Email').getValue()).split('; ')
+
+    var tempArr = []
+    var emailsCounter = 0
+    for (var i = 0; i < names.length; i++) {
+        tempArr.push('<a href="mailto:' + emails[i] + '">' + names[i] + '</a>')
+        if (emails[emailsCounter + 1]) {
+            emailsCounter++
+        }
+    }
+    return makeList(tempArr.join('; '), '; ')
 }
 
 function get (name, cbSuccess, cbFail) {
