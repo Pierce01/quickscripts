@@ -62,18 +62,12 @@ try {
         }
     }()
     var imageObj = function () {
-        var webImage = content.get('Web Image URL') == '' ? null : content.get('Web Image URL')
         var libraryImage = content.get('Web Image ID number') == '' ? null : content.get('Web Image ID number')
         if (libraryImage) {
             var resolved = getValueFromT4Tag("<t4 type='media' formatter='path/*' id='" + libraryImage +"' />")
             return {
                 url: resolved.content,
                 description: mediaManager.get(libraryImage, language).getDescription()
-            }
-        } else if (webImage) {
-            return { 
-                url: webImage, 
-                description: content.get('Alt Text')
             }
         } else {
             return {
@@ -117,7 +111,15 @@ try {
             var name = arr.get(i).getName()
             if (name.indexOf('Program Budget') > -1) {
                 var value = arr.get(i).getValue()
-                if (value.indexOf('https') > -1) budgetArr.push((name.split('-')[1].trim()).wrap([{tag: 'a', attributes: 'target="_blank" rel="noopener noreferrer" href="' + value + '" class="btn"'}]))
+                if (value.indexOf('https') > -1) {
+                    budgetArr.push((name.split('-')[1].trim()).wrap([{tag: 'a', attributes: 'target="_blank" rel="noopener noreferrer" href="' + value + '" class="btn"'}]))
+                } else {
+                    var fileResolved = getValueFromT4Tag("<t4 type='media' formatter='path/*' id='" + value +"' />")
+                    if (fileResolved.content) {
+                        budgetArr.push((name.split('-')[1].trim()).wrap([{tag: 'a', attributes: 'target="_blank" rel="noopener noreferrer" href="' + fileResolved.content 
+                            + '" class="btn"'}]))
+                    }
+                }
             }
         }
         return budgetArr
@@ -125,7 +127,7 @@ try {
     var fieldOfStudyHTML = function () {
         var templateHTML = templateHTMLMulti
         var disciplines = get('Disciplines', (args) => {
-            return args.getValue().split(',').map(study => { return study.wrap(['li', 'a']) }).join('')
+            return ('' + args.getValue()).split('|').map(study => { return study.wrap(['li', 'a']) }).join('')
         }, noInfoFoundPTag)
         return !(disciplines.indexOf('not specified') > -1) ? (templateHTML.replace('TARGET', disciplines).replace('NAME', 'View all Disciplines')) : disciplines
     }()
@@ -190,10 +192,16 @@ try {
                         ('If you haven’t joined the Education Abroad Canvas Course yet, ' + ('Join Now!'.wrap([{attributes: 'href="https://forms.office.com/Pages/ResponsePage.aspx?id=UuAQvBywSUiZZ-5-x0_J2CrqSVSnPn9KtGVI66pTpfNUNTZYMTFSWUsxVlIxUFU1TVhLQkEzQlFZSyQlQCN0PWcu"', tag: 'a'}])) + '').wrap('p'),
                     closeDiv,
                     textBodyWithMargin,
-                    (get('Scholarships') || get('Program Scholarships')) ? [ textBodyWithMargin,
+                    get('Scholarships') ? [ textBodyWithMargin,
                         '<h2>Scholarships</h2>',
-                            get('Scholarships', (text) => {return '' + text.publish().wrap('p')}),
-                            get('Program Scholarships', (text) => { return makeList('' + text.publish().wrap([{tag: 'a', attributes: 'target="_blank" rel="noopener noreferrer" href="' + text.publish() + '"'}]))}),
+                        (get('Scholarships').getValue()).wrap('p'),
+                        get('Program Scholarships', (text => {
+                            return text.getValue().match(/\[(.+)\]\(([^ ]+?)( "(.+)")?\)/) 
+                                ? makeList(text.getValue(), '|') 
+                                : makeList(text.getValue().wrap([{
+                                    attributes: 'href="' + text.getValue() + '"', tag: 'a'
+                                  }]))
+                        })),
                     closeDiv ] : undefined,
                         '<h2>Credits</h2>',
                         '<ul><li><b>Credit Range:</b> ' + get('Credit Range') + '</li>',

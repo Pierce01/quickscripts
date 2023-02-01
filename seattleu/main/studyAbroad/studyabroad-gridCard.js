@@ -33,18 +33,12 @@ try {
         }
     }()
     var imageObj = function () {
-        var webImage = content.get('Web Image URL') == '' ? null : content.get('Web Image URL')
         var libraryImage = content.get('Web Image ID number') == '' ? null : content.get('Web Image ID number')
         if (libraryImage) {
             var resolved = getValueFromT4Tag("<t4 type='media' formatter='path/*' id='" + libraryImage +"' />")
             return {
                 url: resolved.content,
                 description: mediaManager.get(libraryImage, language).getDescription()
-            }
-        } else if (webImage) {
-            return { 
-                url: webImage, 
-                description: content.get('Alt Text')
             }
         } else {
             return {
@@ -78,7 +72,7 @@ try {
     var metadata = function () {
         var contentArray = []
         // Title
-        contentArray.push("Title%:% " + content.get('Name').getValue())
+        contentArray.push("Title%:% " + content.get('Program Title').getValue())
         // Destinations
         contentArray.push("Destination%:% " + content.get('Country').getValue())
         // Region
@@ -100,12 +94,12 @@ try {
     
     var closeDiv = '</div>'
     writeHtml([
-        '<div class="' + cssClass + '" title="' + content.get('Name') + '" id="id' + content.getID() + '">',
+        '<div class="' + cssClass + '" title="' + content.get('Program Title') + '" id="id' + content.getID() + '">',
             '<span hidden class="cardMetaData">' + metadata + '</span>',
             '<span class="cardImageWrapper"><img src="' + imageObj.url + '" class="card-img-top" alt="' + imageObj.description + '"></span>',
             '<div class="card-body">',
                 '<h3 class="card-title">',
-                    '<a href="' + (getValueFromT4Tag("<t4 type='content' name='Name' output='fulltext' use-element='true' filename-element='Name' modifiers='striptags,htmlentities' />")).content + '">' + content.get('Program Title') + '</a>',
+                    '<a href="' + (getValueFromT4Tag("<t4 type='content' name='Program Title' output='fulltext' use-element='true' filename-element='Program Title' modifiers='striptags,htmlentities' />")).content + '">' + content.get('Program Title') + '</a>',
                 '</h3>',
                 '<p class="card-text margin0 subtext">' + cityCountryString + '</p>',
                 '<p class="card-text margin0">' + content.get('Program Type') + '</p>',

@@ -83,7 +83,7 @@
           for (let k = 0; k < fields.length; k++) {
             const field = fields[k]
             if (field !== 'all' && field !== 'su program fee' && field !== 'donotdisplay') {
-              let entries = window.studyAbroadSearchObject[id][field].split(',')
+              let entries = window.studyAbroadSearchObject[id][field].split((field == 'field of study' ? '|' : ','))
               if (!dynamicDropDownLists[field]) {
                 dynamicDropDownLists[field] = []
               }
@@ -140,9 +140,9 @@
         const element = document.getElementById(id)
 
         if (window.studyAbroadSearchObject[id]["all"].toLowerCase().indexOf(searchBox.value.toLowerCase()) > -1 &&
-           hasSearchSelection(id, "destination") && hasSearchSelection(id, "region") && hasSearchSelection(id, "program type") && 
-           handlePriceSelection(id) && hasSearchSelection(id, "term") && hasSearchSelection(id, "features") &&
-           hasSearchSelection(id, "field of study")) {
+          hasSearchSelection(id, "destination") && hasSearchSelection(id, "region") && hasSearchSelection(id, "program type") && 
+          handlePriceSelection(id) && hasSearchSelection(id, "term") && hasSearchSelection(id, "features") &&
+          hasSearchSelection(id, "field of study")) {
           if (!element.classList.contains('d-flex')) {
             if (element.classList.contains('d-none')) element.classList.remove('d-none')
             element.classList.add('d-flex')
@@ -174,7 +174,7 @@
 
     function hasSearchSelection (id, field) {
       const value = document.getElementById(field.split(' ').join('')).value
-      return value == "any" ? true : window.studyAbroadSearchObject[id][field].split(', ').includes(value)
+      return value == "any" ? true : window.studyAbroadSearchObject[id][field].split((field == 'field of study' ? '|' : ', ')).includes(value)
     }
 
     function handlePriceSelection(id) {
@@ -190,7 +190,7 @@
           return true
         }
       }
-       return false
+      return false
     }
 
   </script>
