@@ -1,6 +1,7 @@
 export interface ISection {
   name: string,
   parent: number,
+  description?: string,
   status?: number,
   workflow?: number,
   path?: string,

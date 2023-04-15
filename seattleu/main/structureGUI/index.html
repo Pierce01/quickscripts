@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title> Chart emulation </title>
+    <link rel="stylesheet" href="./treant/Treant.css">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+      body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+      body { background: #fff; }
+      /* optional Container STYLES */
+      .node { color: #9CB5ED; border: 2px solid #C8C8C8; border-radius: 3px; }
+      .node p { font-size: 20px; line-height: 20px; height: 20px; font-weight: bold; padding: 3px; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="text">Drag and drop the .json file anywhere</div>
+    </div>    
+    <div id="control-panel">
+      <h3>Site Structure Visualizer</h3>
+      <input onkeydown = "if (event.keyCode == 13) document.getElementById('add').click()">
+      <button id="add">Add</button>
+      <button id="export">Export</button>
+      <input id ="import" type="file" style="color:transparent; width:100px;"/>
+    </div>
+    <div id="OrganiseChart"></div>
+    <script src="./treant/vendor/raphael.js"></script>
+    <script src="./treant/Treant.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

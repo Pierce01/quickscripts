@@ -20,7 +20,7 @@ const createSection = async (options: ISection): Promise<ISection> => {
 async function main() {
   try {
     const newSection = await createSection({
-      name: "New Test!",
+      name: "Wohoo",
       parent: 204148,
     })
     console.log(newSection)

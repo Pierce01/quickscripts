@@ -30,8 +30,9 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const newSection = yield createSection({
-                name: "New Test!",
+                name: "Wohoo",
                 parent: 204148,
+                description: "test"
             });
             console.log(newSection);
         }
