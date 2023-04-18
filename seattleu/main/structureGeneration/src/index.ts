@@ -2,22 +2,7 @@ import axios from 'axios'
 import * as fs from 'fs'
 import config from './config.json'
 import { ISection, ICreateSection } from './lib/ISection'
-
-interface ssvObject {
-  text: { name: string },
-  children: ssvObject[]
-}
-
-interface d3Object {
-  name: string,
-  children: d3Object[]
-}
-
-interface subsection {
-  id: number,
-  name: string ,
-  subsections: subsection[]
-}
+import { ID3Object, ISubsection, ITreantObject } from './lib/IStructure'
 
 const instance = axios.create({
   baseURL: 'https://cms.seattleu.edu/terminalfour/rs/',
@@ -67,7 +52,7 @@ const createSection = async (options: ICreateSection): Promise<ISection | null> 
   }
 }
 
-const recursiveCreation = async (parent: number, children: ssvObject[]) => {
+const recursiveCreation = async (parent: number, children: ITreantObject[]) => {
   let parentSection = await getSection(parent)
   if (parentSection && parentSection[0]) {
     await Promise.all(children.map(async child => {
@@ -80,7 +65,7 @@ const recursiveCreation = async (parent: number, children: ssvObject[]) => {
   }
 }
 
-const parseSubsections = (subsections: subsection[]): d3Object[] => {
+const parseSubsections = (subsections: ISubsection[]): ID3Object[] => {
   return subsections.map(subsection => {
     return {
       name: subsection.name,
@@ -91,6 +76,7 @@ const parseSubsections = (subsections: subsection[]): d3Object[] => {
 
 async function main() {
   try {
+    // Create struct
     const initParentID: number = 204310
     const inputFile = JSON.parse(fs.readFileSync('./Basic.json', { encoding: 'utf-8'}))
     await recursiveCreation(initParentID, inputFile.nodeStructure.children)
@@ -98,6 +84,7 @@ async function main() {
     // console.log((await getSection(initParentID)))
 
 
+    // Generate struct visual
     // const parentSection = (await getSection(initParentID))[0]
     // const obj = {
     //   name: parentSection.names.en,
