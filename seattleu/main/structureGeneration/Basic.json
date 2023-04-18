@@ -1,0 +1,147 @@
+{
+    "nodeStructure": {
+        "text": {
+            "name": "Basic"
+        },
+        "children": [
+            {
+                "text": {
+                    "name": "First Level 1"
+                },
+                "children": [
+                    {
+                        "text": {
+                            "name": "Second Level 1"
+                        },
+                        "children": [
+                            {
+                                "text": {
+                                    "name": "Third Level 1"
+                                },
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 2"
+                                },
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 3"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 2"
+                        },
+                        "children": [
+                            {
+                                "text": {
+                                    "name": "Third Level 4"
+                                },
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 5"
+                                },
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 6"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 3"
+                        },
+                        "children": [
+                            {
+                                "text": {
+                                    "name": "Third Level 7"
+                                },
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 8"
+                                },
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 9"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": {
+                    "name": "First Level 2"
+                },
+                "children": [
+                    {
+                        "text": {
+                            "name": "Second Level 4"
+                        },
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 5"
+                        },
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 6"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "text": {
+                    "name": "First Level 3"
+                },
+                "children": [
+                    {
+                        "text": {
+                            "name": "Second Level 7"
+                        },
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 8"
+                        },
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 9"
+                        },
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 10"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+}

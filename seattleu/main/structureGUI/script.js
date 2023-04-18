@@ -61,13 +61,23 @@ function handleUpload (event) {
 }
 
 function importFromJson (obj) {
+  const selection = document.getElementById('library').value
   if (!obj) {
     obj = ssvDefault
   }
-  treant = new Treant({
-    ...ssvDefault,
-    nodeStructure: obj.nodeStructure
-  }, initialize)
+
+  if (selection == '1') {
+    document.getElementById('OrganiseChart').append(window.tree(obj, { 
+      label: d => d.name,
+      tree: window.d3.tree,
+      width: window.innerWidth + (document.getElementById('extend').checked ? 4000 : 0)
+    }))
+  } else {
+    treant = new Treant({
+      ...ssvDefault,
+      nodeStructure: obj.nodeStructure
+    }, initialize)
+  }
 }
 
 function exportTree (db) {
@@ -78,7 +88,7 @@ function exportTree (db) {
       children: buildTreeObj(db, db[0].children)
     }
   }
-  saveData(obj, name + '.json')
+  saveData(obj, (name == '' ? 'structure' : name) + '.json')
 }
 
 function buildTreeObj (db, childNodes) {
@@ -116,10 +126,29 @@ document.body.ondragover = (event) => {
 
 document.getElementById('overlay').ondrop = (event) => {
   event.preventDefault()
+  document.getElementById('OrganiseChart').innerHTML = ''
   document.getElementById('overlay').style.display = 'none'
   handleUpload({
     target: {
       files: event.dataTransfer.files
     },
   })
+}
+
+document.getElementById('library').onchange = () => {
+  if (document.getElementById('library').value == '1') {
+    document.getElementById('inputBox').disabled = true
+    document.getElementById('export').disabled = true
+    document.getElementById('add').disabled = true
+    document.getElementById('OrganiseChart').innerHTML = ''
+    document.getElementById('d3only').hidden = false
+  } else {
+    document.getElementById('inputBox').disabled = false
+    document.getElementById('export').disabled = false
+    document.getElementById('add').disabled = false
+    document.getElementById('d3only').hidden = true
+    treant = new Treant({
+      ...ssvDefault
+    }, initialize)
+  }
 }

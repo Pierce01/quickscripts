@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title> Chart Emulation </title>
+    <style></style>
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="text">Drag and drop the .json file anywhere</div>
+    </div>    
+    <div id="control-panel">
+      <h3>Site Structure Visualizer</h3>
+      <input onkeydown = "if (event.keyCode == 13) document.getElementById('add').click()">
+      <button id="add">Add</button>
+      <button id="export">Export</button>
+      <input id ="import" type="file" style="color:transparent; width:100px;"/>
+    </div>
+    <div id="OrganiseChart"></div>
+    <script type="module">
+      import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+    </script>
+  </body>
+</html>

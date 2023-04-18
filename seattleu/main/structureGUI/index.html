@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title> Chart emulation </title>
+    <title> Chart Emulation </title>
     <link rel="stylesheet" href="./treant/Treant.css">
     <link rel="stylesheet" href="./styles.css">
     <style>
@@ -20,14 +20,34 @@
     </div>    
     <div id="control-panel">
       <h3>Site Structure Visualizer</h3>
-      <input onkeydown = "if (event.keyCode == 13) document.getElementById('add').click()">
+      <input id="inputBox" onkeydown = "if (event.keyCode == 13) document.getElementById('add').click()">
       <button id="add">Add</button>
       <button id="export">Export</button>
+      <br>
+      <label>Library: </label>
+      <select id="library">
+        <option value="0">Treant</option>
+        <option value="1">D3</option>
+      </select>
+      <label>Import: </label>
       <input id ="import" type="file" style="color:transparent; width:100px;"/>
+      <div hidden id="d3only">
+        <input type="checkbox" id="extend" name="Extend" value="Extend">
+        <label>Maximize Width</label>
+      </div>
     </div>
     <div id="OrganiseChart"></div>
     <script src="./treant/vendor/raphael.js"></script>
     <script src="./treant/Treant.js"></script>
+    <script type="module">
+      import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm"
+      // Copyright 2021 Observable, Inc.
+      // Released under the ISC license.
+      // https://observablehq.com/@d3/tree
+      function Tree(t,{path:a,id:e=Array.isArray(t)?t=>t.id:null,parentId:r=Array.isArray(t)?t=>t.parentId:null,children:n,tree:l=d3.tree,sort:i,label:d,title:s,link:o,linkTarget:h="_blank",width:p=640,height:u,r:c=3,padding:f=1,fill:x="#999",fillOpacity:y,stroke:k="#555",strokeWidth:$=1.5,strokeOpacity:g=.4,strokeLinejoin:_,strokeLinecap:m,halo:w="#fff",haloWidth:v=3,curve:A=d3.curveBumpX}={}){let j=null!=a?d3.stratify().path(a)(t):null!=e||null!=r?d3.stratify().id(e).parentId(r)(t):d3.hierarchy(t,n);null!=i&&j.sort(i);let z=j.descendants(),B=null==d?null:z.map(t=>d(t.data,t)),I=p/(j.height+f);l().nodeSize([10,I])(j);let b=1/0,S=-b;if(j.each(t=>{t.x>S&&(S=t.x),t.x<b&&(b=t.x)}),void 0===u&&(u=S-b+20),"function"!=typeof A)throw Error("Unsupported curve");let T=d3.create("svg").attr("viewBox",[-I*f/2,b-10,p,u]).attr("width",p).attr("height",u).attr("style","max-width: 100%; height: auto; height: intrinsic;").attr("font-family","sans-serif").attr("font-size",10);T.append("g").attr("fill","none").attr("stroke",k).attr("stroke-opacity",g).attr("stroke-linecap",m).attr("stroke-linejoin",_).attr("stroke-width",$).selectAll("path").data(j.links()).join("path").attr("d",d3.link(A).x(t=>t.y).y(t=>t.x));let U=T.append("g").selectAll("a").data(j.descendants()).join("a").attr("xlink:href",null==o?null:t=>o(t.data,t)).attr("target",null==o?null:h).attr("transform",t=>`translate(${t.y},${t.x})`);return U.append("circle").attr("fill",t=>t.children?k:x).attr("r",c),null!=s&&U.append("title").text(t=>s(t.data,t)),B&&U.append("text").attr("dy","0.32em").attr("x",t=>t.children?-6:6).attr("text-anchor",t=>t.children?"end":"start").attr("paint-order","stroke").attr("stroke",w).attr("stroke-width",v).text((t,a)=>B[a]),T.node()}
+      window.tree = Tree
+      window.d3 = d3
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

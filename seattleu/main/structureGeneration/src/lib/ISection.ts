@@ -1,6 +1,7 @@
 export interface ISection {
   name: string,
   parent: number,
+  id: number,
   description?: string,
   status?: number,
   workflow?: number,
@@ -38,6 +39,12 @@ export interface ISection {
   inheritedLinkSection?: boolean,
   accessControlEnabled?: boolean,
   accessControlInherited?: boolean,
+}
+
+export interface ICreateSection {
+  name: string,
+  parent: number,
+  show?: boolean
 }
 
 export interface IChannel {
