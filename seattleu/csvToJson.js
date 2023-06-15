@@ -35,9 +35,10 @@ function csvToJson (str) {
         this.data.push(obj)
     }
 }
+module.exports = { csvToJson }
 
 
 
-let test = new csvToJson(fs.readFileSync('Book1.csv', 'utf8'))
-console.log(test.data)
-console.log(test.headers)
+// let test = new csvToJson(fs.readFileSync('Book1.csv', 'utf8'))
+// console.log(test.headers)
+// console.log(test.data)

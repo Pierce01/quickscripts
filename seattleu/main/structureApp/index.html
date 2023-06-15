@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pierce's Utilities</title>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome,</h1>
+    <p>Select the utility to launch below!</p>
+  </div>
+  <div class="buttons">
+    <button id="map">Site Map Visualizer</button>
+    <button id="gen">Site Map Generator</button>
+  </div>
+  <script>
+    document.getElementById('map').onclick = (e) => window.open('./apps/structGUI/index.html')
+    document.getElementById('gen').onclick = (e) => window.open('./apps/structGEN/index.html', '_blank', 'contextIsolation=no,nodeIntegration=yes')
+  </script>
+</body>
+</html>
