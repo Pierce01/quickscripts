@@ -3,13 +3,13 @@ import * as path from "path";
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    height: 640,
+    height: 249,
+    width: 376,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
       contextIsolation: false 
     },
-    width: 390,
     autoHideMenuBar: true,
   });
   mainWindow.loadFile(path.join(__dirname, "../index.html"));

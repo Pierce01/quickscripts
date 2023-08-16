@@ -1,15 +1,39 @@
 .node {
   position:relative;
-  /* padding-top:20px; */
   display:inline-block;
+  width: max-content;
 }
+
+.node > button, .node span {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  right: calc(100% - 10px);
+}
+
+.node button {
+  border: none !important;
+  background-color: transparent !important;
+  outline: none!important;
+  font-size: large;
+}
+
+#delete {
+  height: fit-content;
+}
+
+.node:hover span {
+  bottom: -10px;
+  /* padding: 15px; */
+  display: block!important;
+}
+
 img{
   position: absolute;
   right:-40px;
   top:-20px;
   text-align: center;
   color:white;
-  /* padding:5px 10px; */
   font-size:20px;
 }
 
@@ -24,7 +48,6 @@ img{
 #control-panel {
   margin-left: 30%;
 }
-
 
 #overlay {
   position: fixed; /* Sit on top of the page content */

@@ -13,6 +13,11 @@
       .node { color: #9CB5ED; border: 2px solid #C8C8C8; border-radius: 3px; }
       .node p { font-size: 20px; line-height: 20px; height: 20px; font-weight: bold; padding: 3px; margin: 0; }
     </style>
+    <!-- include this files if "fancy" is set -->
+    <link href="./treant/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css"/>
+    <script src="./treant/vendor/jquery.min.js"></script>
+    <script src="./treant/vendor/jquery.mousewheel.js"></script>
+    <script src="./treant/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
   </head>
   <body>
     <div id="overlay">
@@ -31,6 +36,9 @@
       </select>
       <label>Import: </label>
       <input id ="import" type="file" style="color:transparent; width:100px;"/>
+      <div id="treantonly">
+        <button>Redraw</button>
+      </div>
       <div hidden id="d3only">
         <input type="checkbox" id="extend" name="Extend" value="Extend">
         <label>Maximize Width</label>

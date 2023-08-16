@@ -1,12 +1,21 @@
 const ssvDefault = {
   chart: {
-    container: "#OrganiseChart"
+    container: "#OrganiseChart",
+    node: {
+      collapsable: true,
+    },
+    callback: {
+      onTreeLoaded: function(tree) {
+        const chartContainer = tree.nodeDOM.parentElement;
+        chartContainer.scrollLeft = chartContainer.scrollWidth/2 - chartContainer.clientWidth/2;
+      }
+    }
   },
   nodeStructure: {
     text: {
       name: "Head"
-    }
-  },
+    },
+  }
 }
 
 const initialize = (tree) => {
@@ -19,9 +28,36 @@ const initialize = (tree) => {
     window.ssv.nodeDOM.classList.toggle('selected')
   }
 
+  const updateNode = (id) => {
+    const input = prompt("Enter new node name", "Albers")
+    if (!input) return
+    db[id].text.name = input
+    db[id].nodeDOM.firstChild.textContent = input
+  }
+
+  const deleteNode = (id) => {
+    db.forEach(item => { item.children = item.children.filter(node => node != id) })
+    db[id].children = null
+    redraw(db)
+  }
+
   const bindNodeID = (id) => {
     db[id].nodeDOM.id = db[id].id
     db[id].nodeDOM.onclick = () => setSelected(db[id].id)
+
+    const containerDiv = document.createElement('span')
+    const editButton = document.createElement('button')
+    editButton.textContent = '✏️'
+    editButton.id = 'edit'
+    editButton.onclick = () => updateNode(id)
+    containerDiv.append(editButton)
+
+    const deleteButton = document.createElement('button')
+    deleteButton.textContent = '🗑️'
+    deleteButton.id = 'delete'
+    deleteButton.onclick = () => deleteNode(db[id].id)
+    containerDiv.append(deleteButton)
+    db[id].nodeDOM.append(containerDiv)
   }
 
   document.getElementById('add').onclick = () => {
@@ -38,19 +74,19 @@ const initialize = (tree) => {
 
   document.getElementById('export').onclick = () => exportTree(db)
   document.getElementById('import').onchange = handleUpload
+  document.getElementById('treantonly').onclick = () => redraw(db)
 
   for (let node of db) {
     if (node.nodeDOM) {
       bindNodeID(node.id)
     }
   }
-
   setSelected(0)
 }
 
 let treant = new Treant(ssvDefault, initialize)
 
-function handleUpload (event) {
+function handleUpload(event) {
   let file = event.target.files[0]
   let reader = new FileReader();
 
@@ -60,7 +96,7 @@ function handleUpload (event) {
   reader.readAsText(file)
 }
 
-function importFromJson (obj) {
+function importFromJson(obj) {
   const selection = document.getElementById('library').value
   if (!obj) {
     obj = ssvDefault
@@ -80,8 +116,8 @@ function importFromJson (obj) {
   }
 }
 
-function exportTree (db) {
-  const name = document.getElementsByTagName('input')[0].value
+function exportTree(db) {
+  const name = document.getElementsByTagName('input')[0].value || db[0].text.name
   const obj = {
     nodeStructure: {
       text: { name },
@@ -91,7 +127,16 @@ function exportTree (db) {
   saveData(obj, (name == '' ? 'structure' : name) + '.json')
 }
 
-function buildTreeObj (db, childNodes) {
+function redraw(db) {
+  importFromJson({
+    nodeStructure: {
+      text: { name: db[0].text.name },
+      children: buildTreeObj(db, db[0].children)
+    }
+  })
+}
+
+function buildTreeObj(db, childNodes) {
   if (childNodes) {
     childNodes = childNodes.map(id => {
       return {
@@ -103,7 +148,7 @@ function buildTreeObj (db, childNodes) {
   }
 }
 
-function saveData (data, fileName) {
+function saveData(data, fileName) {
   const a = document.createElement("a")
   document.body.appendChild(a)
   a.style = "display: none"
@@ -142,13 +187,13 @@ document.getElementById('library').onchange = () => {
     document.getElementById('add').disabled = true
     document.getElementById('OrganiseChart').innerHTML = ''
     document.getElementById('d3only').hidden = false
+    document.getElementById('treantonly').hidden = true
   } else {
     document.getElementById('inputBox').disabled = false
     document.getElementById('export').disabled = false
     document.getElementById('add').disabled = false
     document.getElementById('d3only').hidden = true
-    treant = new Treant({
-      ...ssvDefault
-    }, initialize)
+    document.getElementById('treantonly').hidden = false
+    treant = new Treant(ssvDefault, initialize)
   }
 }
