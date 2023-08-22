@@ -1,11 +1,11 @@
 import { call, get } from './api.js'
 
 export async function getMedia(id) {
-  const endpoint = `/media/${id}/en`
+  const endpoint = `media/${id}/en`
   const content = await get(endpoint)
   if (!content) return null
   content['usage'] = await get(endpoint + '/usage')
-  content.categories = await Promise.all(content.categories.map(async catId => await get(`/mediacategory/${catId}/en`)))
+  content.categories = await Promise.all(content.categories.map(async catId => await get(`mediacategory/${catId}/en`)))
   return content
 }
 
@@ -20,7 +20,7 @@ export async function filterMedia(mediaArray) {
 
 export async function markInactive(mediaArray) {
   await mediaArray.forEach(async media => {
-    const endpoint = `/media/category/${media.categories[0].id}/id/${media.id}/${media.binaryLanguage}`
+    const endpoint = `media/category/${media.categories[0].id}/id/${media.id}/${media.binaryLanguage}`
     try {
       const request = await call('DELETE', endpoint)
       if (parseInt(request.status) > 350) console.log(`Unexpected status code ${request.status} for ${media.id}`)

@@ -4,6 +4,7 @@ campusMapRewrite/
 
 # configs
 config.json
+config.js
 
 # Logs
 logs
@@ -69,3 +70,5 @@ typings/
 
 # IntelliJ Files
 .idea/
+*.csv
+seattleu/main/structureGeneration/file.json
