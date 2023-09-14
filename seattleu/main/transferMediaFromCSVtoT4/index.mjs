@@ -1,12 +1,13 @@
 import { Client } from 't4.ts'
 import { url, token } from './config.js'
 import * as fs from 'node:fs'
+import * as _url from 'url'
 
 const { media } = new Client(url, token)
 
 const categoryID = 198818
 const fileNames = fs.readdirSync('./profiles')
-const root = new URL('./profiles', import.meta.url).pathname.slice(1)
+const root = _url.fileURLToPath(new URL('./profiles', import.meta.url))
 const failedMedia = []
 
 await Promise.all(fileNames.map(async fileName => {
