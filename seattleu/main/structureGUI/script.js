@@ -102,12 +102,26 @@ function importFromJson(obj) {
     obj = ssvDefault
   }
 
+  console.log(obj)
   if (selection == '1') {
+    const color = (d) => ['#77DD77','#FDFD96','#FF6961'][d.data.status]
     document.getElementById('OrganiseChart').append(window.tree(obj, { 
       label: d => d.name,
+      fill: d => color(d),
+      link: (d, n) => `https://cms.seattleu.edu/terminalfour/page/section#edit/${d.id}`,
       tree: window.d3.tree,
       width: window.innerWidth + (document.getElementById('extend').checked ? 4000 : 0)
     }))
+    setTimeout(function(){
+      const svg = document.getElementsByTagName('svg')[0]
+      window.defaultPos = svg.getAttribute('viewBox').split(',')
+      document.getElementById('reset').addEventListener('click', () => {
+        svg.setAttribute('viewBox', window.defaultPos.join(','))
+      })
+      svg.addEventListener('wheel', (evt) => {
+        zoomHandler(evt, svg)
+      }) 
+    }, 1000)
   } else {
     treant = new Treant({
       ...ssvDefault,
@@ -196,4 +210,23 @@ document.getElementById('library').onchange = () => {
     document.getElementById('treantonly').hidden = false
     treant = new Treant(ssvDefault, initialize)
   }
+}
+
+let scale = 1
+function zoomHandler(event, svg) {
+  if (!document.getElementById('zoom').checked) return
+  event.preventDefault()
+  scale = event.deltaY / 1000
+  scale = Math.abs(scale) < .1 ? .1 * event.deltaY / Math.abs(event.deltaY) : scale
+  let pt = new DOMPoint(event.clientX, event.clientY)
+  pt = pt.matrixTransform(svg.getScreenCTM().inverse())
+  let [x, y, width, height] = svg.getAttribute('viewBox').split(',').map(Number)
+  let [xPropW, yPropH] = [(pt.x - x) / width, (pt.y - y) / height]
+  let [width2, height2] = [width + width * scale, height + height * scale]
+  let x2 = pt.x - xPropW * width2
+  let y2 = pt.y - yPropH * height2
+  if (window.defaultPos) {
+    if (window.defaultPos[2] < width2 || window.defaultPos[3] < height2) return
+  } 
+  svg.setAttribute('viewBox', `${x2},${y2},${width2},${height2}`)
 }

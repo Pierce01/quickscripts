@@ -1,8 +1,8 @@
 import axios from 'axios'
 import * as fs from 'fs'
 import config from './config.json'
-import { ISection, ICreateSection } from './lib/ISection'
-import { ID3Object, ISubsection, ITreantObject } from './lib/IStructure'
+import { ISection, ICreateSection } from './lib/ISection.js'
+import { ID3Object, ISubsection, ITreantObject } from './lib/IStructure.js'
 
 const instance = axios.create({
   baseURL: 'https://cms.seattleu.edu/terminalfour/rs/',
@@ -68,7 +68,9 @@ const recursiveCreation = async (parent: number, children: ITreantObject[]) => {
 const parseSubsections = (subsections: ISubsection[]): ID3Object[] => {
   return subsections.map(subsection => {
     return {
+      id: subsection.id,
       name: subsection.name,
+      status: subsection.status,
       children: parseSubsections(subsection.subsections)
     }
   })
@@ -76,21 +78,24 @@ const parseSubsections = (subsections: ISubsection[]): ID3Object[] => {
 
 async function main() {
   try {
-    const initParentID: number = 23486
-    // const inputFile = JSON.parse(fs.readFileSync('./Basic.json', { encoding: 'utf-8'}))
-    // await recursiveCreation(initParentID, inputFile.nodeStructure.children)
+    const initParentID: number = 204310
 
-    // console.log((await getSection(initParentID)))
+    // Generate based off of structure.json
+    const inputFile = JSON.parse(fs.readFileSync('./Basic.json', { encoding: 'utf-8'}))
+    await recursiveCreation(initParentID, inputFile.nodeStructure.children)
+    console.log((await getSection(initParentID)))
 
 
     // Generate struct visual
-    const parentSection = (await getSection(initParentID))[0]
-    const obj = {
-      name: parentSection.names.en,
-      children: parseSubsections(parentSection.subsections)
-    }
+    // const parentSection = (await getSection(initParentID))[0]
+    // const obj = {
+    //   id: parentSection.id,
+    //   status: parentSection.status,
+    //   name: parentSection.names.en,
+    //   children: parseSubsections(parentSection.subsections)
+    // }
 
-    fs.writeFileSync('./file.json', JSON.stringify(obj, null, 0), { encoding: 'utf-8' })
+    // fs.writeFileSync('./file.json', JSON.stringify(obj, null, 0), { encoding: 'utf-8' })
   } catch (e) {
     console.log(e)
   }

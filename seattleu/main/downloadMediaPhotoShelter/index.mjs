@@ -1,6 +1,7 @@
 import config from './config.json' assert { type: "json" }
 import { Client } from './rClient.mjs'
 import { promises as fs } from 'fs'
+import AdmZip from 'adm-zip'
 
 console.log('\n\nSetting up V3 and V4 API clients...')
 const { mode, email, password, org_id } = config.login
@@ -35,6 +36,8 @@ const workspaces = [
 let total = workspaces.length, current = 0
 for (let space of workspaces) { await downloadHandler(space, true) }
 for (let space of failed) { await downloadHandler(space, false) }
+
+
 
 await v3Client.query('GET', 'mem/authenticate/logout')
 await v4Client.query('GET', 'authenticate/logout', null, async () => {})

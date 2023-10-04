@@ -6,14 +6,13 @@ import * as _url from 'url'
 const { media } = new Client(url, token)
 
 const categoryID = 198818
-const fileNames = fs.readdirSync('./profiles')
-const root = _url.fileURLToPath(new URL('./profiles', import.meta.url))
+const folder = './profiles'
+const fileNames = fs.readdirSync(folder), root = _url.fileURLToPath(new URL(folder, import.meta.url))
 const failedMedia = []
 
 await Promise.all(fileNames.map(async fileName => {
   const _split = fileName.split('.')
-  let type = _split[_split.length - 1].toLocaleLowerCase()
-  type = (type.includes('j') || type.includes('w') || type.includes('n') || type.includes('g')) ? 1 : 3
+  const type = getType(_split[_split.length - 1].toLocaleLowerCase())
   const addObj = {
     file: `${root}/${fileName}`,
     categoryID,
@@ -34,8 +33,14 @@ await Promise.all(fileNames.map(async fileName => {
 for (let file of failedMedia) {
   try {
     const imageID = await media.add(file)
-    console.log(imageID)
+    console.log(`${imageID} - ${file.name}`)
   } catch (error) {
     console.log(error)
   }
+}
+
+function getType(extention) {
+  const imageTypes = ['gif', 'jpg', 'jpeg', 'jfif', 'webp', 'png']
+  if (imageTypes.includes(extention.toLocaleLowerCase())) return 1
+  return 3
 }

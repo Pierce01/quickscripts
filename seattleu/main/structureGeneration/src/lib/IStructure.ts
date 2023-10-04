@@ -11,5 +11,6 @@ export interface ID3Object {
 export interface ISubsection {
   id: number,
   name: string ,
-  subsections: ISubsection[]
+  subsections: ISubsection[],
+  status: number
 }
