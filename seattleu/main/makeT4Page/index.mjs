@@ -1,69 +1,100 @@
-import { Client } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
+import { Client, Types } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import { url, token } from './config.js'
 import XLSX from 'xlsx-js-style'
-import * as fs from 'fs';
 
+const { contentType, content, list, serverSideLink } = new Client(url, token)
 
+const setionIdInput = process.argv.splice(2)[0]
+const regex = /\(max size: \d+\)/, listObjs = {}
 const workbook = XLSX.readFile('./book.xlsx')
 for (let sheet of workbook.SheetNames) {
-  console.log(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]))
+  const sheetObj = XLSX.utils.sheet_to_json(workbook.Sheets[sheet])[0],
+    cleanSheet = {},
+    ct = await contentType.get(sheetObj.contentTypeID),
+    formattedElements = content.util.getElementNames(ct.contentTypeElements)
+  Object.keys(sheetObj).map(sheetName => {
+    const trimmedName = sheetName.replace(regex, '').trim()
+    cleanSheet[formattedElements[trimmedName] || trimmedName] = sheetObj[sheetName]
+  })
+  delete cleanSheet.contentTypeID
+  const parsedElements = await parseElements(cleanSheet, ct)
+  if (!parsedElements) {
+    console.log(`Failed to parse worksheet: ${sheet}`)
+    continue
+  }
+  try {
+    const {name, id} = await content.create(setionIdInput, {
+      elements: parsedElements.sheet,
+      contentTypeID: ct.id,
+      language: 'en',
+      status: 0
+    }, true)
+    console.log(`Created ${name} with ID of ${id}`)
+  } catch (e) {
+    console.log(`Failed to parse worksheet: ${sheet}\n${e}`)
+  }
 }
 
-// const sectionId = 204310
-// console.log(await serverSideLink.util.getFromSection(sectionId))
+async function parseElements(sheet, ct) {
+  let failed = false, newId = -Math.floor(Math.random() * (Types.max - Types.min) + Types.max)
+  await Promise.all(Object.keys(sheet).map(async key => {
+    if (failed) return
+    const [id, type] = (key.split('#')[1].split(':')).map(Number)
+    const context = {ct, type, id}
+    try {
+      switch (type) {
+        case 2:
+          // media todo
+          sheet[key] = sheet[key] == '' ? {existingFile: false} : sheet[key]
+          break
+        case 9:
+        case 6:
+          sheet[key] = await parseListValue(sheet[key], context)
+          break
+        case 14: 
+          sheet[key] = await parseServerSideList(sheet[key], newId)
+        default:
+          break
+      }
+    } catch(error) {
+      console.log(error)
+      failed = true
+    }
+  }))
+  return failed ? null : {sheet, id: newId}
+}
 
+async function parseListValue(str, {ct, type, id}) {
+  const contentElement = ct.contentTypeElements.filter(element => element.id == id && element.type == type)[0]
+  console.log(contentElement)
+  if (!contentElement) throw Error(`No contentElement exists with ${id}:${type}`)
+  if (!listObjs[contentElement.listId]) {
+    listObjs[contentElement.listId] = await list.get(contentElement.listId)
+  }
+  str = str.toLowerCase()
+  console.log(listObjs[contentElement.listId])
+  const option = listObjs[contentElement.listId].items.filter(item => (item.name.toLowerCase()).includes(str) || (item.value.toLowerCase()).includes(str))
+  if(!option.length) throw Error(`No list value exists with value ${str}`)
+  return `${contentElement.listId}:${option[0].id}`
+}
 
-// const serverSideLinks = []
-// const contentIds = (await hierarchy.getContents(sectionId)).contents.map(content => content.id)
-// await Promise.all(contentIds.map(async contentId => {
-//   const { types, elements, id } = await content.get(contentId, sectionId, 'en')
-//   if (!types.some(entry => entry.id == linkType)) return
-//   const keys = Object.keys(elements).filter(name => name.split(':').pop() == linkType)
-//   const maxId = Math.max(...keys.map(key => elements[key].match(regex)?.[1]).filter(entry => entry != null).map(Number))
-//   if (!maxId) return
-//   for (let i = 1; i <= maxId; i++) {
-//     const link = await serverSideLink.get(i, sectionId, id)
-//     if (link.id) serverSideLinks.push(await serverSideLink.get(i, sectionId, id))
-//   }
-// }))
-// console.log(await hierarchy.getSection(204310, {
-//   showLinkSections: true
-// }))
+async function parseServerSideList(str, newId) {
+  const [sectionId, contentId] = str.split(',').map(str => str.trim()).map(Number)
+  if (!sectionId) return ''
+  const sslPre = {
+    fromSection: setionIdInput,
+    fromContent: newId,
+    toContent: contentId || 0,
+    language: 'en',
+    toSection: sectionId,
+    linkText: 'default',
+    useDefaultLinkText: true
+  }
+  const sslRequest = await serverSideLink.set(sslPre)
+  if (!Object.keys(sslRequest).length) throw Error(`Failed to set server side link to ${sectionId}`)
+  return `<t4 sslink_id='${sslRequest.id}' type='sslink'/>`
+}
 
-// console.log(await serverSideLink.set({
-//   fromSection: 204310,
-//   fromContent: 6963487,
-//   language: 'en',
-//   toSection: 206279,
-//   linkText: 'test',
-//   useDefaultLinkText: false
-// }))
+async function parseImageUpload(fileName) {
 
-// console.log(await serverSideLink.getSelectedContentsLinks([367530, 367611]))
-
-// console.log((await content.getServerSideLinks(204310)))
-
-// const list = await contentType.list()
-// const user = await profile.get()
-// const pc = await contentType.get(5135)
-// console.log(pc)
-
-// console.log(await hierarchy.get(204310, 'en'))
-// const prep = await content.prePopulatedContentInfo(187, 204310)
-
-// console.log(await content.create(204310, {
-//   contentTypeID: 187,
-//   elements: {
-//     'Name': 'Api Test!!',
-//     'Content': '<p>hiiii <3</p>'
-//   },
-//   language: 'en',
-//   status: 0
-// }))
-// console.log(prep)
-// console.log(pc, user)
-// const format = content.util.getElementNames(pc.contentTypeElements)
-// console.log(content.util.mapElementValues({
-//   'Name': 'Test!!',
-//   'Content': 'Test!!!!!!!'
-// }, format))
+}
