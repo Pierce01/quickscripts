@@ -66,13 +66,11 @@ async function parseElements(sheet, ct) {
 
 async function parseListValue(str, {ct, type, id}) {
   const contentElement = ct.contentTypeElements.filter(element => element.id == id && element.type == type)[0]
-  console.log(contentElement)
   if (!contentElement) throw Error(`No contentElement exists with ${id}:${type}`)
   if (!listObjs[contentElement.listId]) {
     listObjs[contentElement.listId] = await list.get(contentElement.listId)
   }
   str = str.toLowerCase()
-  console.log(listObjs[contentElement.listId])
   const option = listObjs[contentElement.listId].items.filter(item => (item.name.toLowerCase()).includes(str) || (item.value.toLowerCase()).includes(str))
   if(!option.length) throw Error(`No list value exists with value ${str}`)
   return `${contentElement.listId}:${option[0].id}`
@@ -81,7 +79,7 @@ async function parseListValue(str, {ct, type, id}) {
 async function parseServerSideList(str, newId) {
   const [sectionId, contentId] = str.split(',').map(str => str.trim()).map(Number)
   if (!sectionId) return ''
-  const sslPre = {
+  const sslRequest = await serverSideLink.set({
     fromSection: setionIdInput,
     fromContent: newId,
     toContent: contentId || 0,
@@ -89,8 +87,7 @@ async function parseServerSideList(str, newId) {
     toSection: sectionId,
     linkText: 'default',
     useDefaultLinkText: true
-  }
-  const sslRequest = await serverSideLink.set(sslPre)
+  })
   if (!Object.keys(sslRequest).length) throw Error(`Failed to set server side link to ${sectionId}`)
   return `<t4 sslink_id='${sslRequest.id}' type='sslink'/>`
 }
