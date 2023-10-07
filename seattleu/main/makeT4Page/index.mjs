@@ -40,7 +40,6 @@ async function parseElements(sheet, ct) {
   await Promise.all(Object.keys(sheet).map(async key => {
     if (failed) return
     const [id, type] = (key.split('#')[1].split(':')).map(Number)
-    const context = {ct, type, id}
     try {
       switch (type) {
         case 2:
@@ -49,7 +48,7 @@ async function parseElements(sheet, ct) {
           break
         case 9:
         case 6:
-          sheet[key] = await parseListValue(sheet[key], context)
+          sheet[key] = await parseListValue(sheet[key], {ct, type, id})
           break
         case 14: 
           sheet[key] = await parseServerSideList(sheet[key], newId)
