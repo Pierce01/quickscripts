@@ -10,7 +10,7 @@
   "author": "Pierce Harriz",
   "license": "ISC",
   "dependencies": {
-    "t4.ts": "^0.0.9",
+    "t4.ts": "^0.0.10",
     "xlsx-js-style": "^1.2.0"
   }
 }

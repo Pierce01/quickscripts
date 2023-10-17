@@ -1,4 +1,4 @@
-import { Client } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
+import { Client } from 't4.ts'
 import XLSX from 'xlsx-js-style'
 import { url, token } from './config.js'
 
