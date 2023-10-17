@@ -102,7 +102,6 @@ function importFromJson(obj) {
     obj = ssvDefault
   }
 
-  console.log(obj)
   if (selection == '1') {
     const color = (d) => ['#77DD77','#FDFD96','#FF6961'][d.data.status]
     document.getElementById('OrganiseChart').append(window.tree(obj, { 
@@ -110,7 +109,7 @@ function importFromJson(obj) {
       fill: d => color(d),
       link: (d, n) => `https://cms.seattleu.edu/terminalfour/page/section#edit/${d.id}`,
       tree: window.d3.tree,
-      width: window.innerWidth + (document.getElementById('extend').checked ? 4000 : 0)
+      width: window.innerWidth
     }))
     setTimeout(function(){
       const svg = document.getElementsByTagName('svg')[0]

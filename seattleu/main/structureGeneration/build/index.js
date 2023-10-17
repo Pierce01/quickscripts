@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as fs from 'fs';
-import config from './config.json';
+import config from './config.json' assert { type: "json" }
 const instance = axios.create({
     baseURL: 'https://cms.seattleu.edu/terminalfour/rs/',
     headers: {

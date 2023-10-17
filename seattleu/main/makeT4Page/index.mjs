@@ -1,9 +1,8 @@
 import { Client, Types } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import { url, token } from './config.js'
 import XLSX from 'xlsx-js-style'
-import { promises } from 'node:fs'
+import { stat } from 'fs/promises'
 import { resolve } from 'node:path'
-const { stat } = promises
 
 const { contentType, content, list, serverSideLink, upload, hierarchy } = new Client(url, token)
 
@@ -16,7 +15,6 @@ for (let sheet of workbook.SheetNames) {
     ct = await contentType.get(sheetObj.contentTypeID),
     formattedElements = content.util.getElementNames(ct.contentTypeElements)
   Object.keys(sheetObj).map(sheetName => {
-    console.log(sheetName)
     const trimmedName = sheetName.replace(regex, '').trim()
     cleanSheet[formattedElements[trimmedName] || trimmedName] = sheetObj[sheetName]
   })
@@ -34,7 +32,14 @@ for (let sheet of workbook.SheetNames) {
       status: 0
     }, true)
     console.log(`Created ${name} with ID of ${id}`)
-    console.log(elements)
+    // for (let ssl of parsedElements.sslArr) {
+    //   const resp = await serverSideLink.set({
+    //     ...ssl.raw,
+    //     id: 15,
+    //     fromContent: id
+    //   })
+    //   console.log(resp)
+    // }
   } catch (e) {
     console.log(`Failed to parse worksheet: ${sheet}\n${e}`)
   }
@@ -84,22 +89,22 @@ async function parseListValue(str, {ct, type, id}) {
 async function parseServerSideLink(str, newId) {
   const [sectionId, contentId] = str.split(',').map(str => str.trim()).map(Number)
   if (!sectionId) return ''
-  const name = contentId ? (await content.get(contentId)).name : (await hierarchy.get(sectionId)).name
+  const name = contentId ? (await content.getWithoutSection(contentId, 'en')).name : (await hierarchy.get(sectionId)).name
   let sslRequest = await serverSideLink.set({
-    attributes: {},
-    active: false,
+    active: true,
+    attributes: null,
     fromSection: setionIdInput,
     fromContent: newId,
-    toContent: contentId || 0,
+    toContent: contentId || null,
     language: 'en',
     toSection: sectionId,
     linkText: name,
-    useDefaultLinkText: true
+    useDefaultLinkText: false,
   })
-  if (!Object.keys(sslRequest).length) throw Error(`Failed to set server side link to ${sectionId}`)
-  sslRequest = await serverSideLink.set({...sslRequest, active: true})
+  console.log("test")
+  sslRequest = await serverSideLink.set(sslRequest)
   console.log(sslRequest)
-  return `<t4 sslink_id=\"${sslRequest.id}\" type=\"sslink\" />`
+  return `<t4 sslink_id="${sslRequest.id}" type="sslink" />`
 }
 
 async function parseImageUpload(fileName, id) {

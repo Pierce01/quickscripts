@@ -1,0 +1,16 @@
+{
+  "name": "facultybio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pierce Harriz",
+  "license": "ISC",
+  "dependencies": {
+    "t4.ts": "^0.0.9",
+    "xlsx-js-style": "^1.2.0"
+  }
+}
