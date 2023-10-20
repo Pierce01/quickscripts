@@ -25,21 +25,24 @@ for (let sheet of workbook.SheetNames) {
     continue
   }
   try {
-    const { name, id, elements } = await content.create(setionIdInput, {
+    const newContent = await content.create(setionIdInput, {
       elements: parsedElements.sheet,
       contentTypeID: ct.id,
       language: 'en',
       status: 0
     }, true)
+    const { name, id } = newContent
     console.log(`Created ${name} with ID of ${id}`)
-    // for (let ssl of parsedElements.sslArr) {
-    //   const resp = await serverSideLink.set({
-    //     ...ssl.raw,
-    //     id: 15,
-    //     fromContent: id
-    //   })
-    //   console.log(resp)
-    // }
+    for (let ssl of parsedElements.sslArr) {
+      console.log(ssl)
+      const resp = await serverSideLink.modify(ssl.id, {
+        ...ssl,
+        fromContent: id,
+        active: true,
+        broken: false
+      })
+      console.log(resp)
+    }
   } catch (e) {
     console.log(`Failed to parse worksheet: ${sheet}\n${e}`)
   }
@@ -60,9 +63,12 @@ async function parseElements(sheet, ct) {
         case 6:
           sheet[key] = await parseListValue(sheet[key], {ct, type, id})
           break
-        case 14:
-          sheet[key] = await parseServerSideLink(sheet[key], newId)
+        case 14: {
+          const sslObj = (await parseServerSideLink(sheet[key], newId))
+          sslArr.push(sslObj.sslRequest)
+          sheet[key] = sslObj.v
           break
+        }
         default:
           break
       }
@@ -89,6 +95,8 @@ async function parseListValue(str, {ct, type, id}) {
 async function parseServerSideLink(str, newId) {
   const [sectionId, contentId] = str.split(',').map(str => str.trim()).map(Number)
   if (!sectionId) return ''
+  let currentSSLs = await serverSideLink.util.getFromSection(setionIdInput)
+  const initSSLId = currentSSLs.map(ssl => ssl.id).sort().pop() || 1
   const name = contentId ? (await content.getWithoutSection(contentId, 'en')).name : (await hierarchy.get(sectionId)).name
   let sslRequest = await serverSideLink.set({
     active: true,
@@ -100,11 +108,12 @@ async function parseServerSideLink(str, newId) {
     toSection: sectionId,
     linkText: name,
     useDefaultLinkText: false,
+    id: initSSLId
   })
-  console.log("test")
-  sslRequest = await serverSideLink.set(sslRequest)
-  console.log(sslRequest)
-  return `<t4 sslink_id="${sslRequest.id}" type="sslink" />`
+  sslRequest = await serverSideLink.set({...sslRequest})
+  return  {
+    sslRequest, v: `<t4 sslink_id="${sslRequest.id}" type="sslink" />`
+  }
 }
 
 async function parseImageUpload(fileName, id) {
