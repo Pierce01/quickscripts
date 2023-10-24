@@ -5,10 +5,11 @@ import { resolve } from 'path'
 
 const { mediaCategory, media } = new Client(url, token)
 
-const collectionObjs = []
-const catChildren = (await mediaCategory.list(26432, 'en'))[0].children
-parseMediaCat(catChildren)
+const categoryId = 26432,
+  collectionObjs = [],
+  catChildren = (await mediaCategory.list(categoryId, 'en'))[0].children
 
+parseMediaCat(catChildren)
 await Promise.all(collectionObjs.map(async obj => {
   try {
     await mkdir(resolve(`./output/${obj.name}`))
@@ -22,8 +23,7 @@ for (let collectionObj of collectionObjs) {
       await downloadMedia(row, resolve(`./output/${collectionObj.name}`))
       console.log(`Downloaded ${row.name} to ${collectionObj.name}`)
     } catch(e) {
-      console.log(`Failed to download ${row.name} to ${collectionObj.name}`)
-      console.log(e)
+      console.log(`Failed to download ${row.name} to ${collectionObj.name}`, e)
     }
   }
 }
