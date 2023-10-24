@@ -1,4 +1,4 @@
-import { Client } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
+import { Client } from 't4.ts'
 import { url, token } from './config.js'
 import { writeFile, mkdir, stat } from 'fs/promises'
 import { resolve } from 'path'
