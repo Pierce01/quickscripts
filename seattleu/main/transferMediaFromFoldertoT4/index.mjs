@@ -5,10 +5,13 @@ import * as _url from 'url'
 
 const { media } = new Client(url, token)
 
-const categoryID = 198818
-const folder = './profiles'
-const fileNames = fs.readdirSync(folder), root = _url.fileURLToPath(new URL(folder, import.meta.url))
-const failedMedia = []
+const categoryID = 206485,
+  folder = './files',
+  description = 'Housing and Dining'
+
+const fileNames = fs.readdirSync(folder), 
+  root = _url.fileURLToPath(new URL(folder, import.meta.url)),
+  failedMedia = []
 
 await Promise.all(fileNames.map(async fileName => {
   const _split = fileName.split('.')
@@ -19,7 +22,7 @@ await Promise.all(fileNames.map(async fileName => {
     fileName,
     name: fileName,
     type,
-    description: 'None provided'
+    description
   }
   try {
     const imageID = await media.add(addObj)

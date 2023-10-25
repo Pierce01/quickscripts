@@ -33,16 +33,16 @@ for (let sheet of workbook.SheetNames) {
     }, true)
     const { name, id } = newContent
     console.log(`Created ${name} with ID of ${id}`)
-    for (let ssl of parsedElements.sslArr) {
-      console.log(ssl)
-      const resp = await serverSideLink.modify(ssl.id, {
-        ...ssl,
-        fromContent: id,
-        active: true,
-        broken: false
-      })
-      console.log(resp)
-    }
+    // for (let ssl of parsedElements.sslArr) {
+    //   console.log(ssl)
+    //   const resp = await serverSideLink.modify(ssl.id, {
+    //     ...ssl,
+    //     fromContent: id,
+    //     active: true,
+    //     broken: false
+    //   })
+    //   console.log(resp)
+    // }
   } catch (e) {
     console.log(`Failed to parse worksheet: ${sheet}\n${e}`)
   }
@@ -95,22 +95,19 @@ async function parseListValue(str, {ct, type, id}) {
 async function parseServerSideLink(str, newId) {
   const [sectionId, contentId] = str.split(',').map(str => str.trim()).map(Number)
   if (!sectionId) return ''
-  let currentSSLs = await serverSideLink.util.getFromSection(setionIdInput)
-  const initSSLId = currentSSLs.map(ssl => ssl.id).sort().pop() || 1
   const name = contentId ? (await content.getWithoutSection(contentId, 'en')).name : (await hierarchy.get(sectionId)).name
   let sslRequest = await serverSideLink.set({
     active: true,
     attributes: null,
     fromSection: setionIdInput,
     fromContent: newId,
-    toContent: contentId || null,
+    toContent: contentId || 0,
     language: 'en',
     toSection: sectionId,
     linkText: name,
     useDefaultLinkText: false,
-    id: initSSLId
   })
-  sslRequest = await serverSideLink.set({...sslRequest})
+  sslRequest = await serverSideLink.set(sslRequest)
   return  {
     sslRequest, v: `<t4 sslink_id="${sslRequest.id}" type="sslink" />`
   }
