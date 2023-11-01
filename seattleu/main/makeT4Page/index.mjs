@@ -10,20 +10,30 @@ const setionIdInput = process.argv.splice(2)[0]
 const regex = /\(max size: \d+\)/, listObjs = {}
 const workbook = XLSX.readFile('./book.xlsx')
 for (let sheet of workbook.SheetNames) {
-  const sheetObj = XLSX.utils.sheet_to_json(workbook.Sheets[sheet])[0],
-    cleanSheet = {},
-    ct = await contentType.get(sheetObj.contentTypeID),
+  const sheetObjs = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]),
+    ct = await contentType.get(sheetObjs[0].contentTypeID),
     formattedElements = content.util.getElementNames(ct.contentTypeElements)
-  Object.keys(sheetObj).map(sheetName => {
-    const trimmedName = sheetName.replace(regex, '').trim()
-    cleanSheet[formattedElements[trimmedName] || trimmedName] = sheetObj[sheetName]
-  })
-  delete cleanSheet.contentTypeID
-  const parsedElements = await parseElements(cleanSheet, ct)
-  if (!parsedElements) {
-    console.log(`Failed to parse worksheet: ${sheet}`)
-    continue
+  await handleSheet(sheet, sheetObjs, formattedElements, ct)
+}
+
+async function handleSheet(sheet, sheetObjs, formattedElements, ct) {
+  for (let sheetObj of sheetObjs) {
+    const cleanSheet = {}
+    Object.keys(sheetObj).map(sheetName => {
+      const trimmedName = sheetName.replace(regex, '').trim()
+      cleanSheet[formattedElements[trimmedName] || trimmedName] = sheetObj[sheetName]
+    })
+    delete cleanSheet.contentTypeID
+    const parsedElements = await parseElements(cleanSheet, ct)
+    if (!parsedElements) {
+      console.log(`Failed to parse worksheet: ${sheet}`)
+      continue
+    }
+    await createContentElement(sheet, parsedElements, ct)
   }
+}
+
+async function createContentElement(sheet, parsedElements, ct) {
   try {
     const newContent = await content.create(setionIdInput, {
       elements: parsedElements.sheet,
@@ -33,16 +43,6 @@ for (let sheet of workbook.SheetNames) {
     }, true)
     const { name, id } = newContent
     console.log(`Created ${name} with ID of ${id}`)
-    // for (let ssl of parsedElements.sslArr) {
-    //   console.log(ssl)
-    //   const resp = await serverSideLink.modify(ssl.id, {
-    //     ...ssl,
-    //     fromContent: id,
-    //     active: true,
-    //     broken: false
-    //   })
-    //   console.log(resp)
-    // }
   } catch (e) {
     console.log(`Failed to parse worksheet: ${sheet}\n${e}`)
   }
