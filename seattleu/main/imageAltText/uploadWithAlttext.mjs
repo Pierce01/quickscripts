@@ -32,7 +32,7 @@ async function handleImage(fileName) {
   const fullPath = resolve(`${dir}/${fileName}`)
   const originalBuffer = await readFile(fullPath)
   const buffer64 = Buffer.from(await sharp(originalBuffer).resize(200).toBuffer()).toString('base64')
-  return { buffer64, fileName, originalBuffer, fullPath }
+  return { buffer64, fileName, fullPath }
 }
 
 async function upload({ buffer64, fileName }) {
