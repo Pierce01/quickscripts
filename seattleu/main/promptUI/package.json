@@ -1,0 +1,14 @@
+{
+  "name": "promptui",
+  "version": "0.0.1",
+  "description": "Build a simple prompt app quickly with basic config features!",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pierce Harriz",
+  "license": "MIT",
+  "dependencies": {
+    "prompt": "^1.3.0"
+  }
+}
