@@ -77,15 +77,6 @@ async function main() {
         const inputFile = JSON.parse(fs.readFileSync('./Basic.json', { encoding: 'utf-8' }));
         await recursiveCreation(initParentID, inputFile.nodeStructure.children);
         console.log((await getSection(initParentID)));
-        // Generate struct visual
-        // const parentSection = (await getSection(initParentID))[0]
-        // const obj = {
-        //   id: parentSection.id,
-        //   status: parentSection.status,
-        //   name: parentSection.names.en,
-        //   children: parseSubsections(parentSection.subsections)
-        // }
-        // fs.writeFileSync('./file.json', JSON.stringify(obj, null, 0), { encoding: 'utf-8' })
     }
     catch (e) {
         console.log(e);

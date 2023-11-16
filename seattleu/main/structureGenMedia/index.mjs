@@ -2,9 +2,9 @@ import { Client } from 't4.ts'
 import { readFile } from 'fs/promises'
 import { resolve } from 'path'
 import { url, token } from './config.js'
+import { args } from './simpleArgs.mjs'
 
-const { mediaCategory } = new Client(url, token),
-  args = process.argv.splice(2)
+const { mediaCategory } = new Client(url, token)
 
 const recursiveCreation = async (parent, children) => {
   const parentSection = await mediaCategory.get(parent)
@@ -19,6 +19,9 @@ const recursiveCreation = async (parent, children) => {
   }
 }
 
-const fileJson = JSON.parse(await readFile(resolve(args[1]), 'utf-8'))
-const { children } = fileJson.nodeStructure
-await recursiveCreation(args[0], children)
+async function main() {
+  const fileJson = JSON.parse(await readFile(resolve(args[1]), 'utf-8'))
+  const { children } = fileJson.nodeStructure
+  await recursiveCreation(args[0], children)
+}
+main()

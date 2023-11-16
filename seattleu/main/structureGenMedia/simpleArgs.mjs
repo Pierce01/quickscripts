@@ -1,0 +1,1 @@
+export const args = (() => { return process.argv.splice(process.argv[0].endsWith('.exe') ? 2 : 1) })()

@@ -1,17 +1,19 @@
 import prompt from 'prompt'
-import sharp from 'sharp'
-import { Client, batcher } from 't4.ts'
+import jimp from 'jimp'
+import { Client, batcher } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import { resolve } from 'path'
 import { readFile, writeFile, stat, readdir, mkdir } from 'fs/promises'
 
 prompt.start()
 
-while (true) {
-  await main()
-  await closeQuestion()
-}
+;(async () => {
+  while (true) {
+    await realMain()
+    await closeQuestion()
+  }
+})()
 
-async function main(){
+async function realMain(){
   const defaultDir = './images'
   const { token, altToken } = await getConfig()
   const { media } = await getT4Client(token)
@@ -72,8 +74,9 @@ async function main(){
   
   async function handleImage(fileName) {
     const fullPath = resolve(`${defaultDir}/${fileName}`)
-    const originalBuffer = await readFile(fullPath)
-    const buffer64 = Buffer.from(await sharp(originalBuffer).resize(200).toBuffer()).toString('base64')
+    const image = await jimp.read(fullPath)
+    await image.resize(200, jimp.AUTO)
+    const buffer64 = await image.getBase64Async(image.getMIME())
     return { buffer64, fileName, fullPath }
   }
   
@@ -120,6 +123,7 @@ async function main(){
     const client = new Client('https://cms.seattleu.edu/terminalfour/rs', token)
     const user  = await client.profile.get()
     if (user.firstName == undefined) return { media: null }
+    console.clear()
     console.log(`Hello, ${user.firstName}! You've successfully logged into T4!`)
     return client
   }
@@ -165,7 +169,7 @@ async function main(){
 }
 
 async function closeQuestion() {
-  const {closeID} = await prompt.get({properties: {
+  const { closeID } = await prompt.get({properties: {
     closeID: {
       required: true,
       description: 'If you\'re finished, type 1. If not, type 0'
