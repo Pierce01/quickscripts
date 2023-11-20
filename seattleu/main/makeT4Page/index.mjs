@@ -15,6 +15,7 @@ for (let sheet of workbook.SheetNames) {
   try {
     const { ct, cleanSheet } = await prepareSheet(sheet)
     const { id }  = await content.create(sectionInput, {
+      elements: {},
       contentTypeID: ct.id,
       language: 'en',
       status: 0
@@ -41,7 +42,7 @@ if (deleteQueue.length) {
   }
 }
 
-async function prepareSheet() {
+async function prepareSheet(sheet) {
   const sheetObj = XLSX.utils.sheet_to_json(workbook.Sheets[sheet])[0],
     cleanSheet = {},
     ct = await contentType.get(sheetObj.contentTypeID),
