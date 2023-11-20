@@ -51,5 +51,3 @@ async function main(instance) {
     console.log(await content.modify(target.id, targetSectionID, { elements: { ...finalObj }}))
   }
 }
-
-//14,16,10,13,11,20
