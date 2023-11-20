@@ -70,3 +70,4 @@ async function exists(path) {
     return false
   }
 }
+export { exists }
