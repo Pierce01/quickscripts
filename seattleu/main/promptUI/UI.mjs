@@ -11,7 +11,7 @@ export class UI {
     this.started = false
   }
 
-  start() {
+  async start() {
     prompt.start()
     this.started = true
     return this.getConfig()

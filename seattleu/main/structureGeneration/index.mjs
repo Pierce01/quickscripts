@@ -29,8 +29,9 @@ async function main() {
     const parentSection = cat ? await mediaCategory.get(parent) : await hierarchy.get(parent)
     if (parentSection && parentSection.id) {
       await Promise.all(children.map(async child => {
-        const newSection = cat ? await mediaCategory.add(parentSection.id, { name: child.text.name }) : 
-          await hierarchy.add(parentSection.id, { name: child.text.name })
+        const options = child.text['data-options'] ? JSON.parse(child.text['data-options']) : undefined
+        const newSection = cat ? await mediaCategory.add(parentSection.id, { name: child.text.name, ...options }) : 
+          await hierarchy.add(parentSection.id, { name: child.text.name, ...options })
         if (newSection) {
           console.log(`Created section ${child.text.name} and added to parent ${parentSection.id}`)
           await recursiveCreation(newSection.id, child.children)

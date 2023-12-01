@@ -1,0 +1,178 @@
+{
+    "nodeStructure": {
+        "text": {
+            "name": "Basic"
+        },
+        "children": [
+            {
+                "text": {
+                    "name": "First Level 1"
+                },
+                "options": {},
+                "children": [
+                    {
+                        "text": {
+                            "name": "Second Level 1"
+                        },
+                        "options": {},
+                        "children": [
+                            {
+                                "text": {
+                                    "name": "Third Level 1"
+                                },
+                                "options": {},
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 2"
+                                },
+                                "options": {},
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 3"
+                                },
+                                "options": {},
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 2"
+                        },
+                        "options": {},
+                        "children": [
+                            {
+                                "text": {
+                                    "name": "Third Level 4"
+                                },
+                                "options": {},
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 5"
+                                },
+                                "options": {},
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 6"
+                                },
+                                "options": {},
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 3"
+                        },
+                        "options": {},
+                        "children": [
+                            {
+                                "text": {
+                                    "name": "Third Level 7"
+                                },
+                                "options": {},
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 8"
+                                },
+                                "options": {
+                                    "status": 2
+                                },
+                                "children": []
+                            },
+                            {
+                                "text": {
+                                    "name": "Third Level 9"
+                                },
+                                "options": {},
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": {
+                    "name": "First Level 2"
+                },
+                "options": {
+                    "status": 1
+                },
+                "children": [
+                    {
+                        "text": {
+                            "name": "Second Level 4"
+                        },
+                        "options": {
+                            "status": 1
+                        },
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 5"
+                        },
+                        "options": {
+                            "status": 2,
+                            "show": true
+                        },
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 6"
+                        },
+                        "options": {},
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "text": {
+                    "name": "First Level 3"
+                },
+                "options": {},
+                "children": [
+                    {
+                        "text": {
+                            "name": "Second Level 7"
+                        },
+                        "options": {},
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 8"
+                        },
+                        "options": {},
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 9"
+                        },
+                        "options": {},
+                        "children": []
+                    },
+                    {
+                        "text": {
+                            "name": "Second Level 10"
+                        },
+                        "options": {},
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+}

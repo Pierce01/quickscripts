@@ -1,3 +1,9 @@
+const emojiDict = {
+  status: ['🟢', '🟡', '🔴'],
+  show: ['👁️', '👁️‍🗨️'], 
+  edit: '✏️',
+  delete: '🗑️'
+}
 const ssvDefault = {
   chart: {
     container: "#OrganiseChart",
@@ -14,12 +20,13 @@ const ssvDefault = {
   nodeStructure: {
     text: {
       name: "Head"
-    },
+    }
   }
 }
 
 const initialize = (tree) => {
-  const db = tree.nodeDB.db
+  const db = tree.nodeDB.db,
+    dict = emojiDict.status
   const setSelected = (id) => {
     if (window.ssv) {
       window.ssv.nodeDOM.classList.toggle('selected')
@@ -41,22 +48,64 @@ const initialize = (tree) => {
     redraw(db)
   }
 
+  const changeVis = (id) => {
+    if (!db[id].text['data-options']) {
+      db[id].text['data-options'] = JSON.stringify({ show: true })
+    }
+    const tempOpt = JSON.parse(db[id].text['data-options'])
+    tempOpt['show'] = tempOpt['show'] ? false : true
+    const emoji = db[id].nodeDOM.querySelector('#show')
+    emoji.textContent = emoji.textContent == emojiDict.show[0] ? emojiDict.show[1] : emojiDict.show[0]
+    db[id].text['data-options'] = JSON.stringify(tempOpt)
+  }
+
+  const changeStatusObj = (id) => {
+    if (!db[id].text['data-options']) {
+      db[id].text['data-options'] = JSON.stringify({ status: 0 })
+    }
+    const tempOpt = JSON.parse(db[id].text['data-options'])
+    const emoji = db[id].nodeDOM.querySelector('#status')
+    const currentEmoji = emoji.textContent
+    const selected = dict[(dict.indexOf(currentEmoji) + 1) % dict.length]
+    tempOpt.status = dict.indexOf(selected)
+    emoji.textContent = selected
+    db[id].text['data-options'] = JSON.stringify(tempOpt)
+  }
+
   const bindNodeID = (id) => {
     db[id].nodeDOM.id = db[id].id
     db[id].nodeDOM.onclick = () => setSelected(db[id].id)
+    const tempOpt = db[id].text['data-options'] ? JSON.parse(db[id].text['data-options']) : {
+      show: true,
+      status: 0
+    }
 
     const containerDiv = document.createElement('span')
     const editButton = document.createElement('button')
-    editButton.textContent = '✏️'
+    editButton.textContent = emojiDict.edit
     editButton.id = 'edit'
     editButton.onclick = () => updateNode(id)
     containerDiv.append(editButton)
 
     const deleteButton = document.createElement('button')
-    deleteButton.textContent = '🗑️'
+    deleteButton.textContent = emojiDict.delete
     deleteButton.id = 'delete'
     deleteButton.onclick = () => deleteNode(db[id].id)
     containerDiv.append(deleteButton)
+    db[id].nodeDOM.append(containerDiv)
+
+    const showNavButton = document.createElement('button')
+    showNavButton.textContent = tempOpt.show ? emojiDict.show[0] : emojiDict.show[1]
+    showNavButton.id = 'show'
+    showNavButton.onclick = () => changeVis(db[id].id)
+    containerDiv.append(showNavButton)
+    db[id].nodeDOM.append(containerDiv)
+
+    const changeStatus = document.createElement('button')
+    changeStatus.textContent = dict[tempOpt.status] || emojiDict.status[0]
+    changeStatus.id = 'status'
+    changeStatus.onclick = () => changeStatusObj(db[id].id)
+    containerDiv.append(changeStatus)
     db[id].nodeDOM.append(containerDiv)
   }
 
@@ -77,6 +126,7 @@ const initialize = (tree) => {
   document.getElementById('treantonly').onclick = () => redraw(db)
 
   for (let node of db) {
+    console.log(node)
     if (node.nodeDOM) {
       bindNodeID(node.id)
     }
@@ -133,8 +183,8 @@ function exportTree(db) {
   const name = document.getElementsByTagName('input')[0].value || db[0].text.name
   const obj = {
     nodeStructure: {
-      text: { name },
-      children: buildTreeObj(db, db[0].children)
+      text: { name, 'data-options': db[0].text['data-options']},
+      children: buildTreeObj(db, db[0].children),
     }
   }
   saveData(obj, (name == '' ? 'structure' : name) + '.json')
@@ -143,7 +193,7 @@ function exportTree(db) {
 function redraw(db) {
   importFromJson({
     nodeStructure: {
-      text: { name: db[0].text.name },
+      text: { name: db[0].text.name, 'data-options': db[0].text['data-options'] },
       children: buildTreeObj(db, db[0].children)
     }
   })
@@ -153,7 +203,7 @@ function buildTreeObj(db, childNodes) {
   if (childNodes) {
     childNodes = childNodes.map(id => {
       return {
-        text: { name: db[id].text.name },
+        text: { name: db[id].text.name, 'data-options': db[id].text['data-options'] },
         children: buildTreeObj(db, db[id].children),
       }
     })
