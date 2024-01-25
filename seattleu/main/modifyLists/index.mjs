@@ -1,7 +1,7 @@
 import { UI } from '../promptUI/UI.mjs'
 import { Client } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import XLSX from 'xlsx-js-style'
-import { stat } from 'fs/promises'
+import { stat, writeFile } from 'fs/promises'
 import { resolve } from 'node:path'
 
 const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs'
@@ -83,7 +83,7 @@ async function modifyList(listManager, instance) {
     sheetName = workbook.SheetNames[0],
     data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName])
   if (!data[0].listId) {
-    console.log('First row does not contain a listId. Canceling...')
+    console.log('First row does not contain a listId. Cancelling...')
     return null
   }
   console.log(`Modifying ${sheetName} - ${data[0].listId}`)
@@ -92,6 +92,7 @@ async function modifyList(listManager, instance) {
     listObj.items = data
     const modifiedList = await listManager.modify(listObj)
     console.log('Modified items:\n', modifiedList.items)
+    await writeFile(`list-${data[0].listId}.json`, JSON.stringify(modifiedList, null, 2))
   } catch(error) {
     console.log('Failed to modify list due to ', error)
   }

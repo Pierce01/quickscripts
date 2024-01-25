@@ -55,6 +55,7 @@ async function migrateWithJson(instance, hierarchy, content, contentType) {
     return null
   }
   const inputJson = JSON.parse(await readFile(inputFilePath))
+  delete inputJson.Avalabile_Elements_For_Target_Content_Type
   console.log(inputJson)
   let { isCorrect } = await instance.ask([{
     name: 'isCorrect', description: 'Does this look correct? No = 0, Yes = 1', required: true
@@ -77,11 +78,12 @@ async function migrateWithJson(instance, hierarchy, content, contentType) {
     return null
   }
 
+  const completed = [], failed = []
   const sourceElementPairs = content.util.getElementNames(sourceContentTypeObj.contentTypeElements, false)
   const targetElementPairs = content.util.getElementNames(targetContentTypeObj.contentTypeElements, false)
   const sourceSectionContents = (await getContentEntries(inputJson.sourceSectionId, hierarchy, content))
     .filter(entry => entry.contentType.id == parseInt(inputJson.sourceContentTypeId))
-  for (let contentEntry of sourceSectionContents) {
+  await batcher(sourceSectionContents, 10, 1000, async (contentEntry) => {
     const sourceArray = Object.keys(inputJson.sourceElements).map(element => [element, inputJson.sourceElements[element]]),
       sourceElementValues = contentEntry.elements,
       finalObj = {}
@@ -92,16 +94,23 @@ async function migrateWithJson(instance, hierarchy, content, contentType) {
         sourceField = sourceElementPairs[key]
       finalObj[targetField] = sourceElementValues[sourceField]
     })
-    console.log('Creating Content Item with the following fields: ', finalObj)
-    const newContent = await content.create(inputJson.targetSectionId, {
-      elements: finalObj,
-      contentTypeID: targetContentTypeObj.id,
-      language: 'en',
-      status: 0
-    }, true)
-    console.log(newContent)
-  }
- 
+    try {
+      console.log(`Migrating content from content item ${contentEntry.id}`)
+      const newContent = await content.create(inputJson.targetSectionId, {
+        elements: finalObj,
+        contentTypeID: targetContentTypeObj.id,
+        language: 'en',
+        status: 0
+      }, true)
+      console.log(`Created content item with ID ${newContent.id}. (${contentEntry.id} -> ${newContent.id})`)
+      completed.push(newContent)
+    } catch(error) {
+      console.log(`Failed to migrate ${contentEntry.id}`)
+      failed.push(contentEntry.id)
+    }
+  })
+  await writeFile(`completed ${sourceContentTypeObj.id} to ${targetContentTypeObj.id}.json`, JSON.stringify(completed, null, 2))
+  await writeFile(`failed ${sourceContentTypeObj.id} to ${targetContentTypeObj.id}.json`, JSON.stringify(failed, null, 2))
 }
 
 function checkKeys(sourceElements, targetElements, content) {

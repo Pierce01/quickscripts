@@ -71,4 +71,12 @@ typings/
 # IntelliJ Files
 .idea/
 *.csv
+
+# etc
 seattleu/main/structureGeneration/file.json
+*.exe
+dist/
+*.xlsx
+*migration.json
+*.zip
+*.jpg

@@ -1,6 +1,6 @@
 {
   "name": "downloadfrommedialibrary",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.mjs",
   "type": "module",
@@ -10,6 +10,7 @@
   "author": "Pierce Harriz",
   "license": "ISC",
   "dependencies": {
-    "t4.ts": "^0.0.11"
+    "t4.ts": "^0.0.11",
+    "zip-a-folder": "^3.1.6"
   }
 }
