@@ -3,6 +3,7 @@ import { Client, batcher } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import { writeFile, mkdir, rm } from 'fs/promises'
 import { resolve } from 'path'
 import { zip } from 'zip-a-folder'
+import fetch from 'node-fetch'
 
 const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs'
 
@@ -16,7 +17,7 @@ const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs'
 
 async function main(instance) {
   const config = await instance.start()
-  const { isAuthorized, profile, mediaCategory, media } = new Client(rsUrl, config['t4_token'])
+  const { isAuthorized, profile, mediaCategory, media } = new Client(rsUrl, config['t4_token'], 'en', fetch)
   if (!await isAuthorized()) {
     console.log('Failed to login to t4...')
     return null
@@ -33,7 +34,7 @@ async function main(instance) {
   const parseChildren = (path, children) => {
     children.forEach(child => {
       const { id, name, children } = child
-      if (child.children.length > 0) parseChildren(`${path}/${name}`, children)
+      if (child.children.length > 0) parseChildren(`${path}/${name}/`, children)
       collectionObjs.push({ id, name, path })
     })
   }
