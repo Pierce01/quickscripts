@@ -2,6 +2,8 @@ import { UI } from '../promptUI/UI.mjs'
 import { Client, Types, batcher } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import XLSX from 'xlsx-js-style'
 
+// Needs to be refactored to support new sheet format!
+
 const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs',
   listContext = {}
 

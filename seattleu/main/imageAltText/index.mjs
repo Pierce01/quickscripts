@@ -3,6 +3,13 @@ import jimp from 'jimp'
 import { Client, batcher } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import { resolve } from 'path'
 import { readFile, writeFile, stat, readdir, mkdir } from 'fs/promises'
+// import fetch from 'node-fetch'
+
+import * as JPEG from 'jpeg-js'
+jimp.decoders['image/jpeg'] = (data) => JPEG.decode(data, {
+	maxMemoryUsageInMB: 6144,
+	maxResolutionInMP: 600
+})
 
 prompt.start()
 
@@ -76,7 +83,7 @@ async function realMain(){
     const fullPath = resolve(`${defaultDir}/${fileName}`)
     const image = await jimp.read(fullPath)
     await image.resize(200, jimp.AUTO)
-    const buffer64 = await image.getBase64Async(image.getMIME())
+    const buffer64 = Buffer.from(await image.getBufferAsync(image.getMIME())).toString('base64')
     return { buffer64, fileName, fullPath }
   }
   

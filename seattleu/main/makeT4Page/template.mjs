@@ -24,12 +24,14 @@ async function main(instance) {
       console.log(`No content elements for contentTypeID ${contentTypeID}`)
       return null
     }
-    const wscols = []
+    const wscols = [...Array.from({ length: 2 }, () => ({...{ wch: 8 }}))]
     const row = getRow(contentTypeObj)
-    let worksheet = XLSX.utils.json_to_sheet(row)
+    let worksheet = XLSX.utils.json_to_sheet(row, { origin: 'C2'})
     await setRequiredStyles(worksheet, contentTypeObj.contentTypeElements)
     Object.keys(row[0]).forEach(key => wscols.push({wch: key.length * 1.28}))
     worksheet['!cols'] = wscols
+    XLSX.utils.sheet_add_aoa(worksheet, [[contentTypeID, 'Types:']], { origin: 'A1' })
+    worksheet['A1'].s = { fill: { pattern: 'solid', fgColor: { rgb: 'FF6961' } } }
     XLSX.utils.book_append_sheet(workbook, worksheet, contentTypeObj.name.length >= 31 ? contentTypeObj.name.substring(0, 30) : contentTypeObj.name)
     console.log(`Added ${contentTypeObj.name} to the current workbook!`)
   }
@@ -45,14 +47,12 @@ async function main(instance) {
   function getRow(contentTypeObject) {
     const dict = {}, headers = getHeaders(contentTypeObject)
     headers.forEach(header => dict[header] = '')
-    dict['contentTypeID'] = contentTypeObject.id
     return [dict]
   }
 
   function getHeaders(contentTypeObject) {
     const addMaxChar = (str, max) => { return `${str} (max size: ${max})` }
-    const elementNames = contentTypeObject.contentTypeElements.map(element => addMaxChar(element.alias || element.name, element.maxSize))
-    return ['contentTypeID', ...elementNames]
+    return contentTypeObject.contentTypeElements.map(element => addMaxChar(element.alias || element.name, element.maxSize))
   }
 
   // https://stackoverflow.com/a/64456745
@@ -66,18 +66,16 @@ async function main(instance) {
   }
 
   async function setRequiredStyles(worksheet, contentTypeElements) {
-    contentTypeElements.unshift({compulsory: true})
+    const offset = 2
     return Promise.all(contentTypeElements.map(async (element, index) => {
-      const col = numberToLetters(index)
-      let cell1 = `${col}1`, cell2 = `${col}2`, cell3 = `${col}3`
+      const col = numberToLetters(index + offset)
+      let cell1 = `${col}2`, cell2 = `${col}3`, cell3 = `${col}1`
       worksheet[cell1].s = { alignment: { horizontal: 'center' } }
       worksheet[cell2].s = { alignment: { horizontal: 'left' } }
       await addContext(worksheet, element, cell3)
-      if (element.compulsory) {
-        worksheet[cell1].s.fill = {
-          pattern: 'solid',
-          fgColor: { rgb: 'FF6961' }
-        }
+      worksheet[cell1].s.fill = {
+        pattern: 'solid',
+        fgColor: { rgb: element.compulsory ? 'FF6961' : 'ADD8E6' }
       }
     }))
   }
