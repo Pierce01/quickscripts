@@ -3,6 +3,7 @@ import { Client } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import XLSX from 'xlsx-js-style'
 import { stat } from 'fs/promises'
 import { resolve } from 'node:path'
+import fetch from 'node-fetch'
 
 const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs'
 
@@ -16,7 +17,7 @@ const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs'
 
 async function main(instance) {
   const config = await instance.start()
-  const { contentType, content, list, serverSideLink, upload, hierarchy, isAuthorized } = new Client(rsUrl, config['t4_token'])
+  const { contentType, content, list, serverSideLink, upload, hierarchy, isAuthorized } = new Client(rsUrl, config['t4_token'], 'en', fetch)
   const { sectionID, workbookPath } = await instance.ask([{
     name: 'sectionID',
     description: 'Enter section ID',
@@ -59,7 +60,7 @@ async function main(instance) {
           continue
         }
   
-        if (isModified(cleanSheet, contentObj.elements)) {
+        if (isModified(cleanSheet, contentObj?.elements)) {
           const newContent = await content.modify(id, sectionID, { elements })
           console.log(newContent)
           console.log(`Modified ${newContent.name} with ID of ${newContent.id}`)
@@ -79,6 +80,7 @@ async function main(instance) {
       id = cleanSheet['ID']
       console.log(`Using existing content item ${id}`)
       contentObj = await content.get(id, sectionID)
+      delete cleanSheet.ID
     } else {
       console.log(`Creating template content item...`)
       id = (await content.create(sectionID, {
@@ -88,19 +90,30 @@ async function main(instance) {
         status: 0
       })).id
     }
-    cleanSheet.contentTypeID ? delete cleanSheet.contentTypeID : delete cleanSheet.ID
     return {id, contentObj}
   }
   
   async function prepareSheet(sheet) {
-    const sheetObjs = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]),
-      ct = sheetObjs[0].contentTypeID 
-        ? await contentType.get(sheetObjs[0].contentTypeID) 
-        : (await content.getWithoutSection(sheetObjs[0].ID)).contentType,
-      formattedElements = content.util.getElementNames(ct.contentTypeElements),
-      sheets = []
-    // remove type and list option entry
-    sheetObjs.pop()
+    const tempSheet = workbook.Sheets[sheet]
+    const contentTypeID = parseInt(tempSheet['A1'].v)
+    const startCellRef = XLSX.utils.decode_cell('C2');
+    const sheetObjs = XLSX.utils.sheet_to_json(tempSheet, {
+      range: {
+        s: {
+          r: startCellRef.r,
+          c: startCellRef.c
+        },
+        e: {
+          r: XLSX.utils.decode_range(tempSheet['!ref']).e.r,
+          c: XLSX.utils.decode_range(tempSheet['!ref']).e.c
+        }
+      }
+    })
+    const ct = contentTypeID 
+        ? await contentType.get(contentTypeID) 
+        : (await content.getWithoutSection(sheetObjs[0].ID)).contentType
+    const formattedElements = content.util.getElementNames(ct.contentTypeElements)
+    const sheets = []
     for (let sheetObj of sheetObjs) {
       const cleanSheet = {}
       Object.keys(sheetObj).map(sheetName => {
