@@ -17,7 +17,7 @@ const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs',
 
 async function main(instance) {
   const config = await instance.start()
-  const { list, content, hierarchy, isAuthorized } = new Client(rsUrl, config['t4_token'])
+  const { list, content, hierarchy, contentType, isAuthorized } = new Client(rsUrl, config['t4_token'])
   if (!await isAuthorized()) {
     return console.log('Not authorized')
   }
@@ -41,24 +41,26 @@ async function main(instance) {
 
   let workbook = XLSX.utils.book_new()
   const createSheet = async (contentTypeID, contentObjs) => {
-    const contentTypeObj = contentObjs[0].contentType
+    const contentTypeObj = await contentType.get(contentTypeID)
     if(!contentTypeObj.contentTypeElements) {
       console.log(`No content elements for contentTypeID ${contentTypeID}`)
       return null
     }
-    const wscols = []
+    const wscols = [...Array.from({ length: 2 }, () => ({...{ wch: 8 }}))]
     const row = getRow(contentTypeObj, contentObjs)
-    let worksheet = XLSX.utils.json_to_sheet(row)
-    await setRequiredStyles(worksheet, contentTypeObj.contentTypeElements, contentObjs.length + 1)
-    Object.keys(row[0]).forEach(key => wscols.push({wch: key.length * 1.28}))
+    let worksheet = XLSX.utils.json_to_sheet(row, { origin: 'C2'})
+    await setRequiredStyles(worksheet, contentTypeObj.contentTypeElements)
+    Object.keys(row[0]).forEach(key => wscols.push({wch: key == 'ID' ? 8 : key.length * 1.28}))
     worksheet['!cols'] = wscols
+    XLSX.utils.sheet_add_aoa(worksheet, [[contentTypeID, 'Types:']], { origin: 'A1' })
+    ;['A1', 'C2'].forEach(cell => worksheet[cell].s = { fill: { pattern: 'solid', fgColor: { rgb: 'FF6961' } } })
     XLSX.utils.book_append_sheet(workbook, worksheet, contentTypeObj.name.length >= 31 ? contentTypeObj.name.substring(0, 30) : contentTypeObj.name)
     console.log(`Added ${contentTypeObj.name} to the current workbook!`)
   }
   try {
     const contentTypeIds = Object.keys(contentByContentType)
     for (let id of contentTypeIds) { await createSheet(id, contentByContentType[id]) }
-    await XLSX.writeFile(workbook, 'book.xlsx')
+    await XLSX.writeFile(workbook, `${sectionID}.xlsx`)
   } catch(e) {
     console.error(e.stack || e)
   } 
@@ -81,7 +83,7 @@ async function main(instance) {
     const addMaxChar = (str, max) => { return `${str} (max size: ${max})` }
     const elementNames = contentTypeObject.contentTypeElements.map(element => [addMaxChar(element.alias || element.name, element.maxSize), 
       `${element.name}#${element.id}:${element.type}`])
-    return [['ID', null], ...elementNames]
+    return [['ID'], ...elementNames]
   }
 
   // https://stackoverflow.com/a/64456745
@@ -94,21 +96,17 @@ async function main(instance) {
     return letters
   }
 
-  async function setRequiredStyles(worksheet, contentTypeElements, depth) {
-    contentTypeElements.unshift({compulsory: true})
+  async function setRequiredStyles(worksheet, contentTypeElements) {
+    const offset = 3
     return Promise.all(contentTypeElements.map(async (element, index) => {
-      const col = numberToLetters(index)
-      let cell1 = `${col}1`, cell3 = `${col}${depth + 1}`
-      for (let i = 2; i < depth + 1; i++) {
-        worksheet[`${col}${i}`].s = { alignment: { horizontal: 'left' } }
-      }
+      const col = numberToLetters(index + offset)
+      let cell1 = `${col}2`, cell2 = `${col}3`, cell3 = `${col}1`
       worksheet[cell1].s = { alignment: { horizontal: 'center' } }
+      worksheet[cell2].s = { alignment: { horizontal: 'left' } }
       await addContext(worksheet, element, cell3)
-      if (element.compulsory) {
-        worksheet[cell1].s.fill = {
-          pattern: 'solid',
-          fgColor: { rgb: 'FF6961' }
-        }
+      worksheet[cell1].s.fill = {
+        pattern: 'solid',
+        fgColor: { rgb: element.compulsory ? 'FF6961' : 'ADD8E6' }
       }
     }))
   }

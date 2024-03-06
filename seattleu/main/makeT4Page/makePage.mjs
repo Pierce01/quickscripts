@@ -62,8 +62,11 @@ async function main(instance) {
   
         if (isModified(cleanSheet, contentObj?.elements)) {
           const newContent = await content.modify(id, sectionID, { elements })
-          console.log(newContent)
-          console.log(`Modified ${newContent.name} with ID of ${newContent.id}`)
+          if (newContent.errorText) {
+            console.log(`Failed to modify ${cleanSheet['Name#1:1']} - ${id} due to misinput in one of the fields...`)
+          } else {
+            console.log(`Modified ${newContent.name} with ID of ${newContent.id}`)
+          }
         } else {
           console.log(`Skipping ${id}, no changes found`)
         }
@@ -82,7 +85,7 @@ async function main(instance) {
       contentObj = await content.get(id, sectionID)
       delete cleanSheet.ID
     } else {
-      console.log(`Creating template content item...`)
+      console.log(`Creating template content item for ${cleanSheet['Name#1:1']}...`)
       id = (await content.create(sectionID, {
         elements: {},
         contentTypeID: ct.id,
