@@ -55,8 +55,6 @@ try {
 
     require_once((strpos($config['library'], '.phar') !== false ? 'phar://' : '') . realpath($_SERVER["DOCUMENT_ROOT"]).$config['library'] . (strpos($config['library'], '.phar') !== false ? '/vendor/autoload.php' : ''));
 
-
-
     $query  = explode('&', $_SERVER['QUERY_STRING']);
     $params = array();
 
@@ -145,6 +143,13 @@ try {
         $exactSearch->runFilter();
     }
 
+    if ($queryHandler->isQuerySet('programFee')) {
+        $costSearch->setMember('element', 'programFee');
+        // $costSearch->setMember('multipleValueState', true);
+        // $costSearch->setMember('multipleValueSeparator', '-');
+        $costSearch->setMember('query', $queryHandler->getQueryValue('programFee'));
+        $costSearch->runFilter();
+    }
     // Get the intersection of multiple result sets if necessary
     $search->intersectDocumentResults();
 

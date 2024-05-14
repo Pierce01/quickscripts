@@ -1,9 +1,9 @@
 <?php
 $genericFacet = \T4\PHPSearchLibrary\FacetFactory::getInstance('GenericFacet', $documentCollection, $queryHandler);
 $filters = $queryHandler->getQueryValuesForPrint();
-$categoryFilters = array('programType','programDestination', 'programRegion', 'programFieldofStudy','programFeatures','programFee');
+$categoryFilters = array('programType','programDestination', 'programRegion', 'programFieldofStudy','programFeatures');
 $dateFilters = array('startDateAfter','startDateBefore');
-$rangeFilters = array('courseCost' => '24000');
+$rangeFilters = array();
 ?>
 <section class="su-listing">
     <div id="searchoptionsGeneric" role="search" class="su-listing--form-wrapper bg--dark global-padding--8x" data-t4-ajax-group="courseSearch">
@@ -13,32 +13,27 @@ $rangeFilters = array('courseCost' => '24000');
         </div>
 
         <form>
-            <div class="cell initial-12 large-8">
+            <div class="cell initial-12 large-9">
                 <label for="keywords">Search</label>
                 <input type="text" name="keywords" id="keywords" placeholder="Search All Education Abroad Programs&hellip;" value="<?php echo !empty($query['keywords']) ? $query['keywords'] : ''  ?>">
             </div>
             <div class="cell medium-6 large-4">
-                <fieldset>
-                    <?php
-                    $element = 'programType';
-                    $genericFacet->setMember('element', $element);
-                    $genericFacet->setMember('type', 'List');
-                    $genericFacet->setMember('facetSource', 'documents');
-                    $genericFacet->setMember('multipleValueState', true);
-                    $genericFacet->setMember('multipleValueSeparator', '|');
-                    $search = $genericFacet->displayFacet();
-                    ?>
-                    <legend>Filter by Program Type</legend>
-                    <div class="fieldset-wrapper">
-                        <?php $i = 0; ?>
-                        <?php foreach ($search as $item) : ?>
-                            <div class="fieldset--checkbox">
-                                <input type="checkbox" id="<?php echo $element . '[' . ++$i . ']'; ?>" value="<?php echo strtolower($item['value']); ?>" data-cookie="T4_persona" name="<?php echo $element; ?>" <?php echo $item['selected'] ? 'checked' : '' ?>>
-                                <label for="<?php echo $element . '[' . $i . ']'; ?>"><?php echo $item['label']; ?></label>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </fieldset>
+                <?php
+                $element = 'programType';
+                $genericFacet->setMember('element', $element);
+                $genericFacet->setMember('type', 'List');
+                $genericFacet->setMember('facetSource', 'documents');
+                $genericFacet->setMember('multipleValueState', true);
+                $genericFacet->setMember('multipleValueSeparator', '|');
+                $search = $genericFacet->displayFacet();
+                ?>
+                <label for="<?php echo $element; ?>" class="label-text">Filter by Program Type</label>
+                <select id="<?php echo $element; ?>" name="<?php echo $element; ?>" data-cookie="T4_persona">
+                    <option value="">All Program Types</option>
+                    <?php foreach ($search as $item) : ?>
+                        <option value="<?php echo strtolower($item['value']); ?>" <?php echo $item['selected'] ? 'selected' : '' ?>><?php echo $item['label']; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
             <div class="cell medium-6 large-4">
                 <?php
@@ -109,12 +104,52 @@ $rangeFilters = array('courseCost' => '24000');
                 $search = $genericFacet->displayFacet();
                 ?>
                 <label for="area" class="label-text">Filter by Features</label>
-                <select id="<?php echo $element; ?>" name="<?php echo $element; ?>" data-cookie="T4_persona">
-                    <option value="">All Features</option>
+                <div id="myMultiselect" class="multiselect">
+                  <div id="mySelectLabel" class="selectBox" onclick="toggleCheckboxArea()">
+                    <select class="form-select">
+                      <option>All Features</option>
+                    </select>
+                    <div class="overSelect"></div>
+                  </div>
+                  <div id="multiselectOptions">
+                  <?php $i = 0; ?>
                     <?php foreach ($search as $item) : ?>
-                        <option value="<?php echo strtolower($item['value']); ?>" <?php echo $item['selected'] ? 'selected' : '' ?>><?php echo $item['label']; ?></option>
+                    <input type="checkbox" id="<?php echo $element . '[' . ++$i . ']'; ?>" value="<?php echo strtolower($item['value']); ?>" data-cookie="T4_persona" name="<?php echo $element; ?>" <?php echo $item['selected'] ? 'checked' : '' ?>>
+                    <label onchange="checkboxStatusChange()" for="<?php echo $element . '[' . $i . ']'; ?>"><?php echo $item['label']; ?></label>
                     <?php endforeach; ?>
-                </select>
+                  </div>
+                </div>
+            </div>
+            <div class="cell medium-6 large-4">
+            <?php
+            $element = 'programFee';
+            $genericFacet->setMember('element', $element);
+            $genericFacet->setMember('type', 'Range');
+            $genericFacet->setMember('facetSource', 'documents');
+            $genericFacet->setMember('sortingState', true);
+            $genericFacet->setMember('multipleValueSeparator', '-');
+            $search = $genericFacet->displayFacet(); 
+            $rangeFilters = array('programFee' => $search['max'])?>
+            <?php if (!empty($search)) : ?>
+                <label for="pay-range-slider" class="hidden">Filter By Price</label>
+                <div id="range-<?php echo strtolower($element)?>" class="columns-full">
+                <div class="panel course-search-widget">
+                    <span id="priceDisplay">Any Price</span>
+                    <?php $step = ($search['max']-$search['min'])/8 ?>
+                    <div class="range">
+                        <input
+                        name="<?php echo $element ?>"
+                        class="range-slider2"
+                        id="pay-range-slider"
+                        type="range"
+                        min="<?php echo $search['min']; ?>"
+                        max="<?php echo $search['max']; ?>"
+                        step="<?php echo $step; ?>"
+                        value="<?php echo $search['value']; ?>" />
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
             </div>
             <div class="cell initial-12">
                 <input type="submit" value="Submit" class="button">
@@ -144,9 +179,11 @@ $rangeFilters = array('courseCost' => '24000');
                                 endif;
                             }
                             foreach ($rangeFilters as $key => $max) {
-                                if (isset($filters[$key]) && $filters[$key] !== $max) :
-                                    $value = $filters[$key]; ?>
-                                    <li class="filter-<?php echo $i++ ?>  small primary" role="button" tabindex="0" data-t4-filter="<?php echo $key ?>"><?php echo '$' . $value; ?><span class="remove"><i class="fa fa-times"></i></span></li>
+                                if (isset($filters[$key]) && strcmp($filters[$key], $max) !== 0) :
+                                    $value = $filters[$key]; 
+                                    $prefix = $value === "0" ? '' : 'Under ';
+                                    ?>
+                                    <li class="filter-<?php echo $i++ ?>  small primary" data-max="<?php echo $max ?>" role="button" tabindex="0" data-t4-filter="<?php echo $key ?>"><?php echo $prefix . '$' . $value; ?><span class="remove"><i class="fa fa-times"></i></span></li>
                                 <?php
                                 endif;
                             }

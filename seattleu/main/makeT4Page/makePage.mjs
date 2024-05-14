@@ -1,5 +1,5 @@
 import { UI } from '../promptUI/UI.mjs'
-import { Client } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
+import { Client, batcher } from '../../../../t4apiwrapper/t4.ts/esm/index.js'
 import XLSX from 'xlsx-js-style'
 import { stat } from 'fs/promises'
 import { resolve } from 'node:path'
@@ -49,15 +49,14 @@ async function main(instance) {
   
   async function createContentEntries(sheet) {
     const { ct, cleanSheets } = await prepareSheet(sheet)
-    for (let cleanSheet of cleanSheets) {
+    await batcher(cleanSheets, 50, 2000, async (cleanSheet) => {
       try {
         let { id, contentObj } = await getID(cleanSheet, ct)
         if (!id) throw Error(`Failed to create template entry for ${sheet}`)
         const elements = await parseElements(cleanSheet, ct, id)
         if (!Object.keys(elements).length) {
-          console.log(`Failed to parse worksheet elements: ${id}`)
-          deleteQueue.push(id)
-          continue
+          console.log(`Failed to parse worksheet elements: ${id}. Adding to deleteQueue...`)
+          return deleteQueue.push(id)
         }
   
         if (isModified(cleanSheet, contentObj?.elements)) {
@@ -71,10 +70,9 @@ async function main(instance) {
           console.log(`Skipping ${id}, no changes found`)
         }
       } catch (e) {
-        console.log(`Failed to create content entry`, e)
-        continue
+        console.log(`Failed to create content entry for ${cleanSheet['Name#1:1']} - ${id}`, e)
       }
-    }
+    })
   }
   
   async function getID(cleanSheet, ct) {

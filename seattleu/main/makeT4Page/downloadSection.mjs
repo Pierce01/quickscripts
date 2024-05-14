@@ -5,7 +5,8 @@ import XLSX from 'xlsx-js-style'
 // Needs to be refactored to support new sheet format!
 
 const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs',
-  listContext = {}
+  listContext = {},
+  typeContext = []
 
 ;(async () => {
   while(true) {
@@ -17,7 +18,7 @@ const rsUrl = 'https://cms.seattleu.edu/terminalfour/rs',
 
 async function main(instance) {
   const config = await instance.start()
-  const { list, content, hierarchy, contentType, isAuthorized } = new Client(rsUrl, config['t4_token'])
+  const { list, content, hierarchy, isAuthorized, type } = new Client(rsUrl, config['t4_token'])
   if (!await isAuthorized()) {
     return console.log('Not authorized')
   }
@@ -26,6 +27,7 @@ async function main(instance) {
   }])
   const sectionContent = await hierarchy.getContents(sectionID)
   const contentIDs = sectionContent.contents.map(item => item.id)
+  ;(await type.list()).map(typeObj => typeContext.push(typeObj.name))
   const contentByContentType = {}
   const fetchItem = async(contentID) => {
     try {
@@ -41,7 +43,7 @@ async function main(instance) {
 
   let workbook = XLSX.utils.book_new()
   const createSheet = async (contentTypeID, contentObjs) => {
-    const contentTypeObj = await contentType.get(contentTypeID)
+    const contentTypeObj = contentObjs[0].contentType
     if(!contentTypeObj.contentTypeElements) {
       console.log(`No content elements for contentTypeID ${contentTypeID}`)
       return null
@@ -103,7 +105,7 @@ async function main(instance) {
       let cell1 = `${col}2`, cell2 = `${col}3`, cell3 = `${col}1`
       worksheet[cell1].s = { alignment: { horizontal: 'center' } }
       worksheet[cell2].s = { alignment: { horizontal: 'left' } }
-      await addContext(worksheet, element, cell3)
+      await addContext(worksheet, element, cell3, index + offset)
       worksheet[cell1].s.fill = {
         pattern: 'solid',
         fgColor: { rgb: element.compulsory ? 'FF6961' : 'ADD8E6' }
@@ -111,16 +113,12 @@ async function main(instance) {
     }))
   }
 
-  async function addContext(worksheet, element, origin) {
-    let val
+  async function addContext(worksheet, element, origin, col) {
+    let val = typeContext[element.type - 1]
     switch(element.type) {
       case 2:
         val = 'Media Upload'
         break
-      case 3: {
-        val = 'HTML Field'
-        break
-      }
       case 11: {
         val = 'Media ID'
         break
@@ -141,12 +139,21 @@ async function main(instance) {
         val = `List Options: ${(listContext[element.listId].items.map(item => item.name)).join(', ')}`
         break
       }
-      default: {
-        val = 'Text'
-      }
     }
+    formatColumn(worksheet, col, 's')
     XLSX.utils.sheet_add_aoa(worksheet, [[val]], {origin})
     worksheet[origin].s = { alignment: { horizontal: 'left', wrapText: true } }
     return true
+  }
+
+  function formatColumn(worksheet, col, fmt) {
+    const range = XLSX.utils.decode_range(worksheet['!ref'])
+    // note: range.s.r + 2 skips the header row
+    for (let row = range.s.r + 2; row <= range.e.r; ++row) {
+      const ref = XLSX.utils.encode_cell({ r: row, c: col })
+      if (worksheet[ref]) {
+        worksheet[ref].t = fmt
+      }
+    }
   }
 }
